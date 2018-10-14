@@ -1,0 +1,47 @@
+{
+  "name": "fastpanel-core",
+  "version": "0.0.1",
+  "description": "The main core of the \"fastPanel\" system.",
+  "author": "Desionlab <fenixphp@gmail.com>",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "develop": "./node_modules/.bin/tsc --watch",
+    "build": "./node_modules/.bin/tsc && npm run test && npm run docs",
+    "docs": "typedoc --theme minimal --target 'esnext' --excludeNotExported --excludePrivate --ignoreCompilerErrors --out ./docs/ ./src/",
+    "test": "node ./node_modules/mocha/bin/mocha --require ts-node/register  test/**/*.spec.ts",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/desionlab/fastpanel-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/desionlab/fastpanel-core/issues"
+  },
+  "homepage": "https://github.com/desionlab/fastpanel-core#readme",
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongoose",
+    "di",
+    "clustering",
+    "typescript"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@types/chai": "^4.1.6",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.11.7",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "ts-node": "^7.0.1",
+    "typedoc": "^0.13.0",
+    "typescript": "^3.1.2"
+  },
+  "license": "MIT"
+}
