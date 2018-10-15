@@ -14,7 +14,7 @@
     "build": "./node_modules/.bin/tsc && npm run test && npm run docs",
     "docs": "typedoc --theme minimal --target 'esnext' --excludeNotExported --excludePrivate --ignoreCompilerErrors --out ./docs/ ./src/",
     "test": "node ./node_modules/mocha/bin/mocha --require ts-node/register  test/**/*.spec.ts",
-    "prepublish": "npm run build"
+    "prepare": "./node_modules/.bin/tsc && npm run test && npm run docs"
   },
   "repository": {
     "type": "git",
