@@ -6,6 +6,8 @@
  * @license   MIT
  */
 
+import * as Di from './Di';
 
+export { Di };
 
 /* End of file index.ts */

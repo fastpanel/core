@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;Di/ServiceDefines&quot; | fastpanel-core</title>
+	<title>Injectable | fastpanel-core</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -909,23 +909,160 @@ img { max-width: 100%; }
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class=" tsd-kind-class tsd-parent-kind-external-module">
-			<a href="../classes/_di_servicedefines_.servicedefines.html" class="tsd-kind-icon">Service<wbr>Defines</a>
+		<li class="current tsd-kind-class tsd-parent-kind-external-module">
+			<a href="_di_injectable_.injectable.html" class="tsd-kind-icon">Injectable</a>
+			<ul>
+				<li class=" tsd-kind-constructor tsd-parent-kind-class">
+					<a href="_di_injectable_.injectable.html#constructor" class="tsd-kind-icon">constructor</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a href="_di_injectable_.injectable.html#_di" class="tsd-kind-icon">_di</a>
+				</li>
+				<li class=" tsd-kind-accessor tsd-parent-kind-class">
+					<a href="_di_injectable_.injectable.html#di" class="tsd-kind-icon">di</a>
+				</li>
+			</ul>
 		</li>
 	</ul>
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
+		<section class="tsd-panel tsd-comment">
+			<div class="tsd-comment tsd-typography">
+				<div class="lead">
+					<p>Class Injectable</p>
+				</div>
+				<p>This class allows to access services in the services container
+					by just only accessing a public property with the same name of
+				a registered service.</p>
+				<dl class="tsd-comment-tags">
+					<dt>version</dt>
+					<dd><p>1.0.0</p>
+					</dd>
+				</dl>
+			</div>
+		</section>
+		<section class="tsd-panel tsd-hierarchy">
+			<h3>Hierarchy</h3>
+			<ul class="tsd-hierarchy">
+				<li>
+					<span class="target">Injectable</span>
+					<ul class="tsd-hierarchy">
+						<li>
+							<a href="_di_servicedefines_.servicedefines.html" class="tsd-signature-type">ServiceDefines</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</section>
+		<section class="tsd-panel tsd-kind-class tsd-parent-kind-external-module">
+			<h3 class="tsd-before-signature">Indexable</h3>
+			<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></div>
+			<div class="tsd-comment tsd-typography">
+				<div class="lead">
+					<p>Dynamic property types.</p>
+				</div>
+				<p>This class allows to access services in the services container
+					by just only accessing a public property with the same name of
+				a registered service.</p>
+			</div>
+		</section>
 		<section class="tsd-panel-group tsd-index-group">
 			<h2>Index</h2>
 			<section class="tsd-panel tsd-index-panel">
 				<div class="tsd-index-content">
 					<section class="tsd-index-section ">
-						<h3>Classes</h3>
+						<h3>Constructors</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/_di_servicedefines_.servicedefines.html" class="tsd-kind-icon">Service<wbr>Defines</a></li>
+							<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_di_injectable_.injectable.html#constructor" class="tsd-kind-icon">constructor</a></li>
 						</ul>
 					</section>
+					<section class="tsd-index-section tsd-is-private-protected">
+						<h3>Properties</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_di_injectable_.injectable.html#_di" class="tsd-kind-icon">_di</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section ">
+						<h3>Accessors</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="_di_injectable_.injectable.html#di" class="tsd-kind-icon">di</a></li>
+						</ul>
+					</section>
+				</div>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group ">
+			<h2>Constructors</h2>
+			<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+				<a name="constructor" class="tsd-anchor"></a>
+				<h3>constructor</h3>
+				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">new <wbr>Injectable<span class="tsd-signature-symbol">(</span>container<span class="tsd-signature-symbol">?: </span><a href="_di_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_di_injectable_.injectable.html" class="tsd-signature-type">Injectable</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/5d2264d/src/Di/Injectable.ts#L30">Di/Injectable.ts:30</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Injectable constructor.</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> container: <a href="_di_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Di container instant.</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="_di_injectable_.injectable.html" class="tsd-signature-type">Injectable</a></h4>
+					</li>
+				</ul>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
+			<h2>Properties</h2>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+				<a name="_di" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagProtected">Protected</span> _di</h3>
+				<div class="tsd-signature tsd-kind-icon">_di<span class="tsd-signature-symbol">:</span> <a href="_di_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/5d2264d/src/Di/Injectable.ts#L30">Di/Injectable.ts:30</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Di container.</p>
+					</div>
+				</div>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group ">
+			<h2>Accessors</h2>
+			<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
+				<a name="di" class="tsd-anchor"></a>
+				<h3>di</h3>
+				<div class="tsd-signature tsd-kind-icon">di<span class="tsd-signature-symbol">:</span> </div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/5d2264d/src/Di/Injectable.ts#L75">Di/Injectable.ts:75</a></li>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/5d2264d/src/Di/Injectable.ts#L86">Di/Injectable.ts:86</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Returns the internal dependency injector.
+						Sets the dependency injector.</p>
+					</div>
 				</div>
 			</section>
 		</section>

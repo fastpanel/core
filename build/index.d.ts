@@ -5,3 +5,5 @@
  * @copyright 2018 Desionlab
  * @license   MIT
  */
+import * as Di from './Di';
+export { Di };
