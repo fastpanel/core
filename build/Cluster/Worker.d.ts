@@ -5,25 +5,24 @@
  * @copyright 2018 Desionlab
  * @license   MIT
  */
-import { Injectable, Container } from './Di';
+import { Application } from '../Application';
+import { Container } from '../Di';
 /**
  * Class Worker
  *
- * Worker to combine all components into a single events context.
+ * Cluster worker (unit).
  *
  * @version 1.0.0
  */
-export declare class Worker extends Injectable {
-    /**
-     * Flag a worker is ready.
-     */
-    startup: boolean;
+export declare class Worker extends Application {
     /**
      * Worker constructor.
+     *
+     * @param container Di container instant.
      */
     constructor(container?: Container);
     /**
      * Initialization worker.
      */
-    init(): Promise<void>;
+    init(): Promise<any>;
 }

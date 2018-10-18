@@ -1,6 +1,6 @@
 "use strict";
 /**
- * Worker.ts
+ * Application.ts
  *
  * @author    Desionlab <fenixphp@gmail.com>
  * @copyright 2018 Desionlab
@@ -9,20 +9,22 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const Di_1 = require("./Di");
 /**
- * Class Worker
+ * Class Application.
  *
- * Worker to combine all components into a single events context.
+ * A wrapper to combine all components into a single events context.
  *
  * @version 1.0.0
  */
-class Worker extends Di_1.Injectable {
+class Application extends Di_1.Injectable {
     /**
-     * Worker constructor.
+     * Application constructor.
+     *
+     * @param container Di container instant.
      */
     constructor(container) {
         super(container);
         /**
-         * Flag a worker is ready.
+         * Flag a app is ready.
          */
         this.startup = false;
         /* Linked self. */
@@ -31,9 +33,9 @@ class Worker extends Di_1.Injectable {
         });
     }
     /**
-     * Initialization worker.
+     * Initialization app.
      */
     async init() { }
 }
-exports.Worker = Worker;
-/* End of file Worker.ts */ 
+exports.Application = Application;
+/* End of file Application.ts */ 

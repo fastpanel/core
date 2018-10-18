@@ -6,38 +6,33 @@
  * @license   MIT
  */
 
-import { Injectable, Container } from './Di';
+import { Application } from '../Application';
+import { Container } from '../Di';
 
 /**
  * Class Worker
  * 
- * Worker to combine all components into a single events context.
+ * Cluster worker (unit).
  * 
  * @version 1.0.0
  */
-export class Worker extends Injectable {
+export class Worker extends Application {
   
   /**
-   * Flag a worker is ready.
-   */
-  public startup: boolean = false;
-
-  /**
    * Worker constructor.
+   * 
+   * @param container Di container instant.
    */
   public constructor (container? : Container) {
     super(container);
-
-    /* Linked self. */
-    this.di.set('context', () => {
-      return this;
-    });
   }
 
   /**
    * Initialization worker.
    */
-  public async init () {}
+  public async init () : Promise<any> {
+    await super.init();
+  }
 
 }
 

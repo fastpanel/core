@@ -30,6 +30,7 @@
     "mongoose",
     "di",
     "clustering",
+    "socket-io",
     "typescript"
   ],
   "dependencies": {},

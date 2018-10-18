@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Worker | fastpanel-core</title>
+	<title>Application | fastpanel-core</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -910,22 +910,22 @@ img { max-width: 100%; }
 <nav class="tsd-navigation secondary">
 	<ul>
 		<li class="current tsd-kind-class tsd-parent-kind-external-module">
-			<a href="_worker_.worker.html" class="tsd-kind-icon">Worker</a>
+			<a href="_application_.application.html" class="tsd-kind-icon">Application</a>
 			<ul>
 				<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-					<a href="_worker_.worker.html#constructor" class="tsd-kind-icon">constructor</a>
+					<a href="_application_.application.html#constructor" class="tsd-kind-icon">constructor</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-					<a href="_worker_.worker.html#_di" class="tsd-kind-icon">_di</a>
+					<a href="_application_.application.html#_di" class="tsd-kind-icon">_di</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class">
-					<a href="_worker_.worker.html#startup" class="tsd-kind-icon">startup</a>
+					<a href="_application_.application.html#startup" class="tsd-kind-icon">startup</a>
 				</li>
 				<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-					<a href="_worker_.worker.html#di" class="tsd-kind-icon">di</a>
+					<a href="_application_.application.html#di" class="tsd-kind-icon">di</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
-					<a href="_worker_.worker.html#init" class="tsd-kind-icon">init</a>
+					<a href="_application_.application.html#init" class="tsd-kind-icon">init</a>
 				</li>
 			</ul>
 		</li>
@@ -936,9 +936,9 @@ img { max-width: 100%; }
 		<section class="tsd-panel tsd-comment">
 			<div class="tsd-comment tsd-typography">
 				<div class="lead">
-					<p>Class Worker</p>
+					<p>Class Application.</p>
 				</div>
-				<p>Worker to combine all components into a single events context.</p>
+				<p>A wrapper to combine all components into a single events context.</p>
 				<dl class="tsd-comment-tags">
 					<dt>version</dt>
 					<dd><p>1.0.0</p>
@@ -953,7 +953,15 @@ img { max-width: 100%; }
 					<a href="_di_injectable_.injectable.html" class="tsd-signature-type">Injectable</a>
 					<ul class="tsd-hierarchy">
 						<li>
-							<span class="target">Worker</span>
+							<span class="target">Application</span>
+							<ul class="tsd-hierarchy">
+								<li>
+									<a href="_cli_handler_.handler.html" class="tsd-signature-type">Handler</a>
+								</li>
+								<li>
+									<a href="_cluster_worker_.worker.html" class="tsd-signature-type">Worker</a>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</li>
@@ -966,7 +974,7 @@ img { max-width: 100%; }
 				<div class="lead">
 					<p>Dynamic property types.</p>
 				</div>
-				<p>Worker to combine all components into a single events context.</p>
+				<p>A wrapper to combine all components into a single events context.</p>
 			</div>
 		</section>
 		<section class="tsd-panel-group tsd-index-group">
@@ -976,26 +984,26 @@ img { max-width: 100%; }
 					<section class="tsd-index-section ">
 						<h3>Constructors</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_worker_.worker.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_application_.application.html#constructor" class="tsd-kind-icon">constructor</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_worker_.worker.html#_di" class="tsd-kind-icon">_di</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-class"><a href="_worker_.worker.html#startup" class="tsd-kind-icon">startup</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_application_.application.html#_di" class="tsd-kind-icon">_di</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class"><a href="_application_.application.html#startup" class="tsd-kind-icon">startup</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section tsd-is-inherited">
 						<h3>Accessors</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_worker_.worker.html#di" class="tsd-kind-icon">di</a></li>
+							<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_application_.application.html#di" class="tsd-kind-icon">di</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
 						<h3>Methods</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_worker_.worker.html#init" class="tsd-kind-icon">init</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_application_.application.html#init" class="tsd-kind-icon">init</a></li>
 						</ul>
 					</section>
 				</div>
@@ -1007,28 +1015,33 @@ img { max-width: 100%; }
 				<a name="constructor" class="tsd-anchor"></a>
 				<h3>constructor</h3>
 				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-					<li class="tsd-signature tsd-kind-icon">new <wbr>Worker<span class="tsd-signature-symbol">(</span>container<span class="tsd-signature-symbol">?: </span><a href="_di_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_worker_.worker.html" class="tsd-signature-type">Worker</a></li>
+					<li class="tsd-signature tsd-kind-icon">new <wbr>Application<span class="tsd-signature-symbol">(</span>container<span class="tsd-signature-symbol">?: </span><a href="_di_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_application_.application.html" class="tsd-signature-type">Application</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<p>Overrides <a href="_di_injectable_.injectable.html">Injectable</a>.<a href="_di_injectable_.injectable.html#constructor">constructor</a></p>
 							<ul>
-								<li>Defined in Worker.ts:23</li>
+								<li>Defined in Application.ts:23</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Worker constructor.</p>
+								<p>Application constructor.</p>
 							</div>
 						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> container: <a href="_di_container_.container.html" class="tsd-signature-type">Container</a></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Di container instant.</p>
+									</div>
+								</div>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="_worker_.worker.html" class="tsd-signature-type">Worker</a></h4>
+						<h4 class="tsd-returns-title">Returns <a href="_application_.application.html" class="tsd-signature-type">Application</a></h4>
 					</li>
 				</ul>
 			</section>
@@ -1042,7 +1055,7 @@ img { max-width: 100%; }
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="_di_injectable_.injectable.html">Injectable</a>.<a href="_di_injectable_.injectable.html#_di">_di</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/d4a8419/src/Di/Injectable.ts#L30">Di/Injectable.ts:30</a></li>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/8b4a540/src/Di/Injectable.ts#L30">Di/Injectable.ts:30</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1057,12 +1070,12 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">startup<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in Worker.ts:23</li>
+						<li>Defined in Application.ts:23</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Flag a worker is ready.</p>
+						<p>Flag a app is ready.</p>
 					</div>
 				</div>
 			</section>
@@ -1076,8 +1089,8 @@ img { max-width: 100%; }
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="_di_injectable_.injectable.html">Injectable</a>.<a href="_di_injectable_.injectable.html#di">di</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/d4a8419/src/Di/Injectable.ts#L75">Di/Injectable.ts:75</a></li>
-						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/d4a8419/src/Di/Injectable.ts#L86">Di/Injectable.ts:86</a></li>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/8b4a540/src/Di/Injectable.ts#L75">Di/Injectable.ts:75</a></li>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/8b4a540/src/Di/Injectable.ts#L86">Di/Injectable.ts:86</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1094,21 +1107,21 @@ img { max-width: 100%; }
 				<a name="init" class="tsd-anchor"></a>
 				<h3>init</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">init<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">init<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in Worker.ts:40</li>
+								<li>Defined in Application.ts:42</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Initialization worker.</p>
+								<p>Initialization app.</p>
 							</div>
 						</div>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>

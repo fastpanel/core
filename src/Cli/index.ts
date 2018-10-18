@@ -6,9 +6,7 @@
  * @license   MIT
  */
 
-export * from './Container';
-export * from './Injectable';
-export * from './Service';
-export * from './ServiceDefines';
+export * from './FactoryDefault';
+export * from './Handler';
 
 /* End of file index.ts */

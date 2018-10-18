@@ -8,12 +8,14 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const events_1 = require("events");
-const Container_1 = require("./Container");
+const Container_1 = require("../Di/Container");
 /**
  * Class FactoryDefault
  *
- * This is a variant of the standard Di. By default it automatically
- * registers all the services provided by the framework.
+ * This is a variant of the standard Di for cli mode.
+ *
+ * By default it automatically registers all the services
+ * provided by the framework.
  *
  * Thanks to this, the developer does not need to register each service
  * individually providing a full stack framework.

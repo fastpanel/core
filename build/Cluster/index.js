@@ -10,8 +10,6 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(require("./Container"));
-__export(require("./Injectable"));
-__export(require("./Service"));
-__export(require("./ServiceDefines"));
+__export(require("./FactoryDefault"));
+__export(require("./Worker"));
 /* End of file index.ts */ 

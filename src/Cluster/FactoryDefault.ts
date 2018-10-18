@@ -7,13 +7,15 @@
  */
 
 import { EventEmitter } from 'events';
-import { Container } from './Container';
+import { Container } from '../Di/Container';
 
 /**
  * Class FactoryDefault
  * 
- * This is a variant of the standard Di. By default it automatically
- * registers all the services provided by the framework.
+ * This is a variant of the standard Di for cluster mode. 
+ * 
+ * By default it automatically registers all the services 
+ * provided by the framework.
  * 
  * Thanks to this, the developer does not need to register each service 
  * individually providing a full stack framework.
