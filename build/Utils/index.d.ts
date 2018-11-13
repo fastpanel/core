@@ -5,3 +5,4 @@
  * @copyright 2018 Desionlab
  * @license   MIT
  */
+export * from './MixinBuilder';

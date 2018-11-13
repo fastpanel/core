@@ -8,8 +8,9 @@
 import * as Cli from './Cli';
 import * as Cluster from './Cluster';
 import * as Di from './Di';
+import * as Utils from './Utils';
 export { Cli };
 export { Cluster };
 export { Di };
+export { Utils };
 export * from './Component';
-export * from './MixinBuilder';

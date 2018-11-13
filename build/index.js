@@ -23,6 +23,7 @@ const Cluster = __importStar(require("./Cluster"));
 exports.Cluster = Cluster;
 const Di = __importStar(require("./Di"));
 exports.Di = Di;
+const Utils = __importStar(require("./Utils"));
+exports.Utils = Utils;
 __export(require("./Component"));
-__export(require("./MixinBuilder"));
 /* End of file index.ts */ 

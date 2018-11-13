@@ -6,6 +6,6 @@
  * @license   MIT
  */
 
-
+export * from './MixinBuilder';
 
 /* End of file index.ts */

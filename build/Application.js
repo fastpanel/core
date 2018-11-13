@@ -32,6 +32,7 @@ class Application extends Di_1.Injectable {
             return this;
         });
     }
+    /* ----------------------------------------------------------------------- */
     /**
      * Initialization app.
      */
