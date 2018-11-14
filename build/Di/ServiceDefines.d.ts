@@ -29,4 +29,8 @@ export declare class ServiceDefines extends Injectable {
      * Registers a service provider.
      */
     register(): Promise<void>;
+    /**
+     * Startup a service provider.
+     */
+    startup(): Promise<void>;
 }

@@ -32,6 +32,11 @@ export class Handler extends Application {
    */
   public async init () : Promise<any> {
     await super.init();
+    
+    /* Startup cli handler. */
+    this.cli
+    .delimiter('=>')
+    .show();
   }
 
 }

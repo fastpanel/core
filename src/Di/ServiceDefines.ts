@@ -37,6 +37,11 @@ export class ServiceDefines extends Injectable {
    */
   public async register () {}
 
+  /**
+   * Startup a service provider.
+   */
+  public async startup () {}
+
 }
 
 /* End of file ServiceDefines.ts */

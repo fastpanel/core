@@ -29,6 +29,10 @@ class Handler extends Application_1.Application {
      */
     async init() {
         await super.init();
+        /* Startup cli handler. */
+        this.cli
+            .delimiter('=>')
+            .show();
     }
 }
 exports.Handler = Handler;

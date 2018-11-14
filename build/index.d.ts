@@ -14,3 +14,4 @@ export { Cluster };
 export { Di };
 export { Utils };
 export * from './Component';
+export * from './Config';

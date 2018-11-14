@@ -6,8 +6,13 @@
  * @copyright 2018 Desionlab
  * @license   MIT
  */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const events_1 = require("events");
+const vorpal_1 = __importDefault(require("vorpal"));
+const Config_1 = require("./../Config");
 const Container_1 = require("../Di/Container");
 /**
  * Class FactoryDefault
@@ -31,6 +36,16 @@ class FactoryDefault extends Container_1.Container {
         /* Registered event emitter component. */
         this.set('events', function (container) {
             return new events_1.EventEmitter();
+        }, true);
+        /* Registered config component. */
+        this.set('config', function (container) {
+            let path = (process.env.CONFIG_PATH) ? process.env.CONFIG_PATH : 'App/Config';
+            return new Config_1.Config(path, { Env: process.env });
+        }, true);
+        /* Registered cli handler component. */
+        this.set('cli', function (container) {
+            let vorpal = new vorpal_1.default();
+            return vorpal;
         }, true);
     }
 }

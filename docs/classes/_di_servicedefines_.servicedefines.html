@@ -927,6 +927,9 @@ img { max-width: 100%; }
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="_di_servicedefines_.servicedefines.html#register" class="tsd-kind-icon">register</a>
 				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="_di_servicedefines_.servicedefines.html#startup" class="tsd-kind-icon">startup</a>
+				</li>
 			</ul>
 		</li>
 	</ul>
@@ -996,6 +999,7 @@ img { max-width: 100%; }
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_di_servicedefines_.servicedefines.html#destructor" class="tsd-kind-icon">destructor</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_di_servicedefines_.servicedefines.html#register" class="tsd-kind-icon">register</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_di_servicedefines_.servicedefines.html#startup" class="tsd-kind-icon">startup</a></li>
 						</ul>
 					</section>
 				</div>
@@ -1014,7 +1018,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Overrides <a href="_di_injectable_.injectable.html">Injectable</a>.<a href="_di_injectable_.injectable.html#constructor">constructor</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/a8bf36b/src/Di/ServiceDefines.ts#L19">Di/ServiceDefines.ts:19</a></li>
+								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/0170d98/src/Di/ServiceDefines.ts#L19">Di/ServiceDefines.ts:19</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1047,7 +1051,7 @@ img { max-width: 100%; }
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="_di_injectable_.injectable.html">Injectable</a>.<a href="_di_injectable_.injectable.html#_di">_di</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/a8bf36b/src/Di/Injectable.ts#L30">Di/Injectable.ts:30</a></li>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/0170d98/src/Di/Injectable.ts#L30">Di/Injectable.ts:30</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1066,8 +1070,8 @@ img { max-width: 100%; }
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="_di_injectable_.injectable.html">Injectable</a>.<a href="_di_injectable_.injectable.html#di">di</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/a8bf36b/src/Di/Injectable.ts#L75">Di/Injectable.ts:75</a></li>
-						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/a8bf36b/src/Di/Injectable.ts#L86">Di/Injectable.ts:86</a></li>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/0170d98/src/Di/Injectable.ts#L75">Di/Injectable.ts:75</a></li>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/0170d98/src/Di/Injectable.ts#L86">Di/Injectable.ts:86</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1090,7 +1094,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/a8bf36b/src/Di/ServiceDefines.ts#L33">Di/ServiceDefines.ts:33</a></li>
+								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/0170d98/src/Di/ServiceDefines.ts#L33">Di/ServiceDefines.ts:33</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1112,12 +1116,34 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/a8bf36b/src/Di/ServiceDefines.ts#L38">Di/ServiceDefines.ts:38</a></li>
+								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/0170d98/src/Di/ServiceDefines.ts#L38">Di/ServiceDefines.ts:38</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
 								<p>Registers a service provider.</p>
+							</div>
+						</div>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="startup" class="tsd-anchor"></a>
+				<h3>startup</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">startup<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/0170d98/src/Di/ServiceDefines.ts#L43">Di/ServiceDefines.ts:43</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Startup a service provider.</p>
 							</div>
 						</div>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
