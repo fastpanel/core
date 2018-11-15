@@ -36,6 +36,11 @@ export class Application extends Injectable {
   protected services: Array<IServiceDefines> = [];
 
   /**
+   * Global app timer.
+   */
+  protected timer: NodeJS.Timer = null;
+
+  /**
    * Application constructor.
    * 
    * @param container Di container instant.
@@ -58,7 +63,29 @@ export class Application extends Injectable {
   /**
    * Initialization app.
    */
-  public async init () : Promise<any> {}
+  public async init () : Promise<any> {
+    /* Register all services. */
+    this.services.forEach(async (item: IServiceDefines) => {
+      if (typeof item.register === 'function') {
+        try {
+          await item.register(this);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    });
+
+    /* Startup all services. */
+    this.services.forEach(async (item: IServiceDefines) => {
+      if (typeof item.startup === 'function') {
+        try {
+          await item.startup(this);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    });
+  }
 
   /**
    * Add a service object to the list of running.

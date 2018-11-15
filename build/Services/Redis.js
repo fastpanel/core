@@ -12,6 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 exports.default = {
     async register(context) {
+        context.di.set('redis', (container, params) => {
+        }, false);
     },
     async startup(context) {
     }

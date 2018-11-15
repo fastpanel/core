@@ -924,6 +924,9 @@ img { max-width: 100%; }
 				<li class=" tsd-kind-property tsd-parent-kind-class">
 					<a href="_application_.application.html#startup" class="tsd-kind-icon">startup</a>
 				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a href="_application_.application.html#timer" class="tsd-kind-icon">timer</a>
+				</li>
 				<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
 					<a href="_application_.application.html#di" class="tsd-kind-icon">di</a>
 				</li>
@@ -1002,6 +1005,7 @@ img { max-width: 100%; }
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_application_.application.html#_di" class="tsd-kind-icon">_di</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_application_.application.html#services" class="tsd-kind-icon">services</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class"><a href="_application_.application.html#startup" class="tsd-kind-icon">startup</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_application_.application.html#timer" class="tsd-kind-icon">timer</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section tsd-is-inherited">
@@ -1034,7 +1038,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Overrides <a href="_di_injectable_.injectable.html">Injectable</a>.<a href="_di_injectable_.injectable.html#constructor">constructor</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/ade438c/src/Application.ts#L36">Application.ts:36</a></li>
+								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/58d58b2/src/Application.ts#L41">Application.ts:41</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1067,7 +1071,7 @@ img { max-width: 100%; }
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="_di_injectable_.injectable.html">Injectable</a>.<a href="_di_injectable_.injectable.html#_di">_di</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/ade438c/src/Di/Injectable.ts#L30">Di/Injectable.ts:30</a></li>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/58d58b2/src/Di/Injectable.ts#L30">Di/Injectable.ts:30</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1082,7 +1086,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">services<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_di_servicedefines_.iservicedefines.html" class="tsd-signature-type">IServiceDefines</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/ade438c/src/Application.ts#L36">Application.ts:36</a></li>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/58d58b2/src/Application.ts#L36">Application.ts:36</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1097,12 +1101,27 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">startup<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/ade438c/src/Application.ts#L31">Application.ts:31</a></li>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/58d58b2/src/Application.ts#L31">Application.ts:31</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
 						<p>Flag a app is ready.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+				<a name="timer" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagProtected">Protected</span> timer</h3>
+				<div class="tsd-signature tsd-kind-icon">timer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Timer</span><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/58d58b2/src/Application.ts#L41">Application.ts:41</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Global app timer.</p>
 					</div>
 				</div>
 			</section>
@@ -1116,8 +1135,8 @@ img { max-width: 100%; }
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="_di_injectable_.injectable.html">Injectable</a>.<a href="_di_injectable_.injectable.html#di">di</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/ade438c/src/Di/Injectable.ts#L75">Di/Injectable.ts:75</a></li>
-						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/ade438c/src/Di/Injectable.ts#L86">Di/Injectable.ts:86</a></li>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/58d58b2/src/Di/Injectable.ts#L75">Di/Injectable.ts:75</a></li>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/58d58b2/src/Di/Injectable.ts#L86">Di/Injectable.ts:86</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1140,7 +1159,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/ade438c/src/Application.ts#L78">Application.ts:78</a></li>
+								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/58d58b2/src/Application.ts#L105">Application.ts:105</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1171,7 +1190,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/ade438c/src/Application.ts#L68">Application.ts:68</a></li>
+								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/58d58b2/src/Application.ts#L95">Application.ts:95</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1202,7 +1221,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/ade438c/src/Application.ts#L61">Application.ts:61</a></li>
+								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/58d58b2/src/Application.ts#L66">Application.ts:66</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">

@@ -44,7 +44,9 @@
   },
   "devDependencies": {
     "@types/chai": "^4.1.6",
+    "@types/ioredis": "^4.0.4",
     "@types/mocha": "^5.2.5",
+    "@types/mongoose": "^5.3.1",
     "@types/node": "^10.11.7",
     "@types/object-path": "^0.9.29",
     "@types/vorpal": "^1.11.0",

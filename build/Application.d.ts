@@ -5,6 +5,7 @@
  * @copyright 2018 Desionlab
  * @license   MIT
  */
+/// <reference types="node" />
 import { Injectable, Container, IServiceDefines } from './Di';
 /**
  * Class Application.
@@ -22,6 +23,10 @@ export declare class Application extends Injectable {
      * List of installed services and add-ons.
      */
     protected services: Array<IServiceDefines>;
+    /**
+     * Global app timer.
+     */
+    protected timer: NodeJS.Timer;
     /**
      * Application constructor.
      *

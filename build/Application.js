@@ -38,6 +38,10 @@ class Application extends Di_1.Injectable {
          * List of installed services and add-ons.
          */
         this.services = [];
+        /**
+         * Global app timer.
+         */
+        this.timer = null;
         /* Linked self. */
         this.di.set('context', () => {
             return this;
@@ -51,7 +55,30 @@ class Application extends Di_1.Injectable {
     /**
      * Initialization app.
      */
-    async init() { }
+    async init() {
+        /* Register all services. */
+        this.services.forEach(async (item) => {
+            if (typeof item.register === 'function') {
+                try {
+                    await item.register(this);
+                }
+                catch (error) {
+                    console.error(error);
+                }
+            }
+        });
+        /* Startup all services. */
+        this.services.forEach(async (item) => {
+            if (typeof item.startup === 'function') {
+                try {
+                    await item.startup(this);
+                }
+                catch (error) {
+                    console.error(error);
+                }
+            }
+        });
+    }
     /**
      * Add a service object to the list of running.
      *
