@@ -11,6 +11,10 @@ import {
   Container,
   IServiceDefines
 } from './Di';
+import ServiceMongoDB from './Services/MongoDB';
+import ServiceRedis from './Services/Redis';
+import ServiceWeb from './Services/Web';
+import ServiceWebsocket from './Services/Websocket';
 
 /**
  * Class Application.
@@ -29,7 +33,7 @@ export class Application extends Injectable {
   /**
    * List of installed services and add-ons.
    */
-  protected services: Array<IServiceDefines>;
+  protected services: Array<IServiceDefines> = [];
 
   /**
    * Application constructor.
@@ -43,6 +47,12 @@ export class Application extends Injectable {
     this.di.set('context', () => {
       return this;
     });
+
+    /* Register core services. */
+    this.addService(ServiceMongoDB);
+    this.addService(ServiceRedis);
+    this.addService(ServiceWeb);
+    this.addService(ServiceWebsocket);
   }
 
   /**
