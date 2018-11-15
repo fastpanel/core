@@ -5,7 +5,7 @@
  * @copyright 2018 Desionlab
  * @license   MIT
  */
-import { Injectable, Container } from './Di';
+import { Injectable, Container, IServiceDefines } from './Di';
 /**
  * Class Application.
  *
@@ -19,6 +19,10 @@ export declare class Application extends Injectable {
      */
     startup: boolean;
     /**
+     * List of installed services and add-ons.
+     */
+    protected services: Array<IServiceDefines>;
+    /**
      * Application constructor.
      *
      * @param container Di container instant.
@@ -28,4 +32,16 @@ export declare class Application extends Injectable {
      * Initialization app.
      */
     init(): Promise<any>;
+    /**
+     * Add a service object to the list of running.
+     *
+     * @param service Target service object.
+     */
+    addService(service: IServiceDefines): Application;
+    /**
+     * Add a service by name to the list of running.
+     *
+     * @param service Target service name.
+     */
+    addExternalService(service: string): Application;
 }

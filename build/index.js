@@ -25,6 +25,7 @@ const Di = __importStar(require("./Di"));
 exports.Di = Di;
 const Utils = __importStar(require("./Utils"));
 exports.Utils = Utils;
+__export(require("./Application"));
 __export(require("./Component"));
 __export(require("./Config"));
 /* End of file index.ts */ 

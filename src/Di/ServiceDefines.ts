@@ -6,41 +6,26 @@
  * @license   MIT
  */
 
-import { Container } from './Container';
-import { Injectable } from './Injectable';
+import { Application } from '../Application';
 
 /**
- * Class ServiceDefines
+ * Interface IServiceDefines
  * 
- * Service abstract class.
+ * Defines a set of methods for working with services.
  * 
  * @version 1.0.0
  */
-export class ServiceDefines extends Injectable {
+export interface IServiceDefines {
 
-  /**
-   * ServiceDefines constructor.
-   * 
-   * @param container Di container instant.
-   */
-  public constructor (container: Container = null) {
-    super(container);
-  }
-  
-  /**
-   * ServiceDefines destructor.
-   */
-  public destructor () {}
-  
   /**
    * Registers a service provider.
    */
-  public async register () {}
-
+  register (context: Application) : Promise<any>;
+  
   /**
    * Startup a service provider.
    */
-  public async startup () {}
+  startup (context: Application) : Promise<any>;
 
 }
 

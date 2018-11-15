@@ -29,6 +29,8 @@ class Worker extends Application_1.Application {
      */
     async init() {
         await super.init();
+        /* Set ready flag. */
+        this.startup = true;
     }
 }
 exports.Worker = Worker;

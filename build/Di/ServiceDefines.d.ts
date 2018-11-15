@@ -5,32 +5,21 @@
  * @copyright 2018 Desionlab
  * @license   MIT
  */
-import { Container } from './Container';
-import { Injectable } from './Injectable';
+import { Application } from '../Application';
 /**
- * Class ServiceDefines
+ * Interface IServiceDefines
  *
- * Service abstract class.
+ * Defines a set of methods for working with services.
  *
  * @version 1.0.0
  */
-export declare class ServiceDefines extends Injectable {
-    /**
-     * ServiceDefines constructor.
-     *
-     * @param container Di container instant.
-     */
-    constructor(container?: Container);
-    /**
-     * ServiceDefines destructor.
-     */
-    destructor(): void;
+export interface IServiceDefines {
     /**
      * Registers a service provider.
      */
-    register(): Promise<void>;
+    register(context: Application): Promise<any>;
     /**
      * Startup a service provider.
      */
-    startup(): Promise<void>;
+    startup(context: Application): Promise<any>;
 }

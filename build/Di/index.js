@@ -13,5 +13,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./Container"));
 __export(require("./Injectable"));
 __export(require("./Service"));
-__export(require("./ServiceDefines"));
 /* End of file index.ts */ 

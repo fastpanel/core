@@ -32,6 +32,9 @@ export class Worker extends Application {
    */
   public async init () : Promise<any> {
     await super.init();
+
+    /* Set ready flag. */
+    this.startup = true;
   }
 
 }

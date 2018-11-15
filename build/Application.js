@@ -36,6 +36,25 @@ class Application extends Di_1.Injectable {
      * Initialization app.
      */
     async init() { }
+    /**
+     * Add a service object to the list of running.
+     *
+     * @param service Target service object.
+     */
+    addService(service) {
+        this.services.push(service);
+        return this;
+    }
+    /**
+     * Add a service by name to the list of running.
+     *
+     * @param service Target service name.
+     */
+    addExternalService(service) {
+        let instant = require(service);
+        this.services.push(instant);
+        return this;
+    }
 }
 exports.Application = Application;
 /* End of file Application.ts */ 

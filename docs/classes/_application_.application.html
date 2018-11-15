@@ -918,11 +918,20 @@ img { max-width: 100%; }
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a href="_application_.application.html#_di" class="tsd-kind-icon">_di</a>
 				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a href="_application_.application.html#services" class="tsd-kind-icon">services</a>
+				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class">
 					<a href="_application_.application.html#startup" class="tsd-kind-icon">startup</a>
 				</li>
 				<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
 					<a href="_application_.application.html#di" class="tsd-kind-icon">di</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="_application_.application.html#addexternalservice" class="tsd-kind-icon">add<wbr>External<wbr>Service</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="_application_.application.html#addservice" class="tsd-kind-icon">add<wbr>Service</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="_application_.application.html#init" class="tsd-kind-icon">init</a>
@@ -991,6 +1000,7 @@ img { max-width: 100%; }
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_application_.application.html#_di" class="tsd-kind-icon">_di</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_application_.application.html#services" class="tsd-kind-icon">services</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class"><a href="_application_.application.html#startup" class="tsd-kind-icon">startup</a></li>
 						</ul>
 					</section>
@@ -1003,6 +1013,8 @@ img { max-width: 100%; }
 					<section class="tsd-index-section ">
 						<h3>Methods</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_application_.application.html#addexternalservice" class="tsd-kind-icon">add<wbr>External<wbr>Service</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_application_.application.html#addservice" class="tsd-kind-icon">add<wbr>Service</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_application_.application.html#init" class="tsd-kind-icon">init</a></li>
 						</ul>
 					</section>
@@ -1022,7 +1034,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Overrides <a href="_di_injectable_.injectable.html">Injectable</a>.<a href="_di_injectable_.injectable.html#constructor">constructor</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/0170d98/src/Application.ts#L23">Application.ts:23</a></li>
+								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/e7341bb/src/Application.ts#L32">Application.ts:32</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1055,12 +1067,27 @@ img { max-width: 100%; }
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="_di_injectable_.injectable.html">Injectable</a>.<a href="_di_injectable_.injectable.html#_di">_di</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/0170d98/src/Di/Injectable.ts#L30">Di/Injectable.ts:30</a></li>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/e7341bb/src/Di/Injectable.ts#L30">Di/Injectable.ts:30</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
 						<p>Di container.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+				<a name="services" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagProtected">Protected</span> services</h3>
+				<div class="tsd-signature tsd-kind-icon">services<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_di_servicedefines_.iservicedefines.html" class="tsd-signature-type">IServiceDefines</a><span class="tsd-signature-symbol">&gt;</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/e7341bb/src/Application.ts#L32">Application.ts:32</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>List of installed services and add-ons.</p>
 					</div>
 				</div>
 			</section>
@@ -1070,7 +1097,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">startup<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/0170d98/src/Application.ts#L23">Application.ts:23</a></li>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/e7341bb/src/Application.ts#L27">Application.ts:27</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1089,8 +1116,8 @@ img { max-width: 100%; }
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="_di_injectable_.injectable.html">Injectable</a>.<a href="_di_injectable_.injectable.html#di">di</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/0170d98/src/Di/Injectable.ts#L75">Di/Injectable.ts:75</a></li>
-						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/0170d98/src/Di/Injectable.ts#L86">Di/Injectable.ts:86</a></li>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/e7341bb/src/Di/Injectable.ts#L75">Di/Injectable.ts:75</a></li>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/e7341bb/src/Di/Injectable.ts#L86">Di/Injectable.ts:86</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1104,6 +1131,68 @@ img { max-width: 100%; }
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Methods</h2>
 			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="addexternalservice" class="tsd-anchor"></a>
+				<h3>add<wbr>External<wbr>Service</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">add<wbr>External<wbr>Service<span class="tsd-signature-symbol">(</span>service<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_application_.application.html" class="tsd-signature-type">Application</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/e7341bb/src/Application.ts#L68">Application.ts:68</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Add a service by name to the list of running.</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>service: <span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<p>Target service name.</p>
+								</div>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="_application_.application.html" class="tsd-signature-type">Application</a></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="addservice" class="tsd-anchor"></a>
+				<h3>add<wbr>Service</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">add<wbr>Service<span class="tsd-signature-symbol">(</span>service<span class="tsd-signature-symbol">: </span><a href="../interfaces/_di_servicedefines_.iservicedefines.html" class="tsd-signature-type">IServiceDefines</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_application_.application.html" class="tsd-signature-type">Application</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/e7341bb/src/Application.ts#L58">Application.ts:58</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Add a service object to the list of running.</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>service: <a href="../interfaces/_di_servicedefines_.iservicedefines.html" class="tsd-signature-type">IServiceDefines</a></h5>
+								<div class="tsd-comment tsd-typography">
+									<p>Target service object.</p>
+								</div>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="_application_.application.html" class="tsd-signature-type">Application</a></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 				<a name="init" class="tsd-anchor"></a>
 				<h3>init</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -1113,7 +1202,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/0170d98/src/Application.ts#L42">Application.ts:42</a></li>
+								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/e7341bb/src/Application.ts#L51">Application.ts:51</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">

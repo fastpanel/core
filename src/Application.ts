@@ -6,7 +6,11 @@
  * @license   MIT
  */
 
-import { Injectable, Container } from './Di';
+import { 
+  Injectable,
+  Container,
+  IServiceDefines
+} from './Di';
 
 /**
  * Class Application.
@@ -21,6 +25,11 @@ export class Application extends Injectable {
    * Flag a app is ready.
    */
   public startup: boolean = false;
+
+  /**
+   * List of installed services and add-ons.
+   */
+  protected services: Array<IServiceDefines>;
 
   /**
    * Application constructor.
@@ -40,6 +49,27 @@ export class Application extends Injectable {
    * Initialization app.
    */
   public async init () : Promise<any> {}
+
+  /**
+   * Add a service object to the list of running.
+   * 
+   * @param service Target service object.
+   */
+  public addService (service: IServiceDefines) : Application {
+    this.services.push(service);
+    return this;
+  }
+
+  /**
+   * Add a service by name to the list of running.
+   * 
+   * @param service Target service name.
+   */
+  public addExternalService (service: string) : Application {
+    let instant: IServiceDefines = require(service);
+    this.services.push(instant);
+    return this;
+  }
 
 }
 

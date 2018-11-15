@@ -13,5 +13,6 @@ export { Cli };
 export { Cluster };
 export { Di };
 export { Utils };
+export * from './Application';
 export * from './Component';
 export * from './Config';

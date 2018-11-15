@@ -29,6 +29,8 @@ class Handler extends Application_1.Application {
      */
     async init() {
         await super.init();
+        /* Set ready flag. */
+        this.startup = true;
         /* Startup cli handler. */
         this.cli
             .delimiter('=>')
