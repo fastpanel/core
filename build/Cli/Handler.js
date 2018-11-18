@@ -6,8 +6,11 @@
  * @copyright 2018 Desionlab
  * @license   MIT
  */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const Application_1 = require("../Application");
+const Application_1 = __importDefault(require("./../Application"));
 /**
  * Class Handler
  *
@@ -15,7 +18,7 @@ const Application_1 = require("../Application");
  *
  * @version 1.0.0
  */
-class Handler extends Application_1.Application {
+class Handler extends Application_1.default {
     /**
      * Handler constructor.
      *
@@ -37,5 +40,5 @@ class Handler extends Application_1.Application {
             .show();
     }
 }
-exports.Handler = Handler;
+module.exports = Handler;
 /* End of file Handler.ts */ 

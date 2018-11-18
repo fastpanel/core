@@ -11,10 +11,10 @@ import {
   Container,
   IServiceDefines
 } from './Di';
-import ServiceMongoDB from './Services/MongoDB';
+
 import ServiceRedis from './Services/Redis';
-import ServiceWeb from './Services/Web';
-import ServiceWebsocket from './Services/Websocket';
+import ServiceMongoDB from './Services/MongoDB';
+import ServiceNetwork from './Services/Network';
 
 /**
  * Class Application.
@@ -23,22 +23,22 @@ import ServiceWebsocket from './Services/Websocket';
  * 
  * @version 1.0.0
  */
-export class Application extends Injectable {
+export default class Application extends Injectable {
   
   /**
    * Flag a app is ready.
    */
   public startup: boolean = false;
+  
+  /**
+   * Global app timer.
+   */
+  protected timer: NodeJS.Timer = null;
 
   /**
    * List of installed services and add-ons.
    */
   protected services: Array<IServiceDefines> = [];
-
-  /**
-   * Global app timer.
-   */
-  protected timer: NodeJS.Timer = null;
 
   /**
    * Application constructor.
@@ -47,23 +47,15 @@ export class Application extends Injectable {
    */
   public constructor (container? : Container) {
     super(container);
-
-    /* Linked self. */
-    this.di.set('context', () => {
-      return this;
-    });
-
-    /* Register core services. */
-    this.addService(ServiceMongoDB);
-    this.addService(ServiceRedis);
-    this.addService(ServiceWeb);
-    this.addService(ServiceWebsocket);
   }
 
   /**
    * Initialization app.
    */
   public async init () : Promise<any> {
+    /* Register core services. */
+    this.addService(ServiceNetwork);
+
     /* Register all services. */
     this.services.forEach(async (item: IServiceDefines) => {
       if (typeof item.register === 'function') {

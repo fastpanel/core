@@ -5,12 +5,8 @@
  * @copyright 2014 - 2018 Desionlab
  * @license   MIT
  */
-import { Application } from "../Application";
 declare const _default: {
-    register(context: Application): Promise<any>;
-    startup(context: Application): Promise<any>;
+    register(context: any): Promise<any>;
+    startup(context: any): Promise<any>;
 };
-/**
- *
- */
 export default _default;

@@ -5,5 +5,6 @@
  * @copyright 2018 Desionlab
  * @license   MIT
  */
+declare const Handler: any;
 export * from './FactoryDefault';
-export * from './Worker';
+export { Handler };

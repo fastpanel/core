@@ -5,7 +5,7 @@
  * @copyright 2018 Desionlab
  * @license   MIT
  */
-import { Application } from '../Application';
+import Application from '../Application';
 /**
  * Interface IServiceDefines
  *

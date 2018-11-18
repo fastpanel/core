@@ -14,19 +14,19 @@ import { Injectable, Container, IServiceDefines } from './Di';
  *
  * @version 1.0.0
  */
-export declare class Application extends Injectable {
+export default class Application extends Injectable {
     /**
      * Flag a app is ready.
      */
     startup: boolean;
     /**
-     * List of installed services and add-ons.
-     */
-    protected services: Array<IServiceDefines>;
-    /**
      * Global app timer.
      */
     protected timer: NodeJS.Timer;
+    /**
+     * List of installed services and add-ons.
+     */
+    protected services: Array<IServiceDefines>;
     /**
      * Application constructor.
      *

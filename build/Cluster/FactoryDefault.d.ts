@@ -5,7 +5,7 @@
  * @copyright 2018 Desionlab
  * @license   MIT
  */
-import { Container } from '../Di/Container';
+import { Container } from './../Di/Container';
 /**
  * Class FactoryDefault
  *

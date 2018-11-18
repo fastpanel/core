@@ -5,8 +5,6 @@
  * @author    Desionlab <fenixphp@gmail.com>
  * @copyright 2014 - 2018 Desionlab
  * @license   MIT
- *
- * Database initialization.
  */
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };

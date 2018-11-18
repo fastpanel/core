@@ -10,6 +10,7 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
+const Handler = require('./Handler');
+exports.Handler = Handler;
 __export(require("./FactoryDefault"));
-__export(require("./Worker"));
 /* End of file index.ts */ 

@@ -9,7 +9,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const events_1 = require("events");
 const Config_1 = require("./../Config");
-const Container_1 = require("../Di/Container");
+const Container_1 = require("./../Di/Container");
 /**
  * Class FactoryDefault
  *

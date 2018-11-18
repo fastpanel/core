@@ -4,19 +4,18 @@
  * @author    Desionlab <fenixphp@gmail.com>
  * @copyright 2014 - 2018 Desionlab
  * @license   MIT
- * 
- * Database initialization.
  */
 
 import MongoSE from 'mongoose';
-import { Application } from "../Application";
+import * as Cli from '../Cli';
+import * as Cluster from '../Cluster';
 import { Container } from '../Di';
 
 /* Set mongoose options. */
 MongoSE.Promise = global.Promise;
 
 export default {
-  async register (context: Application) : Promise<any> {
+  async register (context: Cli.Handler | Cluster.Handler) : Promise<any> {
     /* Forming the connection address. */
     let url = "mongodb://"
     + context.config.get('Services/Database.host', '127.0.0.1')
@@ -43,7 +42,7 @@ export default {
       return MongoSE.connection;
     }, false);
   },
-  async startup (context: Application) : Promise<any> {
+  async startup (context: Cli.Handler | Cluster.Handler) : Promise<any> {
     /* Fire db startup event. */
     context.events.emit('db:startup');
   }

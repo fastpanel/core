@@ -6,7 +6,9 @@
  * @license   MIT
  */
 
+const Handler = require('./Handler');
+
 export * from './FactoryDefault';
-export * from './Handler';
+export { Handler };
 
 /* End of file index.ts */

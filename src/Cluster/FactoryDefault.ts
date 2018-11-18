@@ -8,7 +8,7 @@
 
 import { EventEmitter } from 'events';
 import { Config } from './../Config';
-import { Container } from '../Di/Container';
+import { Container } from './../Di/Container';
 
 /**
  * Class FactoryDefault

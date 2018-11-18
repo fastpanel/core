@@ -6,8 +6,8 @@
  * @license   MIT
  */
 
-import { Application } from '../Application';
-import { Container } from '../Di';
+import { Container } from './../Di';
+import Application from './../Application';
 
 /**
  * Class Handler
@@ -16,7 +16,7 @@ import { Container } from '../Di';
  * 
  * @version 1.0.0
  */
-export class Handler extends Application {
+class Handler extends Application {
   
   /**
    * Handler constructor.
@@ -43,5 +43,7 @@ export class Handler extends Application {
   }
 
 }
+
+module.exports = Handler;
 
 /* End of file Handler.ts */

@@ -1,25 +1,25 @@
 /**
- * Worker.ts
+ * Handler.ts
  * 
  * @author    Desionlab <fenixphp@gmail.com>
  * @copyright 2018 Desionlab
  * @license   MIT
  */
 
-import { Application } from '../Application';
-import { Container } from '../Di';
+import { Container } from './../Di';
+import Application from './../Application';
 
 /**
- * Class Worker
+ * Class Handler
  * 
- * Cluster worker (unit).
+ * Cluster worker (unit) handler.
  * 
  * @version 1.0.0
  */
-export class Worker extends Application {
+class Handler extends Application {
   
   /**
-   * Worker constructor.
+   * Handler constructor.
    * 
    * @param container Di container instant.
    */
@@ -28,15 +28,17 @@ export class Worker extends Application {
   }
 
   /**
-   * Initialization worker.
+   * Initialization worker handler.
    */
   public async init () : Promise<any> {
     await super.init();
-
+    
     /* Set ready flag. */
     this.startup = true;
   }
 
 }
 
-/* End of file Worker.ts */
+module.exports = Handler;
+
+/* End of file Handler.ts */

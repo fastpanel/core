@@ -10,10 +10,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const events_1 = require("events");
 const vorpal_1 = __importDefault(require("vorpal"));
+const events_1 = require("events");
 const Config_1 = require("./../Config");
-const Container_1 = require("../Di/Container");
+const Container_1 = require("./../Di/Container");
 /**
  * Class FactoryDefault
  *

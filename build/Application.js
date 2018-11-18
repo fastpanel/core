@@ -11,10 +11,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Di_1 = require("./Di");
-const MongoDB_1 = __importDefault(require("./Services/MongoDB"));
-const Redis_1 = __importDefault(require("./Services/Redis"));
-const Web_1 = __importDefault(require("./Services/Web"));
-const Websocket_1 = __importDefault(require("./Services/Websocket"));
+const Network_1 = __importDefault(require("./Services/Network"));
 /**
  * Class Application.
  *
@@ -35,27 +32,20 @@ class Application extends Di_1.Injectable {
          */
         this.startup = false;
         /**
-         * List of installed services and add-ons.
-         */
-        this.services = [];
-        /**
          * Global app timer.
          */
         this.timer = null;
-        /* Linked self. */
-        this.di.set('context', () => {
-            return this;
-        });
-        /* Register core services. */
-        this.addService(MongoDB_1.default);
-        this.addService(Redis_1.default);
-        this.addService(Web_1.default);
-        this.addService(Websocket_1.default);
+        /**
+         * List of installed services and add-ons.
+         */
+        this.services = [];
     }
     /**
      * Initialization app.
      */
     async init() {
+        /* Register core services. */
+        this.addService(Network_1.default);
         /* Register all services. */
         this.services.forEach(async (item) => {
             if (typeof item.register === 'function') {
@@ -99,5 +89,5 @@ class Application extends Di_1.Injectable {
         return this;
     }
 }
-exports.Application = Application;
+exports.default = Application;
 /* End of file Application.ts */ 
