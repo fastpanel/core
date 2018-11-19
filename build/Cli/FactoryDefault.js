@@ -3,7 +3,7 @@
  * FactoryDefault.ts
  *
  * @author    Desionlab <fenixphp@gmail.com>
- * @copyright 2018 Desionlab
+ * @copyright 2014 - 2018 Desionlab
  * @license   MIT
  */
 var __importDefault = (this && this.__importDefault) || function (mod) {
@@ -34,16 +34,16 @@ class FactoryDefault extends Container_1.Container {
     constructor() {
         super();
         /* Registered event emitter component. */
-        this.set('events', function (container) {
+        this.set('events', (container) => {
             return new events_1.EventEmitter();
         }, true);
         /* Registered config component. */
-        this.set('config', function (container) {
+        this.set('config', (container) => {
             let path = (process.env.CONFIG_PATH) ? process.env.CONFIG_PATH : 'App/Config';
             return new Config_1.Config(path, { Env: process.env });
         }, true);
         /* Registered cli handler component. */
-        this.set('cli', function (container) {
+        this.set('cli', (container) => {
             let vorpal = new vorpal_1.default();
             return vorpal;
         }, true);

@@ -3,14 +3,13 @@
  * Handler.ts
  *
  * @author    Desionlab <fenixphp@gmail.com>
- * @copyright 2018 Desionlab
+ * @copyright 2014 - 2018 Desionlab
  * @license   MIT
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const Application_1 = __importDefault(require("./../Application"));
+const Di_1 = require("./../Di");
+const Mixins_1 = require("./../Mixins");
+const Utils_1 = require("./../Utils");
 /**
  * Class Handler
  *
@@ -18,7 +17,7 @@ const Application_1 = __importDefault(require("./../Application"));
  *
  * @version 1.0.0
  */
-class Handler extends Application_1.default {
+class Handler extends Utils_1.Mixer(Di_1.Injectable).with(Mixins_1.Application, Mixins_1.ExtensionsManager) {
     /**
      * Handler constructor.
      *
@@ -31,10 +30,15 @@ class Handler extends Application_1.default {
      * Initialization worker handler.
      */
     async init() {
+        /* Call parent. */
         await super.init();
+        /* Registers a service providers. */
+        await this.register();
+        /* Startup a service providers. */
+        await this.startup();
         /* Set ready flag. */
-        this.startup = true;
+        this.isStartup = true;
     }
 }
-module.exports = Handler;
+exports.Handler = Handler;
 /* End of file Handler.ts */ 

@@ -3,7 +3,7 @@
  * MixinBuilder.ts
  *
  * @author    Desionlab <fenixphp@gmail.com>
- * @copyright 2018 Desionlab
+ * @copyright 2014 - 2018 Desionlab
  * @license   MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -41,5 +41,5 @@ exports.MixinBuilder = MixinBuilder;
  *
  * @param superClass Class to expand mixins.
  */
-exports.mixer = (superClass) => new MixinBuilder(superClass);
+exports.Mixer = (superClass) => new MixinBuilder(superClass);
 /* End of file MixinBuilder.ts */ 

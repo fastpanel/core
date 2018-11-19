@@ -3,7 +3,7 @@
  * index.ts
  *
  * @author    Desionlab <fenixphp@gmail.com>
- * @copyright 2018 Desionlab
+ * @copyright 2014 - 2018 Desionlab
  * @license   MIT
  */
 function __export(m) {
@@ -23,9 +23,12 @@ const Cluster = __importStar(require("./Cluster"));
 exports.Cluster = Cluster;
 const Di = __importStar(require("./Di"));
 exports.Di = Di;
+const Extensions = __importStar(require("./Extensions"));
+exports.Extensions = Extensions;
+const Mixins = __importStar(require("./Mixins"));
+exports.Mixins = Mixins;
 const Utils = __importStar(require("./Utils"));
 exports.Utils = Utils;
-__export(require("./Application"));
 __export(require("./Component"));
 __export(require("./Config"));
 /* End of file index.ts */ 

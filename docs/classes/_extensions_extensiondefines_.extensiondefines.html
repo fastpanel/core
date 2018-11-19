@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IServiceDefines | fastpanel-core</title>
+	<title>ExtensionDefines | fastpanel-core</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -909,14 +909,14 @@ img { max-width: 100%; }
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-			<a href="_di_servicedefines_.iservicedefines.html" class="tsd-kind-icon">IService<wbr>Defines</a>
+		<li class="current tsd-kind-class tsd-parent-kind-external-module">
+			<a href="_extensions_extensiondefines_.extensiondefines.html" class="tsd-kind-icon">Extension<wbr>Defines</a>
 			<ul>
-				<li class=" tsd-kind-method tsd-parent-kind-interface">
-					<a href="_di_servicedefines_.iservicedefines.html#register" class="tsd-kind-icon">register</a>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="_extensions_extensiondefines_.extensiondefines.html#register" class="tsd-kind-icon">register</a>
 				</li>
-				<li class=" tsd-kind-method tsd-parent-kind-interface">
-					<a href="_di_servicedefines_.iservicedefines.html#startup" class="tsd-kind-icon">startup</a>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="_extensions_extensiondefines_.extensiondefines.html#startup" class="tsd-kind-icon">startup</a>
 				</li>
 			</ul>
 		</li>
@@ -927,9 +927,9 @@ img { max-width: 100%; }
 		<section class="tsd-panel tsd-comment">
 			<div class="tsd-comment tsd-typography">
 				<div class="lead">
-					<p>Interface IServiceDefines</p>
+					<p>Class ExtensionDefines</p>
 				</div>
-				<p>Defines a set of methods for working with services.</p>
+				<p>Extension abstract class.</p>
 				<dl class="tsd-comment-tags">
 					<dt>version</dt>
 					<dd><p>1.0.0</p>
@@ -941,7 +941,7 @@ img { max-width: 100%; }
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
 				<li>
-					<span class="target">IServiceDefines</span>
+					<span class="target">ExtensionDefines</span>
 				</li>
 			</ul>
 		</section>
@@ -952,8 +952,8 @@ img { max-width: 100%; }
 					<section class="tsd-index-section ">
 						<h3>Methods</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_di_servicedefines_.iservicedefines.html#register" class="tsd-kind-icon">register</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_di_servicedefines_.iservicedefines.html#startup" class="tsd-kind-icon">startup</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_extensions_extensiondefines_.extensiondefines.html#register" class="tsd-kind-icon">register</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_extensions_extensiondefines_.extensiondefines.html#startup" class="tsd-kind-icon">startup</a></li>
 						</ul>
 					</section>
 				</div>
@@ -961,17 +961,17 @@ img { max-width: 100%; }
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Methods</h2>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 				<a name="register" class="tsd-anchor"></a>
 				<h3>register</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-					<li class="tsd-signature tsd-kind-icon">register<span class="tsd-signature-symbol">(</span>context<span class="tsd-signature-symbol">: </span><a href="../classes/_application_.application.html" class="tsd-signature-type">Application</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">register<span class="tsd-signature-symbol">(</span>di<span class="tsd-signature-symbol">: </span><a href="_di_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/36517f1/src/Di/ServiceDefines.ts#L23">Di/ServiceDefines.ts:23</a></li>
+								<li>Defined in Extensions/ExtensionDefines.ts:23</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -982,24 +982,24 @@ img { max-width: 100%; }
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>context: <a href="../classes/_application_.application.html" class="tsd-signature-type">Application</a></h5>
+								<h5>di: <a href="_di_container_.container.html" class="tsd-signature-type">Container</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 				<a name="startup" class="tsd-anchor"></a>
 				<h3>startup</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-					<li class="tsd-signature tsd-kind-icon">startup<span class="tsd-signature-symbol">(</span>context<span class="tsd-signature-symbol">: </span><a href="../classes/_application_.application.html" class="tsd-signature-type">Application</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">startup<span class="tsd-signature-symbol">(</span>di<span class="tsd-signature-symbol">: </span><a href="_di_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/36517f1/src/Di/ServiceDefines.ts#L28">Di/ServiceDefines.ts:28</a></li>
+								<li>Defined in Extensions/ExtensionDefines.ts:28</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1010,7 +1010,7 @@ img { max-width: 100%; }
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>context: <a href="../classes/_application_.application.html" class="tsd-signature-type">Application</a></h5>
+								<h5>di: <a href="_di_container_.container.html" class="tsd-signature-type">Container</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>

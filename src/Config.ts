@@ -200,8 +200,9 @@ export class Config extends Component {
    * Write the config data in a file.
    *
    * @param key Dot notation index for search in config.
+   * @param asDefault Save as the default.
    */
-  public save (key : string) : Config {
+  public save (key : string, asDefault: boolean = false) : Config {
     /* Format key. */
     key = this.formatKey(key);
 
@@ -209,7 +210,7 @@ export class Config extends Component {
     let resource = key.split('.')[0];
     
     /* Formation of the file name. */
-    let file = this.path + resource + '.env.json';
+    let file = this.path + resource + ((asDefault) ? '.json' : '.env.json');
 
     /* Check if the file exists. */
     if (!fs.existsSync(file)) {
@@ -222,10 +223,10 @@ export class Config extends Component {
         shell.mkdir('-p', dir);
       }
     }
-
+    
     /* Write the data to a file. */
     fs.writeFileSync(file, JSON.stringify(this.storage[resource]));
-    
+
     /*  */
     return this;
   }

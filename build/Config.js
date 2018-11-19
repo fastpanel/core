@@ -170,14 +170,15 @@ class Config extends Component_1.Component {
      * Write the config data in a file.
      *
      * @param key Dot notation index for search in config.
+     * @param asDefault Save as the default.
      */
-    save(key) {
+    save(key, asDefault = false) {
         /* Format key. */
         key = this.formatKey(key);
         /* Get resource name. */
         let resource = key.split('.')[0];
         /* Formation of the file name. */
-        let file = this.path + resource + '.env.json';
+        let file = this.path + resource + ((asDefault) ? '.json' : '.env.json');
         /* Check if the file exists. */
         if (!fs_1.default.existsSync(file)) {
             /* Get the folder name. */

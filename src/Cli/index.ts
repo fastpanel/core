@@ -2,13 +2,11 @@
  * index.ts
  * 
  * @author    Desionlab <fenixphp@gmail.com>
- * @copyright 2018 Desionlab
+ * @copyright 2014 - 2018 Desionlab
  * @license   MIT
  */
 
-const Handler = require('./Handler');
-
 export * from './FactoryDefault';
-export { Handler };
+export * from './Handler';
 
 /* End of file index.ts */

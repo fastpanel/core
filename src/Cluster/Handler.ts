@@ -2,12 +2,13 @@
  * Handler.ts
  * 
  * @author    Desionlab <fenixphp@gmail.com>
- * @copyright 2018 Desionlab
+ * @copyright 2014 - 2018 Desionlab
  * @license   MIT
  */
 
-import { Container } from './../Di';
-import Application from './../Application';
+import { Injectable, Container } from './../Di';
+import { Application, ExtensionsManager } from './../Mixins';
+import { Mixer } from './../Utils';
 
 /**
  * Class Handler
@@ -16,7 +17,8 @@ import Application from './../Application';
  * 
  * @version 1.0.0
  */
-class Handler extends Application {
+export class Handler extends Mixer(Injectable).with(
+  Application, ExtensionsManager) {
   
   /**
    * Handler constructor.
@@ -31,14 +33,19 @@ class Handler extends Application {
    * Initialization worker handler.
    */
   public async init () : Promise<any> {
+    /* Call parent. */
     await super.init();
     
+    /* Registers a service providers. */
+    await this.register();
+
+    /* Startup a service providers. */
+    await this.startup();
+
     /* Set ready flag. */
-    this.startup = true;
+    this.isStartup = true;
   }
 
 }
-
-module.exports = Handler;
 
 /* End of file Handler.ts */

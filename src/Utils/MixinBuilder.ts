@@ -2,7 +2,7 @@
  * MixinBuilder.ts
  * 
  * @author    Desionlab <fenixphp@gmail.com>
- * @copyright 2018 Desionlab
+ * @copyright 2014 - 2018 Desionlab
  * @license   MIT
  */
 
@@ -44,6 +44,6 @@ export class MixinBuilder {
  * 
  * @param superClass Class to expand mixins.
  */
-export const mixer = (superClass: any) => new MixinBuilder(superClass);
+export const Mixer = (superClass: any) => new MixinBuilder(superClass);
 
 /* End of file MixinBuilder.ts */

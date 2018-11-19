@@ -74,8 +74,9 @@ export declare class Config extends Component {
      * Write the config data in a file.
      *
      * @param key Dot notation index for search in config.
+     * @param asDefault Save as the default.
      */
-    save(key: string): Config;
+    save(key: string, asDefault?: boolean): Config;
     /**
      * Clear key from spaces and normalizes the delimiters.
      *
