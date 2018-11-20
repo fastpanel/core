@@ -6,9 +6,8 @@
  * @license   MIT
  */
 
-import { Injectable, Container } from './../Di';
-import { Application, ExtensionsManager } from './../Mixins';
-import { Mixer } from './../Utils';
+import { Application } from './../Application';
+import { Container } from './../Di';
 
 /**
  * Class Handler
@@ -17,8 +16,7 @@ import { Mixer } from './../Utils';
  * 
  * @version 1.0.0
  */
-export class Handler extends Mixer(Injectable).with(
-  Application, ExtensionsManager) {
+export class Handler extends Application {
   
   /**
    * Handler constructor.

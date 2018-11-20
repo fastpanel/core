@@ -5,8 +5,8 @@
  * @copyright 2014 - 2018 Desionlab
  * @license   MIT
  */
+import { Application } from './../Application';
 import { Container } from './../Di';
-declare const Handler_base: any;
 /**
  * Class Handler
  *
@@ -14,7 +14,7 @@ declare const Handler_base: any;
  *
  * @version 1.0.0
  */
-export declare class Handler extends Handler_base {
+export declare class Handler extends Application {
     /**
      * Handler constructor.
      *
@@ -26,4 +26,3 @@ export declare class Handler extends Handler_base {
      */
     init(): Promise<any>;
 }
-export {};

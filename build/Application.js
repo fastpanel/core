@@ -1,13 +1,21 @@
 "use strict";
 /**
- * ExtensionsManager.ts
+ * Application.ts
  *
  * @author    Desionlab <fenixphp@gmail.com>
  * @copyright 2014 - 2018 Desionlab
  * @license   MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExtensionsManager = (superClass) => class extends superClass {
+const Di_1 = require("./Di");
+/**
+ * Class Application
+ *
+ * Wrap for apps.
+ *
+ * @version 1.0.0
+ */
+class Application extends Di_1.Injectable {
     /**
      * Application constructor.
      *
@@ -16,6 +24,10 @@ exports.ExtensionsManager = (superClass) => class extends superClass {
     constructor(container) {
         super(container);
         /**
+         * Flag a app is ready.
+         */
+        this.isStartup = false;
+        /**
          * List of installed extensions and add-ons.
          */
         this.extensions = [];
@@ -23,9 +35,7 @@ exports.ExtensionsManager = (superClass) => class extends superClass {
     /**
      * Initialization app.
      */
-    async init() {
-        await super.init();
-    }
+    async init() { }
     /**
      * Registers a service providers.
      */
@@ -34,7 +44,7 @@ exports.ExtensionsManager = (superClass) => class extends superClass {
         for (const extension of this.extensions) {
             if (typeof extension.register === 'function') {
                 try {
-                    await extension.register(this.di);
+                    await extension.register();
                 }
                 catch (error) {
                     console.error(error);
@@ -50,7 +60,7 @@ exports.ExtensionsManager = (superClass) => class extends superClass {
         for (const extension of this.extensions) {
             if (typeof extension.startup === 'function') {
                 try {
-                    await extension.startup(this.di);
+                    await extension.startup();
                 }
                 catch (error) {
                     console.error(error);
@@ -65,12 +75,13 @@ exports.ExtensionsManager = (superClass) => class extends superClass {
      */
     addExtension(extension) {
         try {
-            let instant = new extension();
+            let instant = new extension(this.di);
             this.extensions.push(instant);
         }
         catch (error) {
             console.error(error);
         }
     }
-};
-/* End of file ExtensionsManager.ts */ 
+}
+exports.Application = Application;
+/* End of file Application.ts */ 

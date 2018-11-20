@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;Mixins/ExtensionsManager&quot; | fastpanel-core</title>
+	<title>Application | fastpanel-core</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -909,48 +909,325 @@ img { max-width: 100%; }
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class=" tsd-kind-function tsd-parent-kind-external-module">
-			<a href="_mixins_extensionsmanager_.html#extensionsmanager" class="tsd-kind-icon">Extensions<wbr>Manager</a>
+		<li class="current tsd-kind-class tsd-parent-kind-external-module">
+			<a href="_application_.application.html" class="tsd-kind-icon">Application</a>
+			<ul>
+				<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+					<a href="_application_.application.html#constructor" class="tsd-kind-icon">constructor</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a href="_application_.application.html#_di" class="tsd-kind-icon">_di</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a href="_application_.application.html#extensions" class="tsd-kind-icon">extensions</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class">
+					<a href="_application_.application.html#isstartup" class="tsd-kind-icon">is<wbr>Startup</a>
+				</li>
+				<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+					<a href="_application_.application.html#di" class="tsd-kind-icon">di</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="_application_.application.html#addextension" class="tsd-kind-icon">add<wbr>Extension</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="_application_.application.html#init" class="tsd-kind-icon">init</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="_application_.application.html#register" class="tsd-kind-icon">register</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="_application_.application.html#startup" class="tsd-kind-icon">startup</a>
+				</li>
+			</ul>
 		</li>
 	</ul>
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
+		<section class="tsd-panel tsd-comment">
+			<div class="tsd-comment tsd-typography">
+				<div class="lead">
+					<p>Class Application</p>
+				</div>
+				<p>Wrap for apps.</p>
+				<dl class="tsd-comment-tags">
+					<dt>version</dt>
+					<dd><p>1.0.0</p>
+					</dd>
+				</dl>
+			</div>
+		</section>
+		<section class="tsd-panel tsd-hierarchy">
+			<h3>Hierarchy</h3>
+			<ul class="tsd-hierarchy">
+				<li>
+					<a href="_di_injectable_.injectable.html" class="tsd-signature-type">Injectable</a>
+					<ul class="tsd-hierarchy">
+						<li>
+							<span class="target">Application</span>
+							<ul class="tsd-hierarchy">
+								<li>
+									<a href="_cli_handler_.handler.html" class="tsd-signature-type">Handler</a>
+								</li>
+								<li>
+									<a href="_cluster_handler_.handler.html" class="tsd-signature-type">Handler</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</section>
+		<section class="tsd-panel tsd-kind-class tsd-parent-kind-external-module">
+			<h3 class="tsd-before-signature">Indexable</h3>
+			<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></div>
+			<div class="tsd-comment tsd-typography">
+				<div class="lead">
+					<p>Dynamic property types.</p>
+				</div>
+				<p>Wrap for apps.</p>
+			</div>
+		</section>
 		<section class="tsd-panel-group tsd-index-group">
 			<h2>Index</h2>
 			<section class="tsd-panel tsd-index-panel">
 				<div class="tsd-index-content">
 					<section class="tsd-index-section ">
-						<h3>Functions</h3>
+						<h3>Constructors</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_mixins_extensionsmanager_.html#extensionsmanager" class="tsd-kind-icon">Extensions<wbr>Manager</a></li>
+							<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_application_.application.html#constructor" class="tsd-kind-icon">constructor</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section ">
+						<h3>Properties</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_application_.application.html#_di" class="tsd-kind-icon">_di</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_application_.application.html#extensions" class="tsd-kind-icon">extensions</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class"><a href="_application_.application.html#isstartup" class="tsd-kind-icon">is<wbr>Startup</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section tsd-is-inherited">
+						<h3>Accessors</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_application_.application.html#di" class="tsd-kind-icon">di</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section ">
+						<h3>Methods</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_application_.application.html#addextension" class="tsd-kind-icon">add<wbr>Extension</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_application_.application.html#init" class="tsd-kind-icon">init</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_application_.application.html#register" class="tsd-kind-icon">register</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_application_.application.html#startup" class="tsd-kind-icon">startup</a></li>
 						</ul>
 					</section>
 				</div>
 			</section>
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
-			<h2>Functions</h2>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-				<a name="extensionsmanager" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> Extensions<wbr>Manager</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-					<li class="tsd-signature tsd-kind-icon">Extensions<wbr>Manager<span class="tsd-signature-symbol">(</span>superClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous class)</span></li>
+			<h2>Constructors</h2>
+			<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+				<a name="constructor" class="tsd-anchor"></a>
+				<h3>constructor</h3>
+				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+					<li class="tsd-signature tsd-kind-icon">new <wbr>Application<span class="tsd-signature-symbol">(</span>container<span class="tsd-signature-symbol">?: </span><a href="_di_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_application_.application.html" class="tsd-signature-type">Application</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Overrides <a href="_di_injectable_.injectable.html">Injectable</a>.<a href="_di_injectable_.injectable.html#constructor">constructor</a></p>
+							<ul>
+								<li>Defined in Application.ts:29</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Application constructor.</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> container: <a href="_di_container_.container.html" class="tsd-signature-type">Container</a></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Di container instant.</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="_application_.application.html" class="tsd-signature-type">Application</a></h4>
+					</li>
+				</ul>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group ">
+			<h2>Properties</h2>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+				<a name="_di" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagProtected">Protected</span> _di</h3>
+				<div class="tsd-signature tsd-kind-icon">_di<span class="tsd-signature-symbol">:</span> <a href="_di_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="_di_injectable_.injectable.html">Injectable</a>.<a href="_di_injectable_.injectable.html#_di">_di</a></p>
+					<ul>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/08e4412/src/Di/Injectable.ts#L30">Di/Injectable.ts:30</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Di container.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+				<a name="extensions" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagProtected">Protected</span> extensions</h3>
+				<div class="tsd-signature tsd-kind-icon">extensions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_extensions_extensiondefines_.extensiondefines.html" class="tsd-signature-type">ExtensionDefines</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in Application.ts:29</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>List of installed extensions and add-ons.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<a name="isstartup" class="tsd-anchor"></a>
+				<h3>is<wbr>Startup</h3>
+				<div class="tsd-signature tsd-kind-icon">is<wbr>Startup<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in Application.ts:24</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Flag a app is ready.</p>
+					</div>
+				</div>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<h2>Accessors</h2>
+			<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+				<a name="di" class="tsd-anchor"></a>
+				<h3>di</h3>
+				<div class="tsd-signature tsd-kind-icon">di<span class="tsd-signature-symbol">:</span> </div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="_di_injectable_.injectable.html">Injectable</a>.<a href="_di_injectable_.injectable.html#di">di</a></p>
+					<ul>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/08e4412/src/Di/Injectable.ts#L75">Di/Injectable.ts:75</a></li>
+						<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/08e4412/src/Di/Injectable.ts#L86">Di/Injectable.ts:86</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Returns the internal dependency injector.
+						Sets the dependency injector.</p>
+					</div>
+				</div>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group ">
+			<h2>Methods</h2>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="addextension" class="tsd-anchor"></a>
+				<h3>add<wbr>Extension</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">add<wbr>Extension<span class="tsd-signature-symbol">(</span>extension<span class="tsd-signature-symbol">: </span><a href="_extensions_extensiondefines_.extensiondefines.html" class="tsd-signature-type">ExtensionDefines</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/desionlab/fastpanel-core/blob/2b1c270/src/Mixins/ExtensionsManager.ts#L12">Mixins/ExtensionsManager.ts:12</a></li>
+								<li>Defined in Application.ts:82</li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Add a extension object to the list of running.</p>
+							</div>
+						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>superClass: <span class="tsd-signature-type">any</span></h5>
+								<h5>extension: <a href="_extensions_extensiondefines_.extensiondefines.html" class="tsd-signature-type">ExtensionDefines</a></h5>
+								<div class="tsd-comment tsd-typography">
+									<p>Target extension class.</p>
+								</div>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous class)</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="init" class="tsd-anchor"></a>
+				<h3>init</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">init<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in Application.ts:43</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Initialization app.</p>
+							</div>
+						</div>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="register" class="tsd-anchor"></a>
+				<h3>register</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">register<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in Application.ts:48</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Registers a service providers.</p>
+							</div>
+						</div>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="startup" class="tsd-anchor"></a>
+				<h3>startup</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">startup<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in Application.ts:64</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Startup a service providers.</p>
+							</div>
+						</div>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>

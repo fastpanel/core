@@ -25,10 +25,9 @@ const Di = __importStar(require("./Di"));
 exports.Di = Di;
 const Extensions = __importStar(require("./Extensions"));
 exports.Extensions = Extensions;
-const Mixins = __importStar(require("./Mixins"));
-exports.Mixins = Mixins;
 const Utils = __importStar(require("./Utils"));
 exports.Utils = Utils;
+__export(require("./Application"));
 __export(require("./Component"));
 __export(require("./Config"));
 /* End of file index.ts */ 

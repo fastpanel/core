@@ -5,7 +5,7 @@
  * @copyright 2014 - 2018 Desionlab
  * @license   MIT
  */
-import { Container } from "../Di";
+import { Container, Injectable } from "../Di";
 /**
  * Class ExtensionDefines
  *
@@ -13,13 +13,19 @@ import { Container } from "../Di";
  *
  * @version 1.0.0
  */
-export declare class ExtensionDefines {
+export declare class ExtensionDefines extends Injectable {
+    /**
+     * ExtensionDefines constructor.
+     *
+     * @param container Di container instant.
+     */
+    constructor(container?: Container);
     /**
      * Registers a service provider.
      */
-    register(di: Container): Promise<any>;
+    register(): Promise<any>;
     /**
      * Startup a service provider.
      */
-    startup(di: Container): Promise<any>;
+    startup(): Promise<any>;
 }

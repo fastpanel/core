@@ -7,9 +7,7 @@
  * @license   MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-const Di_1 = require("./../Di");
-const Mixins_1 = require("./../Mixins");
-const Utils_1 = require("./../Utils");
+const Application_1 = require("./../Application");
 /**
  * Class Handler
  *
@@ -17,7 +15,7 @@ const Utils_1 = require("./../Utils");
  *
  * @version 1.0.0
  */
-class Handler extends Utils_1.Mixer(Di_1.Injectable).with(Mixins_1.Application, Mixins_1.ExtensionsManager) {
+class Handler extends Application_1.Application {
     /**
      * Handler constructor.
      *

@@ -7,6 +7,7 @@
  * @license   MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+const Di_1 = require("../Di");
 /**
  * Class ExtensionDefines
  *
@@ -14,15 +15,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *
  * @version 1.0.0
  */
-class ExtensionDefines {
+class ExtensionDefines extends Di_1.Injectable {
+    /**
+     * ExtensionDefines constructor.
+     *
+     * @param container Di container instant.
+     */
+    constructor(container) {
+        super(container);
+    }
     /**
      * Registers a service provider.
      */
-    async register(di) { }
+    async register() { }
     /**
      * Startup a service provider.
      */
-    async startup(di) { }
+    async startup() { }
 }
 exports.ExtensionDefines = ExtensionDefines;
 /* End of file ExtensionDefines.ts */ 
