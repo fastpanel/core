@@ -23,6 +23,10 @@ class Handler extends Application_1.Application {
      */
     constructor(container) {
         super(container);
+        /* Linked self. */
+        this.di.set('context', () => {
+            return this;
+        }, true);
     }
     /**
      * Initialization worker handler.
