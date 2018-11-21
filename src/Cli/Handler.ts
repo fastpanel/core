@@ -34,12 +34,6 @@ export class Handler extends Application {
     /* Call parent. */
     await super.init();
     
-    /* Registers a service providers. */
-    await this.register();
-
-    /* Startup a service providers. */
-    await this.startup();
-
     /* Set ready flag. */
     this.isStartup = true;
     

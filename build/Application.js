@@ -35,7 +35,12 @@ class Application extends Di_1.Injectable {
     /**
      * Initialization app.
      */
-    async init() { }
+    async init() {
+        /* Registers a service providers. */
+        await this.register();
+        /* Startup a service providers. */
+        await this.startup();
+    }
     /**
      * Registers a service providers.
      */
@@ -75,12 +80,16 @@ class Application extends Di_1.Injectable {
      */
     addExtension(extension) {
         try {
-            let instant = new extension(this.di);
-            this.extensions.push(instant);
+            if (typeof extension.Extension !== 'undefined') {
+                let ExtObject = extension.Extension;
+                let instant = new ExtObject(this.di);
+                this.extensions.push(instant);
+            }
         }
         catch (error) {
             console.error(error);
         }
+        return this;
     }
 }
 exports.Application = Application;

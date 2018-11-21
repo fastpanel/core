@@ -46,5 +46,5 @@ export declare class Application extends Injectable {
      *
      * @param extension Target extension class.
      */
-    addExtension(extension: typeof ExtensionDefines): void;
+    addExtension(extension: any): Application;
 }

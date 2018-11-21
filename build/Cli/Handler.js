@@ -30,10 +30,6 @@ class Handler extends Application_1.Application {
     async init() {
         /* Call parent. */
         await super.init();
-        /* Registers a service providers. */
-        await this.register();
-        /* Startup a service providers. */
-        await this.startup();
         /* Set ready flag. */
         this.isStartup = true;
         /* Startup cli handler. */

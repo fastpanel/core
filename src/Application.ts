@@ -40,7 +40,13 @@ export class Application extends Injectable {
   /**
    * Initialization app.
    */
-  public async init () : Promise<any> {}
+  public async init () : Promise<any> {
+    /* Registers a service providers. */
+    await this.register();
+
+    /* Startup a service providers. */
+    await this.startup();
+  }
   
   /**
    * Registers a service providers.
@@ -79,13 +85,19 @@ export class Application extends Injectable {
    * 
    * @param extension Target extension class.
    */
-  public addExtension (extension: typeof ExtensionDefines) : void {
+  public addExtension (extension: any) : Application {
     try {
-      let instant: ExtensionDefines = new extension(this.di);
-      this.extensions.push(instant);
+      if (typeof extension.Extension !== 'undefined') {
+        let ExtObject = extension.Extension;
+        let instant: ExtensionDefines = new ExtObject(this.di);
+        
+        this.extensions.push(instant);
+      }
     } catch (error) {
       console.error(error);
     }
+
+    return this;
   }
   
 }
