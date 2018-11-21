@@ -61,7 +61,7 @@ export declare class Container extends EventEmitter {
      * @param name Service name.
      * @param parameters Resolve service parameters.
      */
-    get(name: string): any;
+    get(name: string, ...parameters: any): any;
     /**
      * Return the services registered in the di.
      */

@@ -100,7 +100,6 @@ export class Container extends EventEmitter {
    * @param name Service name.
    * @param parameters Resolve service parameters.
    */
-  public get (name: string) : any;
   public get (name: string, ...parameters: any) : any {
     /* Check service. */
     if (!this.services[name]) {

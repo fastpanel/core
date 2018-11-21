@@ -70,6 +70,12 @@ class Container extends events_1.EventEmitter {
         /* Send self. */
         return this;
     }
+    /**
+     * Resolves the service based on its configuration.
+     *
+     * @param name Service name.
+     * @param parameters Resolve service parameters.
+     */
     get(name, ...parameters) {
         /* Check service. */
         if (!this.services[name]) {
