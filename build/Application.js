@@ -31,6 +31,10 @@ class Application extends Di_1.Injectable {
          * List of installed extensions and add-ons.
          */
         this.extensions = [];
+        /* Linked self. */
+        this.di.set('context', () => {
+            return this;
+        }, true);
     }
     /**
      * Initialization app.
