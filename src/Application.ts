@@ -35,6 +35,11 @@ export class Application extends Injectable {
    */
   public constructor (container? : Container) {
     super(container);
+    
+    /* Linked self. */
+    this.di.set('context', () => {
+      return this;
+    }, true);
   }
   
   /**
