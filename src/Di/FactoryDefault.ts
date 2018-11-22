@@ -6,6 +6,8 @@
  * @license   MIT
  */
 
+import Redis from 'ioredis';
+import { REDIS_CONFIG } from './../Const';
 import { EventEmitter } from 'events';
 import { Config } from './../Config';
 import { Container } from './Container';
@@ -32,15 +34,43 @@ export class FactoryDefault extends Container {
     super();
     
     /* Registered event emitter component. */
-    this.set('events', (container: Container) => {
+    this.set('events', (di: Container) => {
       return new EventEmitter();
     }, true);
     
     /* Registered config component. */
-    this.set('config', (container: Container) => {
+    this.set('config', (di: Container) => {
       let path = (process.env.CONFIG_PATH) ? process.env.CONFIG_PATH : 'App/Config';
       return new Config(path, {Env: process.env});
     }, true);
+    
+    /* Registered redis component. */
+    this.set('redis', (di: Container, params: any) => {
+      let config: any = REDIS_CONFIG;
+
+      if (params) {
+        config = params;
+      }
+
+      if (typeof config.host !== 'undefined') {
+        return new Redis(
+          (config.port) ? config.port : REDIS_CONFIG.port,
+          (config.host) ? config.host : REDIS_CONFIG.host,
+          (config.options) ? config.options : REDIS_CONFIG.options
+        );
+      } else if (typeof config.hosts !== 'undefined') {
+        return new Redis.Cluster(
+          config.hosts,
+          { redisOptions: config.options }
+        );
+      } else {
+        return new Redis(
+          REDIS_CONFIG.port,
+          REDIS_CONFIG.host,
+          REDIS_CONFIG.options
+        );
+      }
+    }, false);
   }
 
 }

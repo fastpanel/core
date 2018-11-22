@@ -18,3 +18,4 @@ export { Utils };
 export * from './Application';
 export * from './Component';
 export * from './Config';
+export * from './Const';

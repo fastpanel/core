@@ -27,11 +27,12 @@ export class FactoryDefault extends Factory.FactoryDefault {
     super();
     
     /* Registered logger component. */
-    this.set('logger', (container: Container) => {
+    this.set('logger', (di: Container) => {
       let logger = Winston.createLogger({
         transports: [
           new Winston.transports.Console({
-            handleExceptions: true
+            handleExceptions: true,
+            format: Winston.format.simple()
           }),
           new DailyRotateFile({
             dirname: (process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs',

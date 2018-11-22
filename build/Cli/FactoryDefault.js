@@ -35,11 +35,12 @@ class FactoryDefault extends Factory.FactoryDefault {
     constructor() {
         super();
         /* Registered logger component. */
-        this.set('logger', (container) => {
+        this.set('logger', (di) => {
             let logger = winston_1.default.createLogger({
                 transports: [
                     new winston_1.default.transports.Console({
-                        handleExceptions: true
+                        handleExceptions: true,
+                        format: winston_1.default.format.simple()
                     }),
                     new winston_daily_rotate_file_1.default({
                         dirname: (process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs',
@@ -52,7 +53,7 @@ class FactoryDefault extends Factory.FactoryDefault {
             return logger;
         }, true);
         /* Registered cli handler component. */
-        this.set('cli', (container) => {
+        this.set('cli', (di) => {
             let vorpal = new vorpal_1.default();
             return vorpal;
         }, true);
