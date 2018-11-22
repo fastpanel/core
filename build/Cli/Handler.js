@@ -30,11 +30,13 @@ class Handler extends Application_1.Application {
     async init() {
         /* Call parent. */
         await super.init();
+        /* Fire event. */
+        this.events.emit('cli:getCommands', this.cli);
         /* Set ready flag. */
         this.isStartup = true;
         /* Startup cli handler. */
         this.cli
-            .delimiter('=>')
+            .delimiter('>')
             .show();
     }
 }
