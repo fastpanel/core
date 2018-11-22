@@ -7,24 +7,19 @@
  */
 
 import Vorpal from 'vorpal';
-import { EventEmitter } from 'events';
-import { Config } from './../Config';
-import { Container } from './../Di/Container';
+import Winston from 'winston';
+import DailyRotateFile from 'winston-daily-rotate-file';
+import { Container } from '../Di';
+import * as Factory from './../Di/FactoryDefault';
 
 /**
  * Class FactoryDefault
  * 
  * This is a variant of the standard Di for cli mode. 
  * 
- * By default it automatically registers all the services 
- * provided by the framework.
- * 
- * Thanks to this, the developer does not need to register each service 
- * individually providing a full stack framework.
- * 
  * @version 1.0.0
  */
-export class FactoryDefault extends Container {
+export class FactoryDefault extends Factory.FactoryDefault {
 
   /**
    * FactoryDefault constructor.
@@ -32,17 +27,25 @@ export class FactoryDefault extends Container {
   public constructor () {
     super();
     
-    /* Registered event emitter component. */
-    this.set('events', (container: Container) => {
-      return new EventEmitter();
+    /* Registered logger component. */
+    this.set('logger', (container: Container) => {
+      let logger = Winston.createLogger({
+        transports: [
+          new Winston.transports.Console({
+            handleExceptions: true
+          }),
+          new DailyRotateFile({
+            dirname: (process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs',
+            filename: 'cli-%DATE%.log',
+            datePattern: 'YYYY-MM-DD'
+          })
+        ],
+        exitOnError: false
+      });
+
+      return logger;
     }, true);
-    
-    /* Registered config component. */
-    this.set('config', (container: Container) => {
-      let path = (process.env.CONFIG_PATH) ? process.env.CONFIG_PATH : 'App/Config';
-      return new Config(path, {Env: process.env});
-    }, true);
-    
+
     /* Registered cli handler component. */
     this.set('cli', (container: Container) => {
       let vorpal = new Vorpal();
