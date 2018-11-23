@@ -21,10 +21,10 @@ export class Handler extends Application {
   /**
    * Handler constructor.
    * 
-   * @param container Di container instant.
+   * @param di Di container instant.
    */
-  public constructor (container? : Container) {
-    super(container);
+  public constructor (di?: Container) {
+    super(di);
   }
 
   /**

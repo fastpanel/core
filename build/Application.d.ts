@@ -26,9 +26,9 @@ export declare class Application extends Injectable {
     /**
      * Application constructor.
      *
-     * @param container Di container instant.
+     * @param di Di container instant.
      */
-    constructor(container?: Container);
+    constructor(di?: Container);
     /**
      * Initialization app.
      */

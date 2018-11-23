@@ -21,15 +21,15 @@ class Injectable {
     /**
      * Injectable constructor.
      *
-     * @param container Di container instant.
+     * @param di Di container instant.
      */
-    constructor(container = null) {
+    constructor(di = null) {
         /**
          * Di container.
          */
         this._di = null;
         /* Check di container. */
-        this.di = (container) ? container : null;
+        this.di = (di) ? di : null;
         /* Set on add service event. */
         this.di.addListener('set', (name) => {
             /* Check object property. */

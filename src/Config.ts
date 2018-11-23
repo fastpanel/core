@@ -70,7 +70,7 @@ export class Config extends Component {
    * @param path Path to the location of the config files.
    * @param data Initial config data.
    */
-  constructor (path : string = '', data : object = {}) {
+  constructor (path: string = '', data: object = {}) {
     /* Call parent. */
     super();
 
@@ -88,7 +88,7 @@ export class Config extends Component {
    *
    * @param key Dot notation index for search in config.
    */
-  public has (key : string) : boolean {
+  public has (key: string) : boolean {
     /* Format key. */
     key = this.formatKey(key);
 
@@ -102,7 +102,7 @@ export class Config extends Component {
    * @param key Dot notation index for search in config.
    * @param preset Default data if key not represented.
    */
-  public get (key : string, preset : any = null) : any {
+  public get (key: string, preset: any = null) : any {
     /* Format key. */
     key = this.formatKey(key);
 
@@ -124,7 +124,7 @@ export class Config extends Component {
    * @param key Dot notation index for search in config.
    * @param value New data.
    */
-  public set (key : string, value : any) : Config {
+  public set (key: string, value: any) : Config {
     /* Format key. */
     key = this.formatKey(key);
     
@@ -140,7 +140,7 @@ export class Config extends Component {
    *
    * @param key Dot notation index for search in config.
    */
-  public del (key : string) : Config {
+  public del (key: string) : Config {
     /* Format key. */
     key = this.formatKey(key);
     
@@ -158,7 +158,7 @@ export class Config extends Component {
    *
    * @param key Dot notation index for search in config.
    */
-  public load (key : string) : Config {
+  public load (key: string) : Config {
     /* Format key. */
     key = this.formatKey(key);
 
@@ -202,7 +202,7 @@ export class Config extends Component {
    * @param key Dot notation index for search in config.
    * @param asDefault Save as the default.
    */
-  public save (key : string, asDefault: boolean = false) : Config {
+  public save (key: string, asDefault: boolean = false) : Config {
     /* Format key. */
     key = this.formatKey(key);
 

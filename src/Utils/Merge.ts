@@ -22,7 +22,7 @@ export class Merge {
    * 
    * @return any
    */
-  public static merge (clone : boolean, recursive : boolean, ...argv : any[]) : any {
+  public static merge (clone: boolean, recursive: boolean, ...argv: any[]) : any {
     let result = argv[0],
 			size = argv.length;
 
@@ -67,7 +67,7 @@ export class Merge {
    * 
    * @return any
    */
-  protected static recursive (base : any, extend : any) : any {
+  protected static recursive (base: any, extend: any) : any {
     if (Merge.typeOf(base) !== 'object')
 
 			return extend;
@@ -96,7 +96,7 @@ export class Merge {
    * 
    * @return any
    */
-  protected static clone (input : any) : any {
+  protected static clone (input: any) : any {
     let output = input,
 			  type = Merge.typeOf(input),
 			  index, size;
@@ -128,7 +128,7 @@ export class Merge {
    * 
    * @return string
    */
-  protected static typeOf(input : any) : string {
+  protected static typeOf(input: any) : string {
     return ({}).toString.call(input).slice(8, -1).toLowerCase();
   }
 

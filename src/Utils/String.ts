@@ -11,7 +11,7 @@
  * @param {string} str 
  * @param {string} charList 
  */
-export function trim(str : string, charList? : string) : string {
+export function trim(str: string, charList?: string) : string {
   let whitespace = [' ', '\n', '\r', '\t', '\f', '\x0b', '\xa0', '\u2000', '\u2001', '\u2002', '\u2003', '\u2004', '\u2005', '\u2006', '\u2007', '\u2008', '\u2009', '\u200A', '\u200B', '\u2028', '\u2029', '\u3000'].join('');
   let l = 0;
   let i = 0;
@@ -49,7 +49,7 @@ export function trim(str : string, charList? : string) : string {
  * @param {Array|string} subject 
  * @param {object} countObj 
  */
-export function str_replace(search : any, replace : any, subject : any, countObj? : any) : string {
+export function str_replace(search: any, replace: any, subject: any, countObj?: any) : string {
   let i = 0;
   let j = 0;
   let temp = '';

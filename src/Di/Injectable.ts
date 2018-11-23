@@ -32,11 +32,11 @@ export class Injectable {
   /**
    * Injectable constructor.
    * 
-   * @param container Di container instant.
+   * @param di Di container instant.
    */
-  public constructor (container: Container = null) {
+  public constructor (di: Container = null) {
     /* Check di container. */
-    this.di = (container) ? container : null;
+    this.di = (di) ? di : null;
 
     /* Set on add service event. */
     this.di.addListener('set', (name) => {

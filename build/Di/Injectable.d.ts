@@ -27,9 +27,9 @@ export declare class Injectable {
     /**
      * Injectable constructor.
      *
-     * @param container Di container instant.
+     * @param di Di container instant.
      */
-    constructor(container?: Container);
+    constructor(di?: Container);
     /**
      * Returns the internal dependency injector.
      */

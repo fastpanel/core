@@ -19,10 +19,10 @@ class Application extends Di_1.Injectable {
     /**
      * Application constructor.
      *
-     * @param container Di container instant.
+     * @param di Di container instant.
      */
-    constructor(container) {
-        super(container);
+    constructor(di) {
+        super(di);
         /**
          * Flag a app is ready.
          */

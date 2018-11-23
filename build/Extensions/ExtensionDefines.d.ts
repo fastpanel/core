@@ -17,9 +17,9 @@ export declare class ExtensionDefines extends Injectable {
     /**
      * ExtensionDefines constructor.
      *
-     * @param container Di container instant.
+     * @param di Di container instant.
      */
-    constructor(container?: Container);
+    constructor(di?: Container);
     /**
      * Registers a service provider.
      */

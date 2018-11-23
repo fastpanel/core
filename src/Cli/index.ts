@@ -6,6 +6,7 @@
  * @license   MIT
  */
 
+export * from './CommandDefines';
 export * from './FactoryDefault';
 export * from './Handler';
 

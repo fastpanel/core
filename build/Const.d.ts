@@ -5,6 +5,9 @@
  * @copyright 2014 - 2018 Desionlab
  * @license   MIT
  */
+/**
+ * Default redis config.
+ */
 export declare const REDIS_CONFIG: {
     host: string;
     port: number;
