@@ -33,7 +33,13 @@ export class FactoryDefault extends Factory.FactoryDefault {
         transports: [
           new Winston.transports.Console({
             handleExceptions: true,
-            format: Winston.format.simple()
+            format: Winston.format.combine(
+              Winston.format.colorize(),
+              Winston.format.timestamp(),
+              Winston.format.printf(
+                info => `[${info.timestamp}] ${info.message}`
+              )
+            )
           }),
           new DailyRotateFile({
             dirname: (process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs',
