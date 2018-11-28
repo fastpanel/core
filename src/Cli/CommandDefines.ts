@@ -29,7 +29,7 @@ export class CommandDefines extends Injectable {
   /**
    * Initialize command.
    */
-  initialize () : void {}
+  async initialize () : Promise<any> {}
 
 }
 

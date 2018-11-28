@@ -27,7 +27,7 @@ class CommandDefines extends Di_1.Injectable {
     /**
      * Initialize command.
      */
-    initialize() { }
+    async initialize() { }
 }
 exports.CommandDefines = CommandDefines;
 /* End of file CommandDefines.ts */ 
