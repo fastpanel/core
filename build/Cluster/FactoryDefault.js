@@ -39,7 +39,7 @@ class FactoryDefault extends Factory.FactoryDefault {
                 transports: [
                     new winston_1.default.transports.Console({
                         handleExceptions: true,
-                        format: winston_1.default.format.combine(winston_1.default.format.colorize(), winston_1.default.format.timestamp(), winston_1.default.format.printf(info => `[${info.timestamp}] ${info.message}`))
+                        format: winston_1.default.format.combine(winston_1.default.format.colorize(), winston_1.default.format.printf(info => `${info.message}`))
                     }),
                     new winston_daily_rotate_file_1.default({
                         dirname: (process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs',

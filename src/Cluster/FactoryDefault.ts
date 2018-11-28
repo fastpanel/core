@@ -34,10 +34,7 @@ export class FactoryDefault extends Factory.FactoryDefault {
             handleExceptions: true,
             format: Winston.format.combine(
               Winston.format.colorize(),
-              Winston.format.timestamp(),
-              Winston.format.printf(
-                info => `[${info.timestamp}] ${info.message}`
-              )
+              Winston.format.printf(info => `${info.message}`)
             )
           }),
           new DailyRotateFile({
