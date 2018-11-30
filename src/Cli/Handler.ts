@@ -43,7 +43,8 @@ export class Handler extends Application {
     /* Startup cli handler. */
     this.cli
     .delimiter('>')
-    .show();
+    .show()
+    .parse(process.argv);
   }
 
 }

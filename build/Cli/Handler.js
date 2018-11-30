@@ -37,7 +37,8 @@ class Handler extends Application_1.Application {
         /* Startup cli handler. */
         this.cli
             .delimiter('>')
-            .show();
+            .show()
+            .parse(process.argv);
     }
 }
 exports.Handler = Handler;
