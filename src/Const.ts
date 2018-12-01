@@ -6,6 +6,15 @@
  * @license   MIT
  */
 
+import path from 'path';
+
+/**
+ * Full path to the file with the list of installed add-ons.
+ */
+export const BOOT_FILE = path.resolve(
+  (process.env.APP_PATH) ? process.env.APP_PATH : 'App'
+) + path.sep + 'boot.json';
+
 /**
  * Default redis config.
  */

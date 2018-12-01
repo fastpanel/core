@@ -909,6 +909,9 @@ img { max-width: 100%; }
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
+		<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+			<a href="_const_.html#boot_file" class="tsd-kind-icon">BOOT_<wbr>FILE</a>
+		</li>
 		<li class=" tsd-kind-object-literal tsd-parent-kind-external-module">
 			<a href="_const_.html#redis_config" class="tsd-kind-icon">REDIS_<wbr>CONFIG</a>
 		</li>
@@ -916,34 +919,40 @@ img { max-width: 100%; }
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
-		<section class="tsd-panel tsd-comment">
-			<div class="tsd-comment tsd-typography">
-				<div class="lead">
-					<p>Const.ts</p>
-				</div>
-				<dl class="tsd-comment-tags">
-					<dt>author</dt>
-					<dd><p>Desionlab <a href="mailto:&#102;&#x65;&#110;&#x69;&#120;&#112;&#x68;&#112;&#x40;&#103;&#109;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;">&#102;&#x65;&#110;&#x69;&#120;&#112;&#x68;&#112;&#x40;&#103;&#109;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;</a></p>
-					</dd>
-					<dt>copyright</dt>
-					<dd><p>2014 - 2018 Desionlab</p>
-					</dd>
-					<dt>license</dt>
-					<dd><p>MIT</p>
-					</dd>
-				</dl>
-			</div>
-		</section>
 		<section class="tsd-panel-group tsd-index-group">
 			<h2>Index</h2>
 			<section class="tsd-panel tsd-index-panel">
 				<div class="tsd-index-content">
+					<section class="tsd-index-section ">
+						<h3>Variables</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_const_.html#boot_file" class="tsd-kind-icon">BOOT_<wbr>FILE</a></li>
+						</ul>
+					</section>
 					<section class="tsd-index-section ">
 						<h3>Object literals</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-object-literal tsd-parent-kind-external-module"><a href="_const_.html#redis_config" class="tsd-kind-icon">REDIS_<wbr>CONFIG</a></li>
 						</ul>
 					</section>
+				</div>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group ">
+			<h2>Variables</h2>
+			<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+				<a name="boot_file" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> BOOT_<wbr>FILE</h3>
+				<div class="tsd-signature tsd-kind-icon">BOOT_<wbr>FILE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;path.resolve((process.env.APP_PATH) ? process.env.APP_PATH : &#x27;App&#x27;) + path.sep + &#x27;boot.json&#x27;</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in Const.ts:14</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Full path to the file with the list of installed add-ons.</p>
+					</div>
 				</div>
 			</section>
 		</section>
@@ -955,7 +964,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">REDIS_<wbr>CONFIG<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in Const.ts:12</li>
+						<li>Defined in Const.ts:21</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -969,7 +978,7 @@ img { max-width: 100%; }
 					<div class="tsd-signature tsd-kind-icon">host<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;127.0.0.1&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Const.ts:13</li>
+							<li>Defined in Const.ts:22</li>
 						</ul>
 					</aside>
 				</section>
@@ -979,7 +988,7 @@ img { max-width: 100%; }
 					<div class="tsd-signature tsd-kind-icon">port<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;6379</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Const.ts:14</li>
+							<li>Defined in Const.ts:23</li>
 						</ul>
 					</aside>
 				</section>
@@ -989,7 +998,7 @@ img { max-width: 100%; }
 					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Const.ts:15</li>
+							<li>Defined in Const.ts:24</li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -998,7 +1007,7 @@ img { max-width: 100%; }
 						<div class="tsd-signature tsd-kind-icon">db<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in Const.ts:18</li>
+								<li>Defined in Const.ts:27</li>
 							</ul>
 						</aside>
 					</section>
@@ -1008,7 +1017,7 @@ img { max-width: 100%; }
 						<div class="tsd-signature tsd-kind-icon">family<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;4</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in Const.ts:16</li>
+								<li>Defined in Const.ts:25</li>
 							</ul>
 						</aside>
 					</section>
@@ -1018,7 +1027,7 @@ img { max-width: 100%; }
 						<div class="tsd-signature tsd-kind-icon">key<wbr>Prefix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;fastpanel:&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in Const.ts:19</li>
+								<li>Defined in Const.ts:28</li>
 							</ul>
 						</aside>
 					</section>
@@ -1028,7 +1037,7 @@ img { max-width: 100%; }
 						<div class="tsd-signature tsd-kind-icon">password<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in Const.ts:17</li>
+								<li>Defined in Const.ts:26</li>
 							</ul>
 						</aside>
 					</section>

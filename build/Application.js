@@ -8,7 +8,6 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const Di_1 = require("./Di");
-const Const_1 = require("./Const");
 /**
  * Class Application
  *
@@ -32,11 +31,6 @@ class Application extends Di_1.Injectable {
          * List of installed extensions and add-ons.
          */
         this.extensions = [];
-        /* Check and create default config fail. */
-        if (!this.config.get('Extensions/Redis', false)) {
-            this.config.set('Extensions/Redis', Const_1.REDIS_CONFIG);
-            this.config.save('Extensions/Redis', true);
-        }
         /* Linked self. */
         this.di.set('context', () => {
             return this;

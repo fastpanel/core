@@ -6,6 +6,10 @@
  * @license   MIT
  */
 /**
+ * Full path to the file with the list of installed add-ons.
+ */
+export declare const BOOT_FILE: string;
+/**
  * Default redis config.
  */
 export declare const REDIS_CONFIG: {
