@@ -8,6 +8,7 @@
 
 import { Container, Injectable } from "./Di";
 import { ExtensionDefines } from "./Extensions";
+import { REDIS_CONFIG } from "./Const";
 
 /**
  * Class Application
@@ -35,6 +36,12 @@ export class Application extends Injectable {
    */
   public constructor (di?: Container) {
     super(di);
+    
+    /* Check and create default config fail. */
+    if (!this.config.get('Extensions/Redis', false)) {
+      this.config.set('Extensions/Redis', REDIS_CONFIG);
+      this.config.save('Extensions/Redis', true);
+    }
     
     /* Linked self. */
     this.di.set('context', () => {

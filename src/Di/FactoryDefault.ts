@@ -46,7 +46,9 @@ export class FactoryDefault extends Container {
     
     /* Registered redis component. */
     this.set('redis', (di: Container, params: any) => {
-      let config: any = REDIS_CONFIG;
+      let config: any = di
+        .get('config')
+        .get('Extensions/Redis', REDIS_CONFIG);
 
       if (params) {
         config = params;
