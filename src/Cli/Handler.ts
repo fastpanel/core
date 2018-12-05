@@ -35,9 +35,9 @@ export class Handler extends Application {
     await super.init();
     
     /* Register setup command. */
-    const { Setup } = require('./Commands/Setup');
+    const { Setup } = require('../Commands/Setup');
     await (new Setup(this.di)).initialize();
-
+    
     /* Fire event. */
     this.events.emit('cli:getCommands', this.cli);
 

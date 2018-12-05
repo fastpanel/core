@@ -33,7 +33,7 @@ export class MixinBuilder {
    * 
    * @param mixins 
    */
-  with (...mixins: any) {
+  public with (...mixins: any) {
     return mixins.reduce((c: any, mixin: any) => mixin(c), this.superClass);
   }
 

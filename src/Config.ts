@@ -70,7 +70,7 @@ export class Config extends Component {
    * @param path Path to the location of the config files.
    * @param data Initial config data.
    */
-  constructor (path: string = '', data: object = {}) {
+  public constructor (path: string = '', data: object = {}) {
     /* Call parent. */
     super();
 

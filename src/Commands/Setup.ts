@@ -26,7 +26,7 @@ export class Setup extends CommandDefines {
   /**
    * Initialize a commands provider.
    */
-  async initialize () : Promise<any> {
+  public async initialize () : Promise<any> {
     this.cli
     .command('app setup', 'Install and configure components.')
     .action((args: any) => {
