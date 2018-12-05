@@ -7,11 +7,13 @@
  */
 import * as Cli from './Cli';
 import * as Cluster from './Cluster';
+import * as Commands from './Commands';
 import * as Di from './Di';
 import * as Extensions from './Extensions';
 import * as Utils from './Utils';
 export { Cli };
 export { Cluster };
+export { Commands };
 export { Di };
 export { Extensions };
 export { Utils };

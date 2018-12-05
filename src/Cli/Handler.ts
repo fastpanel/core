@@ -6,10 +6,8 @@
  * @license   MIT
  */
 
-import fs from 'fs';
-import { Application } from './../Application';
 import { Container } from './../Di';
-import { REDIS_CONFIG, BOOT_FILE } from '../Const';
+import { Application } from './../Application';
 
 /**
  * Class Handler
@@ -37,27 +35,8 @@ export class Handler extends Application {
     await super.init();
     
     /* Register setup command. */
-    this.cli
-    .command('app setup', 'Install and configure the basic components of the system.')
-    .action((args: any) => {
-      return new Promise((resolve, reject) => {
-        /* Check and create boot config file. */
-        if (!fs.existsSync(BOOT_FILE)) {
-          fs.writeFileSync(BOOT_FILE, JSON.stringify({}));
-        }
-        
-        /* Check and create default config file. */
-        if (!this.config.get('Extensions/Redis', false)) {
-          this.config.set('Extensions/Redis', REDIS_CONFIG);
-          this.config.save('Extensions/Redis', true);
-        }
-
-        /* Fire event. */
-        this.events.emit('app:setup', this);
-        
-        resolve();
-      });
-    });
+    const { Setup } = require('./Commands/Setup');
+    await (new Setup(this.di)).initialize();
 
     /* Fire event. */
     this.events.emit('cli:getCommands', this.cli);

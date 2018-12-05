@@ -1,5 +1,5 @@
 {
-  "name": "fastpanel-core",
+  "name": "@fastpanel/core",
   "version": "0.0.1",
   "description": "The main core of the \"fastPanel\" system.",
   "author": "Desionlab <fenixphp@gmail.com>",
@@ -28,6 +28,7 @@
     "nodejs",
     "di",
     "clustering",
+    "redis",
     "typescript"
   ],
   "dependencies": {
@@ -45,7 +46,7 @@
     "@types/chai": "^4.1.7",
     "@types/ioredis": "^4.0.4",
     "@types/mocha": "^5.2.5",
-    "@types/node": "^10.12.10",
+    "@types/node": "^10.12.12",
     "@types/object-path": "^0.9.29",
     "@types/progress": "^2.0.1",
     "@types/vorpal": "^1.11.0",

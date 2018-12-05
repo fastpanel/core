@@ -5,8 +5,8 @@
  * @copyright 2014 - 2018 Desionlab
  * @license   MIT
  */
-import { Application } from './../Application';
 import { Container } from './../Di';
+import { Application } from './../Application';
 /**
  * Class Handler
  *
