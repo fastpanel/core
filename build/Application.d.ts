@@ -52,8 +52,4 @@ export declare class Application extends Injectable {
      * @param extension Target extension class.
      */
     addExtension(extension: any): Application;
-    /**
-     *
-     */
-    protected watchdogAction(): void;
 }
