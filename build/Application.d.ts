@@ -5,6 +5,7 @@
  * @copyright 2014 - 2018 Desionlab
  * @license   MIT
  */
+/// <reference types="node" />
 import { Container, Injectable } from "./Di";
 import { ExtensionDefines } from "./Extensions";
 /**
@@ -23,6 +24,10 @@ export declare class Application extends Injectable {
      * List of installed extensions and add-ons.
      */
     protected extensions: Array<ExtensionDefines>;
+    /**
+     *
+     */
+    protected watchdogTimer: NodeJS.Timer;
     /**
      * Application constructor.
      *
@@ -47,4 +52,8 @@ export declare class Application extends Injectable {
      * @param extension Target extension class.
      */
     addExtension(extension: any): Application;
+    /**
+     *
+     */
+    protected watchdogAction(): void;
 }

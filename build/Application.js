@@ -44,6 +44,8 @@ class Application extends Di_1.Injectable {
         await this.register();
         /* Startup a service providers. */
         await this.startup();
+        /* Initial watchdog timer. */
+        this.watchdogTimer = setInterval(this.watchdogAction, 1000);
     }
     /**
      * Registers a service providers.
@@ -94,6 +96,12 @@ class Application extends Di_1.Injectable {
             console.error(error);
         }
         return this;
+    }
+    /**
+     *
+     */
+    watchdogAction() {
+        this.events.emit('app:watchdog', this);
     }
 }
 exports.Application = Application;

@@ -29,6 +29,11 @@ export class Application extends Injectable {
   protected extensions: Array<ExtensionDefines> = [];
 
   /**
+   * 
+   */
+  protected watchdogTimer: NodeJS.Timer;
+
+  /**
    * Application constructor.
    * 
    * @param di Di container instant.
@@ -51,6 +56,9 @@ export class Application extends Injectable {
 
     /* Startup a service providers. */
     await this.startup();
+
+    /* Initial watchdog timer. */
+    this.watchdogTimer = setInterval(this.watchdogAction, 1000);
   }
   
   /**
@@ -105,6 +113,13 @@ export class Application extends Injectable {
     return this;
   }
   
+  /**
+   * 
+   */
+  protected watchdogAction () : void {
+    this.events.emit('app:watchdog', this);
+  }
+
 }
 
 /* End of file Application.ts */

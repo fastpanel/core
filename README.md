@@ -5,6 +5,11 @@ The main core of the "fastPanel" system.
 
 ## Events
 
+### app:watchdog
+```typescript
+  this.events.on('app:watchdog', async (app: Application) => {});
+```
+
 ### app:getSetupTasks
 ```typescript
   this.events.on('app:getSetupTasks', async (list: Array<SetupTaskDefinesMethod>) => {});
