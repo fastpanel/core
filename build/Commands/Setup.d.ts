@@ -10,7 +10,7 @@ import { CommandDefines } from './../Cli';
 /**
  * Definition method a resolve setup task.
  */
-export declare type SetupTaskDefinesMethod = (command: CommandInstance) => Promise<any>;
+export declare type SetupTaskDefinesMethod = (command: CommandInstance, args?: any) => Promise<any>;
 /**
  * Class Setup
  *

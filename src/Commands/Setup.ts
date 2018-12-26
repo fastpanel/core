@@ -14,7 +14,7 @@ import { BOOT_FILE, REDIS_CONFIG } from '../Const';
 /**
  * Definition method a resolve setup task.
  */
-export type SetupTaskDefinesMethod = (command: CommandInstance) => Promise<any>;
+export type SetupTaskDefinesMethod = (command: CommandInstance, args?: any) => Promise<any>;
 
 /**
  * Class Setup
@@ -33,7 +33,7 @@ export class Setup extends CommandDefines {
       return new Promise(async (resolve, reject) => {
         let list: Array<SetupTaskDefinesMethod> = [];
 
-        list.push(async (command: CommandInstance) => {
+        list.push(async (command: CommandInstance, args?: any) => {
           /* Check and create boot config file. */
           if (!fs.existsSync(BOOT_FILE)) {
             fs.writeFileSync(BOOT_FILE, JSON.stringify({}));
@@ -51,7 +51,7 @@ export class Setup extends CommandDefines {
         for (const task of list) {
           if (typeof task === 'function') {
             try {
-              await task(this.cli.activeCommand);
+              await task(this.cli.activeCommand, args);
             } catch (error) {
               this.cli.log(error);
             }

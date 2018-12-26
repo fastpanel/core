@@ -28,7 +28,7 @@ class Setup extends Cli_1.CommandDefines {
             .action((args) => {
             return new Promise(async (resolve, reject) => {
                 let list = [];
-                list.push(async (command) => {
+                list.push(async (command, args) => {
                     /* Check and create boot config file. */
                     if (!fs_1.default.existsSync(Const_1.BOOT_FILE)) {
                         fs_1.default.writeFileSync(Const_1.BOOT_FILE, JSON.stringify({}));
@@ -43,7 +43,7 @@ class Setup extends Cli_1.CommandDefines {
                 for (const task of list) {
                     if (typeof task === 'function') {
                         try {
-                            await task(this.cli.activeCommand);
+                            await task(this.cli.activeCommand, args);
                         }
                         catch (error) {
                             this.cli.log(error);
