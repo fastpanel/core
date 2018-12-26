@@ -48,7 +48,8 @@ class FactoryDefault extends Container_1.Container {
             let config = di
                 .get('config')
                 .get('Extensions/Redis', Const_1.REDIS_CONFIG);
-            if (params) {
+            if (typeof params.host !== 'undefined' ||
+                typeof params.hosts !== 'undefined') {
                 config = params;
             }
             if (typeof config.host !== 'undefined') {

@@ -50,7 +50,10 @@ export class FactoryDefault extends Container {
         .get('config')
         .get('Extensions/Redis', REDIS_CONFIG);
 
-      if (params) {
+      if (
+        typeof params.host !== 'undefined' || 
+        typeof params.hosts !== 'undefined'
+      ) {
         config = params;
       }
 
