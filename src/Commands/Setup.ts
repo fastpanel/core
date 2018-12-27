@@ -8,13 +8,8 @@
 
 import fs from 'fs';
 import { CommandInstance } from 'vorpal';
-import { CommandDefines } from './../Cli';
+import { CommandDefines, CommandSubscriptionDefines } from './../Cli';
 import { BOOT_FILE, REDIS_CONFIG } from '../Const';
-
-/**
- * Definition method a resolve setup task.
- */
-export type SetupTaskDefinesMethod = (command: CommandInstance, args?: any) => Promise<any>;
 
 /**
  * Class Setup
@@ -31,7 +26,7 @@ export class Setup extends CommandDefines {
     .command('app setup', 'Install and configure components.')
     .action((args: any) => {
       return new Promise(async (resolve, reject) => {
-        let list: Array<SetupTaskDefinesMethod> = [];
+        let list: Array<CommandSubscriptionDefines> = [];
 
         list.push(async (command: CommandInstance, args?: any) => {
           /* Check and create boot config file. */
@@ -46,7 +41,7 @@ export class Setup extends CommandDefines {
           }
         });
 
-        this.events.emit('app:getSetupTasks', list);
+        this.events.emit('app:getSetupSubscriptions', list);
         
         for (const task of list) {
           if (typeof task === 'function') {

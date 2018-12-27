@@ -39,7 +39,7 @@ class Setup extends Cli_1.CommandDefines {
                         this.config.save('Extensions/Redis', true);
                     }
                 });
-                this.events.emit('app:getSetupTasks', list);
+                this.events.emit('app:getSetupSubscriptions', list);
                 for (const task of list) {
                     if (typeof task === 'function') {
                         try {

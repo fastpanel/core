@@ -919,11 +919,17 @@ img { max-width: 100%; }
 			<hr>
 			<h2 id="events">Events</h2>
 			<h3 id="app-watchdog">app:watchdog</h3>
-			<pre><code class="language-typescript">  <span class="hljs-keyword">this</span>.events.on(<span class="hljs-string">'app:watchdog'</span>, <span class="hljs-keyword">async</span> (app: Application) =&gt; {});</code></pre>
-			<h3 id="app-getsetuptasks">app:getSetupTasks</h3>
-			<pre><code class="language-typescript">  <span class="hljs-keyword">this</span>.events.on(<span class="hljs-string">'app:getSetupTasks'</span>, <span class="hljs-keyword">async</span> (list: <span class="hljs-built_in">Array</span>&lt;SetupTaskDefinesMethod&gt;) =&gt; {});</code></pre>
+			<p>The event is triggered every second. Be extremely careful USE OF THE EVENTS.</p>
+			<pre><code class="language-typescript">  <span class="hljs-keyword">this</span>.events.on(<span class="hljs-string">'app:watchdog'</span>, <span class="hljs-function">(<span class="hljs-params">app: Application</span>) =&gt;</span> {});</code></pre>
 			<h3 id="cli-getcommands">cli:getCommands</h3>
-			<pre><code class="language-typescript">  <span class="hljs-keyword">this</span>.events.once(<span class="hljs-string">'cli:getCommands'</span>, <span class="hljs-keyword">async</span> (cli: Vorpal) =&gt; {});</code></pre>
+			<p>The event is triggered when the application is ready to register console commands.</p>
+			<pre><code class="language-typescript">  <span class="hljs-keyword">this</span>.events.once(<span class="hljs-string">'cli:getCommands'</span>, <span class="hljs-function">(<span class="hljs-params">cli: Vorpal</span>) =&gt;</span> {});</code></pre>
+			<h3 id="app-getsetupsubscriptions">app:getSetupSubscriptions</h3>
+			<p>The event allows you to register in the queue
+			for execution actions to configure the system components.</p>
+			<pre><code class="language-typescript">  <span class="hljs-keyword">this</span>.events.on(<span class="hljs-string">'app:getSetupSubscriptions'</span>, <span class="hljs-function">(<span class="hljs-params">list: <span class="hljs-built_in">Array</span>&lt;CommandSubscriptionDefines&gt;</span>) =&gt;</span> {
+    list.push(<span class="hljs-keyword">async</span> (command: Vorpal.CommandInstance, args?: <span class="hljs-built_in">any</span>) =&gt; {});
+  });</code></pre>
 			<hr>
 			<h2 id="license">License</h2>
 			<p>The MIT License (MIT)</p>
@@ -948,7 +954,6 @@ img { max-width: 100%; }
 							<li class="tsd-kind-external-module"><a href="modules/_cluster_handler_.html" class="tsd-kind-icon">"<wbr>Cluster/<wbr>Handler"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_cluster_index_.html" class="tsd-kind-icon">"<wbr>Cluster/index"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_commands_setup_.html" class="tsd-kind-icon">"<wbr>Commands/<wbr>Setup"</a></li>
-							<li class="tsd-kind-external-module"><a href="modules/_commands_index_.html" class="tsd-kind-icon">"<wbr>Commands/index"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_component_.html" class="tsd-kind-icon">"<wbr>Component"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_config_.html" class="tsd-kind-icon">"<wbr>Config"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_const_.html" class="tsd-kind-icon">"<wbr>Const"</a></li>

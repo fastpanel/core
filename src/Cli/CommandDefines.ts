@@ -6,6 +6,7 @@
  * @license   MIT
  */
 
+import Vorpal from 'vorpal';
 import { Injectable, Container } from "../Di";
 
 /**
@@ -32,5 +33,11 @@ export class CommandDefines extends Injectable {
   public async initialize () : Promise<any> {}
 
 }
+
+/**
+ * The method determines the async subscription 
+ * for the execution queue by the command.
+ */
+export type CommandSubscriptionDefines = (command: Vorpal.CommandInstance, args?: any) => Promise<any>;
 
 /* End of file CommandDefines.ts */

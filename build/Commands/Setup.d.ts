@@ -5,12 +5,7 @@
  * @copyright 2014 - 2018 Desionlab
  * @license   MIT
  */
-import { CommandInstance } from 'vorpal';
 import { CommandDefines } from './../Cli';
-/**
- * Definition method a resolve setup task.
- */
-export declare type SetupTaskDefinesMethod = (command: CommandInstance, args?: any) => Promise<any>;
 /**
  * Class Setup
  *
