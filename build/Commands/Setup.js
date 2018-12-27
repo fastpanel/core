@@ -46,7 +46,7 @@ class Setup extends Cli_1.CommandDefines {
                             await task(this.cli.activeCommand, args);
                         }
                         catch (error) {
-                            this.cli.log(error);
+                            this.logger.error(error);
                         }
                     }
                 }
