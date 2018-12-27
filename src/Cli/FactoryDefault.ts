@@ -8,7 +8,8 @@
 
 import Vorpal from 'vorpal';
 import Winston from 'winston';
-import DailyRotateFile from 'winston-daily-rotate-file';
+import { WinstonVorpalTransport } from './WinstonVorpalTransport';
+import WinstonDailyRotateFile from 'winston-daily-rotate-file';
 import { Container } from '../Di';
 import * as Factory from './../Di/FactoryDefault';
 
@@ -27,18 +28,25 @@ export class FactoryDefault extends Factory.FactoryDefault {
   public constructor () {
     super();
     
+    /* Registered cli handler component. */
+    this.set('cli', (di: Container) => {
+      let vorpal = new Vorpal();
+      return vorpal;
+    }, true);
+
     /* Registered logger component. */
     this.set('logger', (di: Container) => {
       let logger = Winston.createLogger({
         transports: [
-          new Winston.transports.Console({
+          new WinstonVorpalTransport({
             handleExceptions: true,
             format: Winston.format.combine(
               Winston.format.colorize(),
               Winston.format.printf(info => `${info.message}`)
-            )
+            ),
+            cli: di.get('cli')
           }),
-          new DailyRotateFile({
+          new WinstonDailyRotateFile({
             dirname: (process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs',
             filename: 'cli-%DATE%.log',
             datePattern: 'YYYY-MM-DD'
@@ -48,12 +56,6 @@ export class FactoryDefault extends Factory.FactoryDefault {
       });
 
       return logger;
-    }, true);
-
-    /* Registered cli handler component. */
-    this.set('cli', (di: Container) => {
-      let vorpal = new Vorpal();
-      return vorpal;
     }, true);
   }
 

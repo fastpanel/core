@@ -19,6 +19,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const vorpal_1 = __importDefault(require("vorpal"));
 const winston_1 = __importDefault(require("winston"));
+const WinstonVorpalTransport_1 = require("./WinstonVorpalTransport");
 const winston_daily_rotate_file_1 = __importDefault(require("winston-daily-rotate-file"));
 const Factory = __importStar(require("./../Di/FactoryDefault"));
 /**
@@ -34,13 +35,19 @@ class FactoryDefault extends Factory.FactoryDefault {
      */
     constructor() {
         super();
+        /* Registered cli handler component. */
+        this.set('cli', (di) => {
+            let vorpal = new vorpal_1.default();
+            return vorpal;
+        }, true);
         /* Registered logger component. */
         this.set('logger', (di) => {
             let logger = winston_1.default.createLogger({
                 transports: [
-                    new winston_1.default.transports.Console({
+                    new WinstonVorpalTransport_1.WinstonVorpalTransport({
                         handleExceptions: true,
-                        format: winston_1.default.format.combine(winston_1.default.format.colorize(), winston_1.default.format.printf(info => `${info.message}`))
+                        format: winston_1.default.format.combine(winston_1.default.format.colorize(), winston_1.default.format.printf(info => `${info.message}`)),
+                        cli: di.get('cli')
                     }),
                     new winston_daily_rotate_file_1.default({
                         dirname: (process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs',
@@ -51,11 +58,6 @@ class FactoryDefault extends Factory.FactoryDefault {
                 exitOnError: false
             });
             return logger;
-        }, true);
-        /* Registered cli handler component. */
-        this.set('cli', (di) => {
-            let vorpal = new vorpal_1.default();
-            return vorpal;
         }, true);
     }
 }

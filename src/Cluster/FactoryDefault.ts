@@ -7,7 +7,7 @@
  */
 
 import Winston from 'winston';
-import DailyRotateFile from 'winston-daily-rotate-file';
+import WinstonDailyRotateFile from 'winston-daily-rotate-file';
 import { Container } from '../Di';
 import * as Factory from './../Di/FactoryDefault';
 
@@ -37,7 +37,7 @@ export class FactoryDefault extends Factory.FactoryDefault {
               Winston.format.printf(info => `${info.message}`)
             )
           }),
-          new DailyRotateFile({
+          new WinstonDailyRotateFile({
             dirname: (process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs',
             filename: 'cluster-%DATE%.log',
             datePattern: 'YYYY-MM-DD'
