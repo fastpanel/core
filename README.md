@@ -18,7 +18,7 @@ The event is triggered every second. Be extremely careful USE OF THE EVENTS.
 The event is triggered when the application is ready to register console commands.
 
 ```typescript
-  this.events.once('cli:getCommands', (cli: Vorpal) => {});
+  this.events.once('cli:getCommands', async (cli: Vorpal) => {});
 ```
 
 ### app:getSetupSubscriptions
@@ -27,7 +27,7 @@ The event allows you to register in the queue
 for execution actions to configure the system components.
 
 ```typescript
-  this.events.on('app:getSetupSubscriptions', (list: Array<CommandSubscriptionDefines>) => {
+  this.events.on('app:getSetupSubscriptions', (list: Array<Cli.CommandSubscriptionDefines>) => {
     list.push(async (command: Vorpal.CommandInstance, args?: any) => {});
   });
 ```
