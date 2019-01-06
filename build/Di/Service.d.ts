@@ -2,7 +2,7 @@
  * Service.ts
  *
  * @author    Desionlab <fenixphp@gmail.com>
- * @copyright 2014 - 2018 Desionlab
+ * @copyright 2014 - 2019 Desionlab
  * @license   MIT
  */
 import { ServiceDefinitionMethod } from './Container';

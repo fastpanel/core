@@ -3,7 +3,7 @@
  * FactoryDefault.ts
  *
  * @author    Desionlab <fenixphp@gmail.com>
- * @copyright 2014 - 2018 Desionlab
+ * @copyright 2014 - 2019 Desionlab
  * @license   MIT
  */
 var __importDefault = (this && this.__importDefault) || function (mod) {
@@ -43,7 +43,7 @@ class FactoryDefault extends Factory.FactoryDefault {
                     }),
                     new winston_daily_rotate_file_1.default({
                         dirname: (process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs',
-                        filename: 'cluster-%DATE%.log',
+                        filename: 'worker-%DATE%.log',
                         datePattern: 'YYYY-MM-DD'
                     })
                 ],

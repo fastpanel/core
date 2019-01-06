@@ -2,7 +2,7 @@
  * FactoryDefault.ts
  * 
  * @author    Desionlab <fenixphp@gmail.com>
- * @copyright 2014 - 2018 Desionlab
+ * @copyright 2014 - 2019 Desionlab
  * @license   MIT
  */
 
@@ -39,7 +39,7 @@ export class FactoryDefault extends Factory.FactoryDefault {
           }),
           new WinstonDailyRotateFile({
             dirname: (process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs',
-            filename: 'cluster-%DATE%.log',
+            filename: 'worker-%DATE%.log',
             datePattern: 'YYYY-MM-DD'
           })
         ],

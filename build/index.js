@@ -3,7 +3,7 @@
  * index.ts
  *
  * @author    Desionlab <fenixphp@gmail.com>
- * @copyright 2014 - 2018 Desionlab
+ * @copyright 2014 - 2019 Desionlab
  * @license   MIT
  */
 function __export(m) {
@@ -19,14 +19,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Cli = __importStar(require("./Cli"));
 exports.Cli = Cli;
-const Cluster = __importStar(require("./Cluster"));
-exports.Cluster = Cluster;
 const Di = __importStar(require("./Di"));
 exports.Di = Di;
 const Extensions = __importStar(require("./Extensions"));
 exports.Extensions = Extensions;
 const Utils = __importStar(require("./Utils"));
 exports.Utils = Utils;
+const Worker = __importStar(require("./Worker"));
+exports.Worker = Worker;
 __export(require("./Application"));
 __export(require("./Component"));
 __export(require("./Config"));

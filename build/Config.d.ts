@@ -2,7 +2,7 @@
  * Config.ts
  *
  * @author    Desionlab <fenixphp@gmail.com>
- * @copyright 2014 - 2018 Desionlab
+ * @copyright 2014 - 2019 Desionlab
  * @license   MIT
  */
 import { Component } from "./Component";
@@ -63,7 +63,7 @@ export declare class Config extends Component {
      *
      * @param key Dot notation index for search in config.
      */
-    del(key: string): Config;
+    unset(key: string): Config;
     /**
      * Loading config data from file.
      *
@@ -82,5 +82,5 @@ export declare class Config extends Component {
      *
      * @param key Dot notation index for search in config.
      */
-    protected formatKey(key: string): string;
+    formatKey(key: string): string;
 }

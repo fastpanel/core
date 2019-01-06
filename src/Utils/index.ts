@@ -2,14 +2,10 @@
  * index.ts
  * 
  * @author    Desionlab <fenixphp@gmail.com>
- * @copyright 2014 - 2018 Desionlab
+ * @copyright 2014 - 2019 Desionlab
  * @license   MIT
  */
 
-import * as String from './String';
-
-export * from './Merge';
 export * from './MixinBuilder';
-export { String };
 
 /* End of file index.ts */

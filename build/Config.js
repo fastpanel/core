@@ -3,7 +3,7 @@
  * Config.ts
  *
  * @author    Desionlab <fenixphp@gmail.com>
- * @copyright 2014 - 2018 Desionlab
+ * @copyright 2014 - 2019 Desionlab
  * @license   MIT
  */
 var __importDefault = (this && this.__importDefault) || function (mod) {
@@ -13,10 +13,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const shelljs_1 = __importDefault(require("shelljs"));
-const object_path_1 = __importDefault(require("object-path"));
-const Merge_1 = require("./Utils/Merge");
 const Component_1 = require("./Component");
-const String_1 = require("./Utils/String");
+const lodash_1 = require("lodash");
 /**
  * Class Config
  *
@@ -61,7 +59,7 @@ class Config extends Component_1.Component {
      */
     set path(value) {
         /* Normalize delimiters. */
-        value = String_1.trim(value, '\/');
+        value = lodash_1.trim(value, '\/');
         /* Resolve full path. */
         value = path_1.default.resolve(value) + path_1.default.sep;
         /* Check if the folder exists. */
@@ -82,7 +80,7 @@ class Config extends Component_1.Component {
         /* Format key. */
         key = this.formatKey(key);
         /* Find data. */
-        return object_path_1.default.has(this.storage, key);
+        return lodash_1.has(this.storage, key);
     }
     /**
      * Get an item from storage using "dot" notation.
@@ -100,7 +98,7 @@ class Config extends Component_1.Component {
             this.load(resource);
         }
         /* Find data. */
-        return object_path_1.default.get(this.storage, key, preset);
+        return lodash_1.get(this.storage, key, preset);
     }
     /**
      * Set an item to storage using "dot" notation.
@@ -112,7 +110,7 @@ class Config extends Component_1.Component {
         /* Format key. */
         key = this.formatKey(key);
         /* Set data. */
-        object_path_1.default.set(this.storage, key, value);
+        lodash_1.set(this.storage, key, value);
         /*  */
         return this;
     }
@@ -121,11 +119,11 @@ class Config extends Component_1.Component {
      *
      * @param key Dot notation index for search in config.
      */
-    del(key) {
+    unset(key) {
         /* Format key. */
         key = this.formatKey(key);
         /* Delete data. */
-        object_path_1.default.del(this.storage, key);
+        lodash_1.unset(this.storage, key);
         /*  */
         return this;
     }
@@ -148,11 +146,7 @@ class Config extends Component_1.Component {
             if (fs_1.default.existsSync(file)) {
                 try {
                     /* Load file to storage. */
-                    this.storage[resource] = Merge_1.Merge.merge(
-                    /* Clone. */
-                    true, 
-                    /* Recursive. */
-                    true, 
+                    this.storage[resource] = lodash_1.merge(
                     /* Original. */
                     this.storage[resource], 
                     /* File data. */
@@ -190,7 +184,7 @@ class Config extends Component_1.Component {
             }
         }
         /* Write the data to a file. */
-        fs_1.default.writeFileSync(file, JSON.stringify(this.storage[resource]));
+        fs_1.default.writeFileSync(file, JSON.stringify(this.storage[resource], null, 2));
         /*  */
         return this;
     }
@@ -201,8 +195,8 @@ class Config extends Component_1.Component {
      * @param key Dot notation index for search in config.
      */
     formatKey(key) {
-        key = String_1.trim(key, '\/');
-        key = String_1.str_replace(["\\", "/"], '/', key);
+        key = lodash_1.trim(key, '\/\\');
+        key = lodash_1.replace(key, /[\/\\]/g, '/');
         return key;
     }
 }

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Merge | @fastpanel/core</title>
+	<title>Handler | @fastpanel/core</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -910,19 +910,37 @@ img { max-width: 100%; }
 <nav class="tsd-navigation secondary">
 	<ul>
 		<li class="current tsd-kind-class tsd-parent-kind-external-module">
-			<a href="_utils_merge_.merge.html" class="tsd-kind-icon">Merge</a>
+			<a href="_worker_handler_.handler.html" class="tsd-kind-icon">Handler</a>
 			<ul>
-				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-static">
-					<a href="_utils_merge_.merge.html#clone" class="tsd-kind-icon">clone</a>
+				<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+					<a href="_worker_handler_.handler.html#constructor" class="tsd-kind-icon">constructor</a>
 				</li>
-				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a href="_utils_merge_.merge.html#merge" class="tsd-kind-icon">merge</a>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a href="_worker_handler_.handler.html#_di" class="tsd-kind-icon">_di</a>
 				</li>
-				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-static">
-					<a href="_utils_merge_.merge.html#recursive" class="tsd-kind-icon">recursive</a>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a href="_worker_handler_.handler.html#extensions" class="tsd-kind-icon">extensions</a>
 				</li>
-				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-static">
-					<a href="_utils_merge_.merge.html#typeof" class="tsd-kind-icon">type<wbr>Of</a>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a href="_worker_handler_.handler.html#isstartup" class="tsd-kind-icon">is<wbr>Startup</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a href="_worker_handler_.handler.html#watchdogtimer" class="tsd-kind-icon">watchdog<wbr>Timer</a>
+				</li>
+				<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+					<a href="_worker_handler_.handler.html#di" class="tsd-kind-icon">di</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="_worker_handler_.handler.html#addextension" class="tsd-kind-icon">add<wbr>Extension</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a href="_worker_handler_.handler.html#init" class="tsd-kind-icon">init</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="_worker_handler_.handler.html#register" class="tsd-kind-icon">register</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="_worker_handler_.handler.html#startup" class="tsd-kind-icon">startup</a>
 				</li>
 			</ul>
 		</li>
@@ -930,162 +948,299 @@ img { max-width: 100%; }
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
+		<section class="tsd-panel tsd-comment">
+			<div class="tsd-comment tsd-typography">
+				<div class="lead">
+					<p>Class Handler</p>
+				</div>
+				<p>Cluster worker (unit) handler.</p>
+				<dl class="tsd-comment-tags">
+					<dt>version</dt>
+					<dd><p>1.0.0</p>
+					</dd>
+				</dl>
+			</div>
+		</section>
 		<section class="tsd-panel tsd-hierarchy">
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
 				<li>
-					<span class="target">Merge</span>
+					<a href="_application_.application.html" class="tsd-signature-type">Application</a>
+					<ul class="tsd-hierarchy">
+						<li>
+							<span class="target">Handler</span>
+						</li>
+					</ul>
 				</li>
 			</ul>
+		</section>
+		<section class="tsd-panel tsd-kind-class tsd-parent-kind-external-module">
+			<h3 class="tsd-before-signature">Indexable</h3>
+			<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></div>
+			<div class="tsd-comment tsd-typography">
+				<div class="lead">
+					<p>Dynamic property types.</p>
+				</div>
+				<p>Cluster worker (unit) handler.</p>
+			</div>
 		</section>
 		<section class="tsd-panel-group tsd-index-group">
 			<h2>Index</h2>
 			<section class="tsd-panel tsd-index-panel">
 				<div class="tsd-index-content">
 					<section class="tsd-index-section ">
+						<h3>Constructors</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_worker_handler_.handler.html#constructor" class="tsd-kind-icon">constructor</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section tsd-is-inherited">
+						<h3>Properties</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_worker_handler_.handler.html#_di" class="tsd-kind-icon">_di</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_worker_handler_.handler.html#extensions" class="tsd-kind-icon">extensions</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_worker_handler_.handler.html#isstartup" class="tsd-kind-icon">is<wbr>Startup</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_worker_handler_.handler.html#watchdogtimer" class="tsd-kind-icon">watchdog<wbr>Timer</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section tsd-is-inherited">
+						<h3>Accessors</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_worker_handler_.handler.html#di" class="tsd-kind-icon">di</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section ">
 						<h3>Methods</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-static"><a href="_utils_merge_.merge.html#clone" class="tsd-kind-icon">clone</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_utils_merge_.merge.html#merge" class="tsd-kind-icon">merge</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-static"><a href="_utils_merge_.merge.html#recursive" class="tsd-kind-icon">recursive</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-static"><a href="_utils_merge_.merge.html#typeof" class="tsd-kind-icon">type<wbr>Of</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_worker_handler_.handler.html#addextension" class="tsd-kind-icon">add<wbr>Extension</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_worker_handler_.handler.html#init" class="tsd-kind-icon">init</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_worker_handler_.handler.html#register" class="tsd-kind-icon">register</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_worker_handler_.handler.html#startup" class="tsd-kind-icon">startup</a></li>
 						</ul>
 					</section>
 				</div>
 			</section>
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
+			<h2>Constructors</h2>
+			<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+				<a name="constructor" class="tsd-anchor"></a>
+				<h3>constructor</h3>
+				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+					<li class="tsd-signature tsd-kind-icon">new <wbr>Handler<span class="tsd-signature-symbol">(</span>di<span class="tsd-signature-symbol">?: </span><a href="_di_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_worker_handler_.handler.html" class="tsd-signature-type">Handler</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Overrides <a href="_application_.application.html">Application</a>.<a href="_application_.application.html#constructor">constructor</a></p>
+							<ul>
+								<li>Defined in Worker/Handler.ts:19</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Handler constructor.</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> di: <a href="_di_container_.container.html" class="tsd-signature-type">Container</a></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Di container instant.</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="_worker_handler_.handler.html" class="tsd-signature-type">Handler</a></h4>
+					</li>
+				</ul>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<h2>Properties</h2>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+				<a name="_di" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagProtected">Protected</span> _di</h3>
+				<div class="tsd-signature tsd-kind-icon">_di<span class="tsd-signature-symbol">:</span> <a href="_di_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="_di_injectable_.injectable.html">Injectable</a>.<a href="_di_injectable_.injectable.html#_di">_di</a></p>
+					<ul>
+						<li>Defined in Di/Injectable.ts:30</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Di container.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+				<a name="extensions" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagProtected">Protected</span> extensions</h3>
+				<div class="tsd-signature tsd-kind-icon">extensions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_extensions_extensiondefines_.extensiondefines.html" class="tsd-signature-type">ExtensionDefines</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="_application_.application.html">Application</a>.<a href="_application_.application.html#extensions">extensions</a></p>
+					<ul>
+						<li>Defined in Application.ts:29</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>List of installed extensions and add-ons.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<a name="isstartup" class="tsd-anchor"></a>
+				<h3>is<wbr>Startup</h3>
+				<div class="tsd-signature tsd-kind-icon">is<wbr>Startup<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="_application_.application.html">Application</a>.<a href="_application_.application.html#isstartup">isStartup</a></p>
+					<ul>
+						<li>Defined in Application.ts:24</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Flag a app is ready.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+				<a name="watchdogtimer" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagProtected">Protected</span> watchdog<wbr>Timer</h3>
+				<div class="tsd-signature tsd-kind-icon">watchdog<wbr>Timer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Timer</span></div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="_application_.application.html">Application</a>.<a href="_application_.application.html#watchdogtimer">watchdogTimer</a></p>
+					<ul>
+						<li>Defined in Application.ts:34</li>
+					</ul>
+				</aside>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<h2>Accessors</h2>
+			<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+				<a name="di" class="tsd-anchor"></a>
+				<h3>di</h3>
+				<div class="tsd-signature tsd-kind-icon">di<span class="tsd-signature-symbol">:</span> </div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="_di_injectable_.injectable.html">Injectable</a>.<a href="_di_injectable_.injectable.html#di">di</a></p>
+					<ul>
+						<li>Defined in Di/Injectable.ts:75</li>
+						<li>Defined in Di/Injectable.ts:86</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Returns the internal dependency injector.
+						Sets the dependency injector.</p>
+					</div>
+				</div>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Methods</h2>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-static">
-				<a name="clone" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagProtected">Protected</span> clone</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="addextension" class="tsd-anchor"></a>
+				<h3>add<wbr>Extension</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">add<wbr>Extension<span class="tsd-signature-symbol">(</span>extension<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_application_.application.html" class="tsd-signature-type">Application</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
+							<p>Inherited from <a href="_application_.application.html">Application</a>.<a href="_application_.application.html#addextension">addExtension</a></p>
 							<ul>
-								<li>Defined in Utils/Merge.ts:99</li>
+								<li>Defined in Application.ts:103</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Clone the input removing any reference.</p>
+								<p>Add a extension object to the list of running.</p>
 							</div>
 						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>input: <span class="tsd-signature-type">any</span></h5>
+								<h5>extension: <span class="tsd-signature-type">any</span></h5>
 								<div class="tsd-comment tsd-typography">
+									<p>Target extension class.</p>
 								</div>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						<p>any</p>
+						<h4 class="tsd-returns-title">Returns <a href="_application_.application.html" class="tsd-signature-type">Application</a></h4>
 					</li>
 				</ul>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-				<a name="merge" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagStatic">Static</span> merge</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">merge<span class="tsd-signature-symbol">(</span>clone<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, recursive<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, <span class="tsd-signature-symbol">...</span>argv<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<a name="init" class="tsd-anchor"></a>
+				<h3>init</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<li class="tsd-signature tsd-kind-icon">init<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
+							<p>Overrides <a href="_application_.application.html">Application</a>.<a href="_application_.application.html#init">init</a></p>
 							<ul>
-								<li>Defined in Utils/Merge.ts:25</li>
+								<li>Defined in Worker/Handler.ts:33</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Merge two or more objects.</p>
+								<p>Initialization worker handler.</p>
 							</div>
 						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>clone: <span class="tsd-signature-type">boolean</span></h5>
-							</li>
-							<li>
-								<h5>recursive: <span class="tsd-signature-type">boolean</span></h5>
-							</li>
-							<li>
-								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>argv: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-								<div class="tsd-comment tsd-typography">
-								</div>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						<p>any</p>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-static">
-				<a name="recursive" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagProtected">Protected</span> recursive</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">recursive<span class="tsd-signature-symbol">(</span>base<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, extend<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="register" class="tsd-anchor"></a>
+				<h3>register</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">register<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
+							<p>Inherited from <a href="_application_.application.html">Application</a>.<a href="_application_.application.html#register">register</a></p>
 							<ul>
-								<li>Defined in Utils/Merge.ts:70</li>
+								<li>Defined in Application.ts:69</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Merge two objects recursively.</p>
+								<p>Registers a service providers.</p>
 							</div>
 						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>base: <span class="tsd-signature-type">any</span></h5>
-							</li>
-							<li>
-								<h5>extend: <span class="tsd-signature-type">any</span></h5>
-								<div class="tsd-comment tsd-typography">
-								</div>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						<p>any</p>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-static">
-				<a name="typeof" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagProtected">Protected</span> type<wbr>Of</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">type<wbr>Of<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="startup" class="tsd-anchor"></a>
+				<h3>startup</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">startup<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
+							<p>Inherited from <a href="_application_.application.html">Application</a>.<a href="_application_.application.html#startup">startup</a></p>
 							<ul>
-								<li>Defined in Utils/Merge.ts:131</li>
+								<li>Defined in Application.ts:85</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Get type of variable.</p>
+								<p>Startup a service providers.</p>
 							</div>
 						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>input: <span class="tsd-signature-type">any</span></h5>
-								<div class="tsd-comment tsd-typography">
-								</div>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						<p>string</p>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>

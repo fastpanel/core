@@ -2,17 +2,15 @@
  * Config.ts
  * 
  * @author    Desionlab <fenixphp@gmail.com>
- * @copyright 2014 - 2018 Desionlab
+ * @copyright 2014 - 2019 Desionlab
  * @license   MIT
  */
 
 import fs from 'fs';
 import path from 'path';
 import shell from 'shelljs';
-import objectPath from 'object-path';
-import { Merge } from './Utils/Merge';
 import { Component } from "./Component";
-import { trim, str_replace } from './Utils/String';
+import { get, has, merge, set, unset, trim, replace } from 'lodash';
 
 /**
  * Class Config
@@ -26,12 +24,12 @@ export class Config extends Component {
   /**
    * Internal storage.
    */
-  protected storage : any = {};
+  protected storage: any = {};
 
   /**
    * Path to the location of the config files.
    */
-  private _path : string = '';
+  private _path: string = '';
   
   /**
    * Path getter.
@@ -93,7 +91,7 @@ export class Config extends Component {
     key = this.formatKey(key);
 
     /* Find data. */
-    return objectPath.has(this.storage, key);
+    return has(this.storage, key);
   }
 
   /**
@@ -115,7 +113,7 @@ export class Config extends Component {
     }
 
     /* Find data. */
-    return objectPath.get(this.storage, key, preset);
+    return get(this.storage, key, preset);
   }
 
   /**
@@ -129,7 +127,7 @@ export class Config extends Component {
     key = this.formatKey(key);
     
     /* Set data. */
-    objectPath.set(this.storage, key, value);
+    set(this.storage, key, value);
 
     /*  */
     return this;
@@ -140,12 +138,12 @@ export class Config extends Component {
    *
    * @param key Dot notation index for search in config.
    */
-  public del (key: string) : Config {
+  public unset (key: string) : Config {
     /* Format key. */
     key = this.formatKey(key);
     
     /* Delete data. */
-    objectPath.del(this.storage, key);
+    unset(this.storage, key);
     
     /*  */
     return this;
@@ -174,11 +172,7 @@ export class Config extends Component {
       if (fs.existsSync(file)) {
         try {
           /* Load file to storage. */
-          this.storage[resource] = Merge.merge(
-            /* Clone. */
-            true,
-            /* Recursive. */
-            true,
+          this.storage[resource] = merge(
             /* Original. */
             this.storage[resource],
             /* File data. */
@@ -225,7 +219,7 @@ export class Config extends Component {
     }
     
     /* Write the data to a file. */
-    fs.writeFileSync(file, JSON.stringify(this.storage[resource]));
+    fs.writeFileSync(file, JSON.stringify(this.storage[resource], null, 2));
 
     /*  */
     return this;
@@ -238,9 +232,9 @@ export class Config extends Component {
    *
    * @param key Dot notation index for search in config.
    */
-  protected formatKey (key : string) : string {
-    key = trim(key, '\/');
-    key = str_replace(["\\", "/"], '/', key);
+  public formatKey (key: string) : string {
+    key = trim(key, '\/\\');
+    key = replace(key, /[\/\\]/g, '/');
     return key;
   }
 
