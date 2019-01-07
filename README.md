@@ -40,4 +40,4 @@ The MIT License (MIT)
 ---
 
 ## Copyright
-(c) 2018 Desionlab
+(c) 2014 - 2019 Desionlab
