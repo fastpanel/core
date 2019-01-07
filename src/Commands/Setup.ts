@@ -9,7 +9,7 @@
 import fs from 'fs';
 import { CommandInstance } from 'vorpal';
 import { CommandDefines, CommandSubscriptionDefines } from './../Cli';
-import { BOOT_FILE, REDIS_CONFIG } from '../Const';
+import { BOOT_FILE } from '../Const';
 
 /**
  * Class Setup
@@ -32,12 +32,6 @@ export class Setup extends CommandDefines {
           /* Check and create boot config file. */
           if (!fs.existsSync(BOOT_FILE)) {
             fs.writeFileSync(BOOT_FILE, JSON.stringify({}));
-          }
-          
-          /* Check and create default config file. */
-          if (!this.config.get('Extensions/Redis', false)) {
-            this.config.set('Extensions/Redis', REDIS_CONFIG);
-            this.config.save('Extensions/Redis', true);
           }
         });
 

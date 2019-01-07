@@ -33,11 +33,6 @@ class Setup extends Cli_1.CommandDefines {
                     if (!fs_1.default.existsSync(Const_1.BOOT_FILE)) {
                         fs_1.default.writeFileSync(Const_1.BOOT_FILE, JSON.stringify({}));
                     }
-                    /* Check and create default config file. */
-                    if (!this.config.get('Extensions/Redis', false)) {
-                        this.config.set('Extensions/Redis', Const_1.REDIS_CONFIG);
-                        this.config.save('Extensions/Redis', true);
-                    }
                 });
                 this.events.emit('app:getSetupSubscriptions', list);
                 for (const task of list) {
