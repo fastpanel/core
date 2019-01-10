@@ -29,9 +29,9 @@ export class Setup extends CommandDefines {
     .option('-y, --yes', 'Assume yes if prompted.')
     .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Winston.Logger) => {
       return new Promise(async (resolve, reject) => {
-        logger.debug('@fastpanel/core setup');
-        logger.debug(args);
-        logger.debug(options);
+        logger.info('@fastpanel/core setup');
+        logger.info(args);
+        logger.info(options);
         resolve();
       });
     });
@@ -43,9 +43,9 @@ export class Setup extends CommandDefines {
     .option('-y, --yes', 'Assume yes if prompted.')
     .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Winston.Logger) => {
       return new Promise(async (resolve, reject) => {
-        logger.debug('app setup');
-        logger.debug(args);
-        logger.debug(options);
+        logger.info('app setup');
+        logger.info(args);
+        logger.info(options);
         resolve();
       });
     });
