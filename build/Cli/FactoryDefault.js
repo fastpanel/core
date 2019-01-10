@@ -17,6 +17,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const path_1 = __importDefault(require("path"));
 const caporal_1 = __importDefault(require("caporal"));
 const winston_1 = __importDefault(require("winston"));
 const inquirer_1 = __importDefault(require("inquirer"));
@@ -59,7 +60,9 @@ class FactoryDefault extends Factory.FactoryDefault {
         }, false);
         /* Registered cli handler component. */
         this.set('cli', (di) => {
-            let { version } = require('./package.json');
+            /* Get current app version. */
+            let { version } = require(path_1.default.resolve(process.cwd(), 'package.json'));
+            /* Init cli lib. */
             caporal_1.default
                 .name(di.get('config').get('App.name', 'fastPanel'))
                 .logger(di.get('logger'))

@@ -6,6 +6,7 @@
  * @license   MIT
  */
 
+import path from 'path';
 import Caporal from 'caporal';
 import Winston from 'winston';
 import inquirer from 'inquirer';
@@ -58,8 +59,10 @@ export class FactoryDefault extends Factory.FactoryDefault {
 
     /* Registered cli handler component. */
     this.set('cli', (di: Container) => {
-      let { version } = require('./package.json');
+      /* Get current app version. */
+      let { version } = require(path.resolve(process.cwd(), 'package.json'));
 
+      /* Init cli lib. */
       Caporal
       .name(di.get('config').get('App.name', 'fastPanel'))
       .logger(di.get('logger'))
