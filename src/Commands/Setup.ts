@@ -7,6 +7,7 @@
  */
 
 import fs from 'fs';
+import Winston from 'winston';
 import { CommandDefines, CommandSubscriptionDefines } from './../Cli';
 import { BOOT_FILE } from '../Const';
 
@@ -26,8 +27,11 @@ export class Setup extends CommandDefines {
     .option('-f, --force', 'Forced reconfiguration of components.')
     .option('-e, --env', 'Save as current environment settings.')
     .option('-y, --yes', 'Assume yes if prompted.')
-    .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Logger) => {
+    .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Winston.Logger) => {
       return new Promise(async (resolve, reject) => {
+        logger.debug('@fastpanel/core setup');
+        logger.debug(args);
+        logger.debug(options);
         resolve();
       });
     });
@@ -37,8 +41,11 @@ export class Setup extends CommandDefines {
     .option('-f, --force', 'Forced reconfiguration of components.')
     .option('-e, --env', 'Save as current environment settings.')
     .option('-y, --yes', 'Assume yes if prompted.')
-    .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Logger) => {
+    .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Winston.Logger) => {
       return new Promise(async (resolve, reject) => {
+        logger.debug('app setup');
+        logger.debug(args);
+        logger.debug(options);
         resolve();
       });
     });

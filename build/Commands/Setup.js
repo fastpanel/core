@@ -25,6 +25,9 @@ class Setup extends Cli_1.CommandDefines {
             .option('-y, --yes', 'Assume yes if prompted.')
             .action((args, options, logger) => {
             return new Promise(async (resolve, reject) => {
+                logger.debug('@fastpanel/core setup');
+                logger.debug(args);
+                logger.debug(options);
                 resolve();
             });
         });
@@ -35,6 +38,9 @@ class Setup extends Cli_1.CommandDefines {
             .option('-y, --yes', 'Assume yes if prompted.')
             .action((args, options, logger) => {
             return new Promise(async (resolve, reject) => {
+                logger.debug('app setup');
+                logger.debug(args);
+                logger.debug(options);
                 resolve();
             });
         });

@@ -60,7 +60,7 @@ class Application extends Di_1.Injectable {
                     await extension.register();
                 }
                 catch (error) {
-                    console.error(error);
+                    this.logger.error(error);
                 }
             }
         }
@@ -76,7 +76,7 @@ class Application extends Di_1.Injectable {
                     await extension.startup();
                 }
                 catch (error) {
-                    console.error(error);
+                    this.logger.error(error);
                 }
             }
         }
@@ -95,7 +95,7 @@ class Application extends Di_1.Injectable {
             }
         }
         catch (error) {
-            console.error(error);
+            this.logger.error(error);
         }
         return this;
     }

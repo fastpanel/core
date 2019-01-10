@@ -73,7 +73,7 @@ export class Application extends Injectable {
         try {
           await extension.register();
         } catch (error) {
-          console.error(error);
+          this.logger.error(error);
         }
       }
     }
@@ -89,7 +89,7 @@ export class Application extends Injectable {
         try {
           await extension.startup();
         } catch (error) {
-          console.error(error);
+          this.logger.error(error);
         }
       }
     }
@@ -109,7 +109,7 @@ export class Application extends Injectable {
         this.extensions.push(instant);
       }
     } catch (error) {
-      console.error(error);
+      this.logger.error(error);
     }
 
     return this;
