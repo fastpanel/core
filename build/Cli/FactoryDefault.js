@@ -17,9 +17,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const vorpal_1 = __importDefault(require("vorpal"));
+const caporal_1 = __importDefault(require("caporal"));
 const winston_1 = __importDefault(require("winston"));
-const WinstonVorpalTransport_1 = require("./WinstonVorpalTransport");
+const inquirer_1 = __importDefault(require("inquirer"));
 const winston_daily_rotate_file_1 = __importDefault(require("winston-daily-rotate-file"));
 const Factory = __importStar(require("./../Di/FactoryDefault"));
 /**
@@ -35,19 +35,13 @@ class FactoryDefault extends Factory.FactoryDefault {
      */
     constructor() {
         super();
-        /* Registered cli handler component. */
-        this.set('cli', (di) => {
-            let vorpal = new vorpal_1.default();
-            return vorpal;
-        }, true);
         /* Registered logger component. */
         this.set('logger', (di) => {
             let logger = winston_1.default.createLogger({
                 transports: [
-                    new WinstonVorpalTransport_1.WinstonVorpalTransport({
+                    new winston_1.default.transports.Console({
                         handleExceptions: true,
-                        format: winston_1.default.format.combine(winston_1.default.format.colorize(), winston_1.default.format.printf(info => `${info.message}`)),
-                        cli: di.get('cli')
+                        format: winston_1.default.format.combine(winston_1.default.format.colorize(), winston_1.default.format.printf(info => `${info.message}`))
                     }),
                     new winston_daily_rotate_file_1.default({
                         dirname: (process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs',
@@ -58,6 +52,19 @@ class FactoryDefault extends Factory.FactoryDefault {
                 exitOnError: false
             });
             return logger;
+        }, true);
+        /* Registered cli interactive interface. */
+        this.set('prompt', (di) => {
+            return inquirer_1.default.prompt;
+        }, false);
+        /* Registered cli handler component. */
+        this.set('cli', (di) => {
+            let { version } = require('./package.json');
+            caporal_1.default
+                .name(di.get('config').get('App.name', 'fastPanel'))
+                .logger(di.get('logger'))
+                .version(version);
+            return caporal_1.default;
         }, true);
     }
 }

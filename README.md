@@ -5,7 +5,7 @@ The main core of the "fastPanel" system.
 
 ## Env
 
-``` env
+```
 # Defines the current environment. 
 # Can be: "develop", "staging", "production".
 NODE_ENV=develop
@@ -53,7 +53,7 @@ The event is triggered every second. Be extremely careful USE OF THE EVENTS.
 The event is triggered when the application is ready to register console commands.
 
 ``` typescript
-  this.events.once('cli:getCommands', async (cli: Vorpal) => {});
+  this.events.once('cli:getCommands', async (cli: Caporal) => {});
 ```
 
 ### app:getSetupSubscriptions
@@ -63,7 +63,7 @@ for execution actions to configure the system components.
 
 ``` typescript
   this.events.on('app:getSetupSubscriptions', (list: Array<Cli.CommandSubscriptionDefines>) => {
-    list.push(async (command: Vorpal.CommandInstance, args?: any) => {});
+    list.push(async (args: {[k: string]: any}, options: {[k: string]: any}, logger: Logger) => {});
   });
 ```
 

@@ -918,15 +918,14 @@ img { max-width: 100%; }
 			<p>The main core of the &quot;fastPanel&quot; system.</p>
 			<hr>
 			<h2 id="env">Env</h2>
-			<pre><code class="language-env"># Defines the current environment.
-# Can be: &quot;develop&quot;, &quot;staging&quot;, &quot;production&quot;.
-NODE_ENV=develop
+			<pre><code><span class="hljs-comment"># Defines the current environment. </span>
+<span class="hljs-comment"># Can be: "develop", "staging", "production".</span>
+<span class="hljs-attr">NODE_ENV</span>=develop
 
-# Defines a folder structure of the application.
-APP_PATH=App
-CONFIG_PATH=App/Config
-LOGGER_PATH=App/Logs</code></pre>
-			<hr>
+<span class="hljs-comment"># Defines a folder structure of the application.</span>
+<span class="hljs-attr">APP_PATH</span>=App
+<span class="hljs-attr">CONFIG_PATH</span>=App/Config
+<span class="hljs-attr">LOGGER_PATH</span>=App/Logs</code></pre><hr>
 			<h2 id="commands">Commands</h2>
 			<h3 id="app-setup">app setup</h3>
 			<p>Install and configure components.</p>
@@ -942,12 +941,12 @@ LOGGER_PATH=App/Logs</code></pre>
 			<pre><code class="language-typescript">  <span class="hljs-keyword">this</span>.events.on(<span class="hljs-string">'app:watchdog'</span>, <span class="hljs-function">(<span class="hljs-params">app: Application</span>) =&gt;</span> {});</code></pre>
 			<h3 id="cli-getcommands">cli:getCommands</h3>
 			<p>The event is triggered when the application is ready to register console commands.</p>
-			<pre><code class="language-typescript">  <span class="hljs-keyword">this</span>.events.once(<span class="hljs-string">'cli:getCommands'</span>, <span class="hljs-keyword">async</span> (cli: Vorpal) =&gt; {});</code></pre>
+			<pre><code class="language-typescript">  <span class="hljs-keyword">this</span>.events.once(<span class="hljs-string">'cli:getCommands'</span>, <span class="hljs-keyword">async</span> (cli: Caporal) =&gt; {});</code></pre>
 			<h3 id="app-getsetupsubscriptions">app:getSetupSubscriptions</h3>
 			<p>The event allows you to register in the queue
 			for execution actions to configure the system components.</p>
 			<pre><code class="language-typescript">  <span class="hljs-keyword">this</span>.events.on(<span class="hljs-string">'app:getSetupSubscriptions'</span>, <span class="hljs-function">(<span class="hljs-params">list: <span class="hljs-built_in">Array</span>&lt;Cli.CommandSubscriptionDefines&gt;</span>) =&gt;</span> {
-    list.push(<span class="hljs-keyword">async</span> (command: Vorpal.CommandInstance, args?: <span class="hljs-built_in">any</span>) =&gt; {});
+    list.push(<span class="hljs-keyword">async</span> (args: {[k: <span class="hljs-built_in">string</span>]: <span class="hljs-built_in">any</span>}, options: {[k: <span class="hljs-built_in">string</span>]: <span class="hljs-built_in">any</span>}, logger: Logger) =&gt; {});
   });</code></pre>
 			<hr>
 			<h2 id="license">License</h2>
@@ -967,7 +966,6 @@ LOGGER_PATH=App/Logs</code></pre>
 							<li class="tsd-kind-external-module"><a href="modules/_cli_commanddefines_.html" class="tsd-kind-icon">"<wbr>Cli/<wbr>Command<wbr>Defines"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_cli_factorydefault_.html" class="tsd-kind-icon">"<wbr>Cli/<wbr>Factory<wbr>Default"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_cli_handler_.html" class="tsd-kind-icon">"<wbr>Cli/<wbr>Handler"</a></li>
-							<li class="tsd-kind-external-module"><a href="modules/_cli_winstonvorpaltransport_.html" class="tsd-kind-icon">"<wbr>Cli/<wbr>Winston<wbr>Vorpal<wbr>Transport"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_cli_index_.html" class="tsd-kind-icon">"<wbr>Cli/index"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_commands_setup_.html" class="tsd-kind-icon">"<wbr>Commands/<wbr>Setup"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_component_.html" class="tsd-kind-icon">"<wbr>Component"</a></li>

@@ -6,9 +6,9 @@
  * @license   MIT
  */
 
-import Vorpal from 'vorpal';
+import Caporal from 'caporal';
 import Winston from 'winston';
-import { WinstonVorpalTransport } from './WinstonVorpalTransport';
+import inquirer from 'inquirer';
 import WinstonDailyRotateFile from 'winston-daily-rotate-file';
 import { Container } from '../Di';
 import * as Factory from './../Di/FactoryDefault';
@@ -28,23 +28,16 @@ export class FactoryDefault extends Factory.FactoryDefault {
   public constructor () {
     super();
     
-    /* Registered cli handler component. */
-    this.set('cli', (di: Container) => {
-      let vorpal = new Vorpal();
-      return vorpal;
-    }, true);
-
     /* Registered logger component. */
     this.set('logger', (di: Container) => {
       let logger = Winston.createLogger({
         transports: [
-          new WinstonVorpalTransport({
+          new Winston.transports.Console({
             handleExceptions: true,
             format: Winston.format.combine(
               Winston.format.colorize(),
               Winston.format.printf(info => `${info.message}`)
-            ),
-            cli: di.get('cli')
+            )
           }),
           new WinstonDailyRotateFile({
             dirname: (process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs',
@@ -56,6 +49,23 @@ export class FactoryDefault extends Factory.FactoryDefault {
       });
 
       return logger;
+    }, true);
+
+    /* Registered cli interactive interface. */
+    this.set('prompt', (di: Container) => {
+      return inquirer.prompt;
+    }, false);
+
+    /* Registered cli handler component. */
+    this.set('cli', (di: Container) => {
+      let { version } = require('./package.json');
+
+      Caporal
+      .name(di.get('config').get('App.name', 'fastPanel'))
+      .logger(di.get('logger'))
+      .version(version);
+      
+      return Caporal;
     }, true);
   }
 

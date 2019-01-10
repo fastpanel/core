@@ -7,7 +7,6 @@
  */
 
 import fs from 'fs';
-import { CommandInstance } from 'vorpal';
 import { CommandDefines, CommandSubscriptionDefines } from './../Cli';
 import { BOOT_FILE } from '../Const';
 
@@ -27,13 +26,8 @@ export class Setup extends CommandDefines {
     .option('-f, --force', 'Forced reconfiguration of components.')
     .option('-e, --env', 'Save as current environment settings.')
     .option('-y, --yes', 'Assume yes if prompted.')
-    .action((args: any) => {
+    .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Logger) => {
       return new Promise(async (resolve, reject) => {
-        /* Check and create boot config file. */
-        if (!fs.existsSync(BOOT_FILE)) {
-          fs.writeFileSync(BOOT_FILE, JSON.stringify({}));
-        }
-
         resolve();
       });
     });
@@ -43,53 +37,8 @@ export class Setup extends CommandDefines {
     .option('-f, --force', 'Forced reconfiguration of components.')
     .option('-e, --env', 'Save as current environment settings.')
     .option('-y, --yes', 'Assume yes if prompted.')
-    .action((args: any) => {
+    .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Logger) => {
       return new Promise(async (resolve, reject) => {
-        /*  */
-        if (args.options.force && !args.options.yes) {
-          let forcePrompt = await this.cli.activeCommand.prompt({
-            type: 'confirm',
-            name: 'continue',
-            default: false,
-            message: 'This action can break the application. Continue?',
-          });
-
-          if (!forcePrompt.continue) {
-            this.logger.info('Canceled by user.');
-            return resolve();
-          }
-        }
-
-        /*  */
-        const profiler = this.logger.startTimer();
-
-        /*  */
-        let list: Array<CommandSubscriptionDefines> = [];
-
-        /*  */
-        list.push(async (command: CommandInstance, args?: any) => {
-          await this.cli.exec('@fastpanel/core setup');
-        });
-
-        /*  */
-        this.events.emit('app:getSetupSubscriptions', list);
-        
-        /*  */
-        for (const task of list) {
-          if (typeof task === 'function') {
-            try {
-              await task(this.cli.activeCommand, args);
-            } catch (error) {
-              this.logger.error(error);
-            }
-          }
-        }
-        
-        /*  */
-        profiler.done({
-          message: 'Install and configure components completed.'
-        });
-
         resolve();
       });
     });

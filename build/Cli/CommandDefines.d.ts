@@ -5,7 +5,6 @@
  * @copyright 2014 - 2019 Desionlab
  * @license   MIT
  */
-import Vorpal from 'vorpal';
 import { Injectable, Container } from "../Di";
 /**
  * Class CommandDefines
@@ -30,4 +29,8 @@ export declare class CommandDefines extends Injectable {
  * The method determines the async subscription
  * for the execution queue by the command.
  */
-export declare type CommandSubscriptionDefines = (command: Vorpal.CommandInstance, args?: any) => Promise<any>;
+export declare type CommandSubscriptionDefines = (args: {
+    [k: string]: any;
+}, options: {
+    [k: string]: any;
+}, logger: Logger) => Promise<any>;
