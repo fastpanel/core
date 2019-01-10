@@ -5,7 +5,7 @@ The main core of the "fastPanel" system.
 
 ## Env
 
-``` dotenv
+``` env
 # Defines the current environment. 
 # Can be: "develop", "staging", "production".
 NODE_ENV=develop
@@ -14,6 +14,26 @@ NODE_ENV=develop
 APP_PATH=App
 CONFIG_PATH=App/Config
 LOGGER_PATH=App/Logs
+```
+
+---
+
+## Commands
+
+### app setup
+
+Install and configure components.
+
+```
+Options:
+  --help       Output usage information
+  -f, --force  Forced reconfiguration of components.
+  -e, --env    Save as current environment settings.
+  -y, --yes    Assume yes if prompted.
+```
+
+``` bash
+  npm run cli app setup
 ```
 
 ---

@@ -24,6 +24,20 @@ class Setup extends Cli_1.CommandDefines {
      */
     async initialize() {
         this.cli
+            .command('@fastpanel/core setup', 'Install core components.')
+            .option('-f, --force', 'Forced reconfiguration of components.')
+            .option('-e, --env', 'Save as current environment settings.')
+            .option('-y, --yes', 'Assume yes if prompted.')
+            .action((args) => {
+            return new Promise(async (resolve, reject) => {
+                /* Check and create boot config file. */
+                if (!fs_1.default.existsSync(Const_1.BOOT_FILE)) {
+                    fs_1.default.writeFileSync(Const_1.BOOT_FILE, JSON.stringify({}));
+                }
+                resolve();
+            });
+        });
+        this.cli
             .command('app setup', 'Install and configure components.')
             .option('-f, --force', 'Forced reconfiguration of components.')
             .option('-e, --env', 'Save as current environment settings.')
@@ -49,10 +63,7 @@ class Setup extends Cli_1.CommandDefines {
                 let list = [];
                 /*  */
                 list.push(async (command, args) => {
-                    /* Check and create boot config file. */
-                    if (!fs_1.default.existsSync(Const_1.BOOT_FILE)) {
-                        fs_1.default.writeFileSync(Const_1.BOOT_FILE, JSON.stringify({}));
-                    }
+                    return this.cli.exec('@fastpanel/core setup');
                 });
                 /*  */
                 this.events.emit('app:getSetupSubscriptions', list);

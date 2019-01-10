@@ -23,6 +23,22 @@ export class Setup extends CommandDefines {
    */
   public async initialize () : Promise<any> {
     this.cli
+    .command('@fastpanel/core setup', 'Install core components.')
+    .option('-f, --force', 'Forced reconfiguration of components.')
+    .option('-e, --env', 'Save as current environment settings.')
+    .option('-y, --yes', 'Assume yes if prompted.')
+    .action((args: any) => {
+      return new Promise(async (resolve, reject) => {
+        /* Check and create boot config file. */
+        if (!fs.existsSync(BOOT_FILE)) {
+          fs.writeFileSync(BOOT_FILE, JSON.stringify({}));
+        }
+
+        resolve();
+      });
+    });
+
+    this.cli
     .command('app setup', 'Install and configure components.')
     .option('-f, --force', 'Forced reconfiguration of components.')
     .option('-e, --env', 'Save as current environment settings.')
@@ -52,10 +68,7 @@ export class Setup extends CommandDefines {
 
         /*  */
         list.push(async (command: CommandInstance, args?: any) => {
-          /* Check and create boot config file. */
-          if (!fs.existsSync(BOOT_FILE)) {
-            fs.writeFileSync(BOOT_FILE, JSON.stringify({}));
-          }
+          return this.cli.exec('@fastpanel/core setup');
         });
 
         /*  */

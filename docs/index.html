@@ -918,7 +918,7 @@ img { max-width: 100%; }
 			<p>The main core of the &quot;fastPanel&quot; system.</p>
 			<hr>
 			<h2 id="env">Env</h2>
-			<pre><code class="language-dotenv"># Defines the current environment.
+			<pre><code class="language-env"># Defines the current environment.
 # Can be: &quot;develop&quot;, &quot;staging&quot;, &quot;production&quot;.
 NODE_ENV=develop
 
@@ -926,6 +926,15 @@ NODE_ENV=develop
 APP_PATH=App
 CONFIG_PATH=App/Config
 LOGGER_PATH=App/Logs</code></pre>
+			<hr>
+			<h2 id="commands">Commands</h2>
+			<h3 id="app-setup">app setup</h3>
+			<p>Install and configure components.</p>
+			<pre><code>Options:
+  -<span class="ruby">-help       Output usage information
+</span>  -<span class="ruby">f, --force  Forced reconfiguration of components.
+</span>  -<span class="ruby">e, --env    Save as current environment settings.
+</span>  -<span class="ruby">y, --yes    Assume yes <span class="hljs-keyword">if</span> prompted.</span></code></pre><pre><code class="language-bash">  npm run cli app setup</code></pre>
 			<hr>
 			<h2 id="events">Events</h2>
 			<h3 id="app-watchdog">app:watchdog</h3>
