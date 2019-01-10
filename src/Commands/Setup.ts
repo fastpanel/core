@@ -6,10 +6,8 @@
  * @license   MIT
  */
 
-import fs from 'fs';
 import Winston from 'winston';
 import { CommandDefines, CommandSubscriptionDefines } from './../Cli';
-import { BOOT_FILE } from '../Const';
 
 /**
  * Class Setup
@@ -21,31 +19,27 @@ export class Setup extends CommandDefines {
   /**
    * Initialize a commands provider.
    */
-  public async initialize () : Promise<any> {
+  public initialize () {
     this.cli
-    .command('@fastpanel/core setup', 'Install core components.')
-    .option('-f, --force', 'Forced reconfiguration of components.')
+    .command('setup', 'Configure components.')
     .option('-e, --env', 'Save as current environment settings.')
-    .option('-y, --yes', 'Assume yes if prompted.')
     .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Winston.Logger) => {
       return new Promise(async (resolve, reject) => {
-        logger.info('@fastpanel/core setup');
-        logger.info(args);
-        logger.info(options);
+        logger.debug('app setup');
+        logger.debug(args);
+        logger.debug(options);
         resolve();
       });
     });
 
     this.cli
-    .command('app setup', 'Install and configure components.')
-    .option('-f, --force', 'Forced reconfiguration of components.')
+    .command('@fastpanel/core setup', 'Configure core components.')
     .option('-e, --env', 'Save as current environment settings.')
-    .option('-y, --yes', 'Assume yes if prompted.')
     .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Winston.Logger) => {
       return new Promise(async (resolve, reject) => {
-        logger.info('app setup');
-        logger.info(args);
-        logger.info(options);
+        logger.debug('@fastpanel/core setup');
+        logger.debug(args);
+        logger.debug(options);
         resolve();
       });
     });

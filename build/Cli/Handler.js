@@ -32,11 +32,15 @@ class Handler extends Application_1.Application {
         await super.init();
         /* Register setup command. */
         const { Setup } = require('../Commands/Setup');
-        await (new Setup(this.di)).initialize();
+        (new Setup(this.di)).initialize();
         /* Fire event. */
         this.events.emit('cli:getCommands', this.cli);
         /* Set ready flag. */
         this.isStartup = true;
+        /* Startup cli handler. */
+        await this.cli.parse(process.argv);
+        /* Close all connections. */
+        process.exit(0);
     }
 }
 exports.Handler = Handler;

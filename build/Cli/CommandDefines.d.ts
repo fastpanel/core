@@ -23,7 +23,7 @@ export declare class CommandDefines extends Injectable {
     /**
      * Initialize command.
      */
-    initialize(): Promise<any>;
+    initialize(): void;
 }
 /**
  * The method determines the async subscription

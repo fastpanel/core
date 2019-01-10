@@ -64,9 +64,14 @@ export class FactoryDefault extends Factory.FactoryDefault {
 
       /* Init cli lib. */
       Caporal
+      /* Setting up. */
+      .bin('node cli.js')
       .name(di.get('config').get('App.name', 'fastPanel'))
       .logger(di.get('logger'))
-      .version(version);
+      .version(version)
+      /* Common options. */
+      .option('-f, --force', 'Forced command running.')
+      .option('-y, --yes', 'Assume yes if prompted.');
       
       return Caporal;
     }, true);

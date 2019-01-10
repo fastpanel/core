@@ -17,30 +17,26 @@ class Setup extends Cli_1.CommandDefines {
     /**
      * Initialize a commands provider.
      */
-    async initialize() {
+    initialize() {
         this.cli
-            .command('@fastpanel/core setup', 'Install core components.')
-            .option('-f, --force', 'Forced reconfiguration of components.')
+            .command('setup', 'Configure components.')
             .option('-e, --env', 'Save as current environment settings.')
-            .option('-y, --yes', 'Assume yes if prompted.')
             .action((args, options, logger) => {
             return new Promise(async (resolve, reject) => {
-                logger.info('@fastpanel/core setup');
-                logger.info(args);
-                logger.info(options);
+                logger.debug('app setup');
+                logger.debug(args);
+                logger.debug(options);
                 resolve();
             });
         });
         this.cli
-            .command('app setup', 'Install and configure components.')
-            .option('-f, --force', 'Forced reconfiguration of components.')
+            .command('@fastpanel/core setup', 'Configure core components.')
             .option('-e, --env', 'Save as current environment settings.')
-            .option('-y, --yes', 'Assume yes if prompted.')
             .action((args, options, logger) => {
             return new Promise(async (resolve, reject) => {
-                logger.info('app setup');
-                logger.info(args);
-                logger.info(options);
+                logger.debug('@fastpanel/core setup');
+                logger.debug(args);
+                logger.debug(options);
                 resolve();
             });
         });

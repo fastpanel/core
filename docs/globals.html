@@ -918,22 +918,22 @@ img { max-width: 100%; }
 			<p>The main core of the &quot;fastPanel&quot; system.</p>
 			<hr>
 			<h2 id="env">Env</h2>
-			<pre><code><span class="hljs-comment"># Defines the current environment. </span>
-<span class="hljs-comment"># Can be: "develop", "staging", "production".</span>
-<span class="hljs-attr">NODE_ENV</span>=develop
+			<pre><code>  # Defines the current environment.
+  # Can be: <span class="hljs-string">"develop"</span>, <span class="hljs-string">"staging"</span>, <span class="hljs-string">"production"</span>.
+  <span class="hljs-attribute">NODE_ENV</span>=develop
 
-<span class="hljs-comment"># Defines a folder structure of the application.</span>
-<span class="hljs-attr">APP_PATH</span>=App
-<span class="hljs-attr">CONFIG_PATH</span>=App/Config
-<span class="hljs-attr">LOGGER_PATH</span>=App/Logs</code></pre><hr>
+  # Defines a folder structure of the application.
+  <span class="hljs-attribute">APP_PATH</span>=App
+  <span class="hljs-attribute">CONFIG_PATH</span>=App/Config
+  <span class="hljs-attribute">LOGGER_PATH</span>=App/Logs</code></pre><hr>
 			<h2 id="commands">Commands</h2>
-			<h3 id="app-setup">app setup</h3>
+			<h3 id="setup">setup</h3>
 			<p>Install and configure components.</p>
-			<pre><code>Options:
-  -<span class="ruby">-help       Output usage information
-</span>  -<span class="ruby">f, --force  Forced reconfiguration of components.
-</span>  -<span class="ruby">e, --env    Save as current environment settings.
-</span>  -<span class="ruby">y, --yes    Assume yes <span class="hljs-keyword">if</span> prompted.</span></code></pre><pre><code class="language-bash">  npm run cli app setup</code></pre>
+			<pre><code>  Options:
+    -<span class="ruby">-help       Output usage information
+</span>    -<span class="ruby">f, --force  Forced reconfiguration of components.
+</span>    -<span class="ruby">e, --env    Save as current environment settings.
+</span>    -<span class="ruby">y, --yes    Assume yes <span class="hljs-keyword">if</span> prompted.</span></code></pre><pre><code class="language-bash">  node cli.js app setup</code></pre>
 			<hr>
 			<h2 id="events">Events</h2>
 			<h3 id="app-watchdog">app:watchdog</h3>
@@ -941,13 +941,7 @@ img { max-width: 100%; }
 			<pre><code class="language-typescript">  <span class="hljs-keyword">this</span>.events.on(<span class="hljs-string">'app:watchdog'</span>, <span class="hljs-function">(<span class="hljs-params">app: Application</span>) =&gt;</span> {});</code></pre>
 			<h3 id="cli-getcommands">cli:getCommands</h3>
 			<p>The event is triggered when the application is ready to register console commands.</p>
-			<pre><code class="language-typescript">  <span class="hljs-keyword">this</span>.events.once(<span class="hljs-string">'cli:getCommands'</span>, <span class="hljs-keyword">async</span> (cli: Caporal) =&gt; {});</code></pre>
-			<h3 id="app-getsetupsubscriptions">app:getSetupSubscriptions</h3>
-			<p>The event allows you to register in the queue
-			for execution actions to configure the system components.</p>
-			<pre><code class="language-typescript">  <span class="hljs-keyword">this</span>.events.on(<span class="hljs-string">'app:getSetupSubscriptions'</span>, <span class="hljs-function">(<span class="hljs-params">list: <span class="hljs-built_in">Array</span>&lt;Cli.CommandSubscriptionDefines&gt;</span>) =&gt;</span> {
-    list.push(<span class="hljs-keyword">async</span> (args: {[k: <span class="hljs-built_in">string</span>]: <span class="hljs-built_in">any</span>}, options: {[k: <span class="hljs-built_in">string</span>]: <span class="hljs-built_in">any</span>}, logger: Logger) =&gt; {});
-  });</code></pre>
+			<pre><code class="language-typescript">  <span class="hljs-keyword">this</span>.events.once(<span class="hljs-string">'cli:getCommands'</span>, <span class="hljs-function">(<span class="hljs-params">cli: Caporal</span>) =&gt;</span> {});</code></pre>
 			<hr>
 			<h2 id="license">License</h2>
 			<p>The MIT License (MIT)</p>

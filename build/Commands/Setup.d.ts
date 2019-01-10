@@ -15,5 +15,5 @@ export declare class Setup extends CommandDefines {
     /**
      * Initialize a commands provider.
      */
-    initialize(): Promise<any>;
+    initialize(): void;
 }
