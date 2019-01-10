@@ -68,7 +68,7 @@ export class Setup extends CommandDefines {
 
         /*  */
         list.push(async (command: CommandInstance, args?: any) => {
-          return this.cli.exec('@fastpanel/core setup');
+          await this.cli.exec('@fastpanel/core setup');
         });
 
         /*  */

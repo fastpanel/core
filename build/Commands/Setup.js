@@ -63,7 +63,7 @@ class Setup extends Cli_1.CommandDefines {
                 let list = [];
                 /*  */
                 list.push(async (command, args) => {
-                    return this.cli.exec('@fastpanel/core setup');
+                    await this.cli.exec('@fastpanel/core setup');
                 });
                 /*  */
                 this.events.emit('app:getSetupSubscriptions', list);
