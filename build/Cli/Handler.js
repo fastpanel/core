@@ -38,7 +38,7 @@ class Handler extends Application_1.Application {
         /* Set ready flag. */
         this.isStartup = true;
         /* Startup cli handler. */
-        await this.cli.parse(process.argv);
+        this.cli.parse(process.argv);
     }
 }
 exports.Handler = Handler;

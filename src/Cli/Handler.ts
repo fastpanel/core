@@ -45,7 +45,7 @@ export class Handler extends Application {
     this.isStartup = true;
     
     /* Startup cli handler. */
-    await this.cli.parse(process.argv);
+    this.cli.parse(process.argv);
   }
 
 }
