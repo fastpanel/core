@@ -23,6 +23,8 @@ export class Setup extends CommandDefines {
     this.cli
     .command('setup', 'Configure components.')
     .option('-e, --env', 'Save as current environment settings.')
+    .option('-f, --force', 'Forced command running.')
+    .option('-y, --yes', 'Assume yes if prompted.')
     .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Winston.Logger) => {
       return new Promise(async (resolve, reject) => {
         logger.debug('app setup');
@@ -35,6 +37,8 @@ export class Setup extends CommandDefines {
     this.cli
     .command('@fastpanel/core setup', 'Configure core components.')
     .option('-e, --env', 'Save as current environment settings.')
+    .option('-f, --force', 'Forced command running.')
+    .option('-y, --yes', 'Assume yes if prompted.')
     .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Winston.Logger) => {
       return new Promise(async (resolve, reject) => {
         logger.debug('@fastpanel/core setup');

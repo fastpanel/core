@@ -64,14 +64,10 @@ class FactoryDefault extends Factory.FactoryDefault {
             let { version } = require(path_1.default.resolve(process.cwd(), 'package.json'));
             /* Init cli lib. */
             caporal_1.default
-                /* Setting up. */
                 .bin('node cli.js')
                 .name(di.get('config').get('App.name', 'fastPanel'))
                 .logger(di.get('logger'))
-                .version(version)
-                /* Common options. */
-                .option('-f, --force', 'Forced command running.')
-                .option('-y, --yes', 'Assume yes if prompted.');
+                .version(version);
             return caporal_1.default;
         }, true);
     }
