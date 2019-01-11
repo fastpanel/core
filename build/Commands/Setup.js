@@ -36,6 +36,7 @@ class Setup extends Cli_1.CommandDefines {
             .option('-e, --env', 'Save as current environment settings.')
             .option('-f, --force', 'Forced command running.')
             .option('-y, --yes', 'Assume yes if prompted.')
+            .visible(false)
             .action((args, options, logger) => {
             return new Promise(async (resolve, reject) => {
                 logger.debug('@fastpanel/core setup');

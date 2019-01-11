@@ -39,6 +39,7 @@ export class Setup extends CommandDefines {
     .option('-e, --env', 'Save as current environment settings.')
     .option('-f, --force', 'Forced command running.')
     .option('-y, --yes', 'Assume yes if prompted.')
+    .visible(false)
     .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Winston.Logger) => {
       return new Promise(async (resolve, reject) => {
         logger.debug('@fastpanel/core setup');
