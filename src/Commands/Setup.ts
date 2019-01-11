@@ -7,7 +7,7 @@
  */
 
 import Winston from 'winston';
-import { CommandDefines, CommandSubscriptionDefines } from './../Cli';
+import { CommandDefines } from './../Cli';
 
 /**
  * Class Setup
