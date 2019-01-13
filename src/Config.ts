@@ -10,7 +10,16 @@ import fs from 'fs';
 import path from 'path';
 import shell from 'shelljs';
 import { Component } from "./Component";
-import { get, has, merge, set, unset, trim, replace } from 'lodash';
+import { 
+  get,
+  has,
+  mergeWith,
+  set,
+  unset,
+  trim,
+  replace,
+  isArray
+} from 'lodash';
 
 /**
  * Class Config
@@ -171,15 +180,28 @@ export class Config extends Component {
       /* Check if the file exists. */
       if (fs.existsSync(file)) {
         try {
-          /* Load file to storage. */
-          this.storage[resource] = merge(
-            /* Original. */
-            this.storage[resource],
-            /* File data. */
-            JSON.parse(
-              fs.readFileSync(file, 'utf8')
-            )
+          /* Get data. */
+          let data = JSON.parse(
+            fs.readFileSync(file, 'utf8')
           );
+
+          if (isArray(data) && !this.storage[resource]) {
+            this.storage[resource] = data;
+          } else {
+            /* Load file to storage. */
+            this.storage[resource] = mergeWith(
+              /* Original. */
+              this.storage[resource],
+              /* File data. */
+              data,
+              /* Customize value. */
+              (objValue, srcValue) => {
+                if (isArray(objValue)) {
+                  return objValue.concat(srcValue);
+                }
+              }
+            );
+          }
         } catch (error) {
           console.error(error);
         }

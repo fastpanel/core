@@ -56,6 +56,7 @@ describe("fastPanel Core", () => {
     it('load', () => {
       expect(config.get('App.name', false)).to.equal('fastPanel Core Test');
       expect(config.get('App.deep.deep.deep', false)).to.equal(true);
+      expect(config.get('Boot', false)).deep.equal(['A', 'B']);
     });
     
     it('save', () => {

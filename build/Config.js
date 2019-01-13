@@ -145,12 +145,25 @@ class Config extends Component_1.Component {
             /* Check if the file exists. */
             if (fs_1.default.existsSync(file)) {
                 try {
-                    /* Load file to storage. */
-                    this.storage[resource] = lodash_1.merge(
-                    /* Original. */
-                    this.storage[resource], 
-                    /* File data. */
-                    JSON.parse(fs_1.default.readFileSync(file, 'utf8')));
+                    /* Get data. */
+                    let data = JSON.parse(fs_1.default.readFileSync(file, 'utf8'));
+                    if (lodash_1.isArray(data) && !this.storage[resource]) {
+                        this.storage[resource] = data;
+                    }
+                    else {
+                        /* Load file to storage. */
+                        this.storage[resource] = lodash_1.mergeWith(
+                        /* Original. */
+                        this.storage[resource], 
+                        /* File data. */
+                        data, 
+                        /* Customize value. */
+                        (objValue, srcValue) => {
+                            if (lodash_1.isArray(objValue)) {
+                                return objValue.concat(srcValue);
+                            }
+                        });
+                    }
                 }
                 catch (error) {
                     console.error(error);
