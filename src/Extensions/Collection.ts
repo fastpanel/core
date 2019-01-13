@@ -6,7 +6,8 @@
  * @license   MIT
  */
 
-import { Component } from "./../Component";
+import { Container } from "./../Di/Container";
+import { Injectable } from "./../Di/Injectable";
 import { ExtensionDefines } from "./ExtensionDefines";
 import { includes } from 'lodash';
 
@@ -17,7 +18,7 @@ import { includes } from 'lodash';
  * 
  * @version 1.0.0
  */
-export class Collection extends Component {
+export class Collection extends Injectable {
 
   /**
    * Extensions list.
@@ -36,9 +37,9 @@ export class Collection extends Component {
    * 
    * @param items 
    */
-  public constructor (items: Array<string> = []) {
+  public constructor (di?: Container, items: Array<string> = []) {
     /* Call parent. */
-    super();
+    super(di);
 
     /* Set initial data. */
     this.list = items;
@@ -57,6 +58,85 @@ export class Collection extends Component {
     }
 
     return this;
+  }
+
+  /**
+   * Load and create instant of the extension.
+   * 
+   * @param name The name of npm package or path to the local package.
+   */
+  public async load (name: string) : Promise<any> {
+    /* Load extension. */
+    let extension = await import(name);
+
+    /* Check package format. */
+    if (typeof extension.Extension !== 'undefined') {
+      /* Create instant. */
+      let instant: ExtensionDefines = new extension.Extension(this.di);
+
+      /* Add instant to list. */
+      this.instants[name] = instant;
+    } else {
+      throw new Error(`Incorrect package format for "${name}" extension.`);
+    }
+  }
+
+  /**
+   * Registration of extension components.
+   * 
+   * @param name The name of npm package or path to the local package.
+   */
+  public async register (name: string) : Promise<any> {
+    if (!this.instants[name]) {
+      throw new Error(`The extension "${name}" is not loaded.`);
+    }
+
+    await this.instants[name].register();
+  }
+
+  /**
+   * Running expansion.
+   * 
+   * @param name The name of npm package or path to the local package.
+   */
+  public async startup (name: string) : Promise<any> {
+    if (!this.instants[name]) {
+      throw new Error(`The extension "${name}" is not loaded.`);
+    }
+
+    await this.instants[name].startup();
+  }
+
+  /**
+   * Load and initialize registered extensions.
+   */
+  public async boot () : Promise<any> {
+    /* Load extensions. */
+    for (const name of this.list) {
+      try {
+        await this.load(name);
+      } catch (error) {
+        throw error;
+      }
+    }
+
+    /* Register extensions. */
+    for (const name of this.list) {
+      try {
+        await this.register(name);
+      } catch (error) {
+        throw error;
+      }
+    }
+
+    /* Startup extensions. */
+    for (const name of this.list) {
+      try {
+        await this.startup(name);
+      } catch (error) {
+        throw error;
+      }
+    }
   }
 
 }

@@ -48,7 +48,8 @@ export class FactoryDefault extends Container {
     /* Registered extensions menage. */
     this.set('extensions', (di: Container) => {
       let collection = new Collection(
-        di.get('config').get('Boot', {})
+        di,
+        di.get('config').get('Boot', [])
       );
       return collection;
     }, true);

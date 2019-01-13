@@ -43,7 +43,7 @@ class FactoryDefault extends Container_1.Container {
         }, true);
         /* Registered extensions menage. */
         this.set('extensions', (di) => {
-            let collection = new Collection_1.Collection(di.get('config').get('Boot', {}));
+            let collection = new Collection_1.Collection(di, di.get('config').get('Boot', []));
             return collection;
         }, true);
     }

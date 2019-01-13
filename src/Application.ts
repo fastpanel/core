@@ -47,6 +47,9 @@ export class Application extends Injectable {
    * Initialization app.
    */
   public async init () : Promise<any> {
+    /* Load and initialize registered extensions. */
+    await this.extensions.boot();
+
     /* Initial watchdog timer. */
     this.watchdogTimer = setInterval(() => {
       this.events.emit('app:watchdog', this);

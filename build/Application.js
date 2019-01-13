@@ -37,6 +37,8 @@ class Application extends Di_1.Injectable {
      * Initialization app.
      */
     async init() {
+        /* Load and initialize registered extensions. */
+        await this.extensions.boot();
         /* Initial watchdog timer. */
         this.watchdogTimer = setInterval(() => {
             this.events.emit('app:watchdog', this);
