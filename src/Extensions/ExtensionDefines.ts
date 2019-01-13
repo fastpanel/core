@@ -6,7 +6,7 @@
  * @license   MIT
  */
 
-import { Container, Injectable } from "../Di";
+import { Container, Injectable } from "./../Di";
 
 /**
  * Class ExtensionDefines

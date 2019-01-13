@@ -6,6 +6,7 @@
  * @license   MIT
  */
 
+import Winston from 'winston';
 import { Injectable, Container } from "../Di";
 
 /**
@@ -38,6 +39,6 @@ export class CommandDefines extends Injectable {
  * for the execution queue by the command.
  */
 export type CommandSubscriptionDefines = (args: { [k: string]: any },
-  options: { [k: string]: any }, logger: Logger) => Promise<any>;
+  options: { [k: string]: any }, logger: Winston.Logger) => Promise<any>;
 
 /* End of file CommandDefines.ts */

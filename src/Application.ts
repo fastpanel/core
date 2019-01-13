@@ -7,7 +7,6 @@
  */
 
 import { Container, Injectable } from "./Di";
-import { ExtensionDefines } from "./Extensions";
 
 /**
  * Class Application
@@ -24,15 +23,12 @@ export class Application extends Injectable {
   public isStartup: boolean = false;
   
   /**
-   * List of installed extensions and add-ons.
-   */
-  protected extensions: Array<ExtensionDefines> = [];
-
-  /**
    * 
    */
   protected watchdogTimer: NodeJS.Timer;
 
+  /* ----------------------------------------------------------------------- */
+  
   /**
    * Application constructor.
    * 
@@ -51,70 +47,12 @@ export class Application extends Injectable {
    * Initialization app.
    */
   public async init () : Promise<any> {
-    /* Registers a service providers. */
-    await this.register();
-
-    /* Startup a service providers. */
-    await this.startup();
-    
     /* Initial watchdog timer. */
     this.watchdogTimer = setInterval(() => {
       this.events.emit('app:watchdog', this);
     }, 1000);
   }
   
-  /**
-   * Registers a service providers.
-   */
-  public async register () : Promise<any> {
-    /* Register all extensions. */
-    for (const extension of this.extensions) {
-      if (typeof extension.register === 'function') {
-        try {
-          await extension.register();
-        } catch (error) {
-          this.logger.error(error);
-        }
-      }
-    }
-  }
-
-  /**
-   * Startup a service providers.
-   */
-  public async startup () : Promise<any> {
-    /* Startup all extensions. */
-    for (const extension of this.extensions) {
-      if (typeof extension.startup === 'function') {
-        try {
-          await extension.startup();
-        } catch (error) {
-          this.logger.error(error);
-        }
-      }
-    }
-  }
-
-  /**
-   * Add a extension object to the list of running.
-   * 
-   * @param extension Target extension class.
-   */
-  public addExtension (extension: any) : Application {
-    try {
-      if (typeof extension.Extension !== 'undefined') {
-        let ExtObject = extension.Extension;
-        let instant: ExtensionDefines = new ExtObject(this.di);
-        
-        this.extensions.push(instant);
-      }
-    } catch (error) {
-      this.logger.error(error);
-    }
-
-    return this;
-  }
-
 }
 
 /* End of file Application.ts */

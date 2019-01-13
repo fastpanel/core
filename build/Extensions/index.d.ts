@@ -5,4 +5,5 @@
  * @copyright 2014 - 2019 Desionlab
  * @license   MIT
  */
+export * from './Collection';
 export * from './ExtensionDefines';

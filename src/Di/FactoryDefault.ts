@@ -6,9 +6,10 @@
  * @license   MIT
  */
 
-import { EventEmitter } from 'events';
 import { Config } from './../Config';
 import { Container } from './Container';
+import { Collection } from './../Extensions/Collection';
+import { EventEmitter } from 'events';
 
 /**
  * Class FactoryDefault
@@ -42,6 +43,14 @@ export class FactoryDefault extends Container {
     this.set('config', (di: Container) => {
       let path = (process.env.CONFIG_PATH) ? process.env.CONFIG_PATH : 'App/Config';
       return new Config(path, {Env: process.env});
+    }, true);
+
+    /* Registered extensions menage. */
+    this.set('extensions', (di: Container) => {
+      let collection = new Collection(
+        di.get('config').get('Boot', {})
+      );
+      return collection;
     }, true);
   }
 

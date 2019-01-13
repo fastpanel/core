@@ -7,7 +7,7 @@
  * @license   MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-const Di_1 = require("../Di");
+const Di_1 = require("./../Di");
 /**
  * Class ExtensionDefines
  *

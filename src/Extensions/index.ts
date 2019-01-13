@@ -6,6 +6,7 @@
  * @license   MIT
  */
 
+export * from './Collection';
 export * from './ExtensionDefines';
 
 /* End of file index.ts */

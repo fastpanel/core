@@ -5,7 +5,7 @@
  * @copyright 2014 - 2019 Desionlab
  * @license   MIT
  */
-import { Container, Injectable } from "../Di";
+import { Container, Injectable } from "./../Di";
 /**
  * Class ExtensionDefines
  *

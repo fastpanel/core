@@ -7,7 +7,6 @@
  */
 /// <reference types="node" />
 import { Container, Injectable } from "./Di";
-import { ExtensionDefines } from "./Extensions";
 /**
  * Class Application
  *
@@ -20,10 +19,6 @@ export declare class Application extends Injectable {
      * Flag a app is ready.
      */
     isStartup: boolean;
-    /**
-     * List of installed extensions and add-ons.
-     */
-    protected extensions: Array<ExtensionDefines>;
     /**
      *
      */
@@ -38,18 +33,4 @@ export declare class Application extends Injectable {
      * Initialization app.
      */
     init(): Promise<any>;
-    /**
-     * Registers a service providers.
-     */
-    register(): Promise<any>;
-    /**
-     * Startup a service providers.
-     */
-    startup(): Promise<any>;
-    /**
-     * Add a extension object to the list of running.
-     *
-     * @param extension Target extension class.
-     */
-    addExtension(extension: any): Application;
 }

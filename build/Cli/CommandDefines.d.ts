@@ -5,6 +5,7 @@
  * @copyright 2014 - 2019 Desionlab
  * @license   MIT
  */
+import Winston from 'winston';
 import { Injectable, Container } from "../Di";
 /**
  * Class CommandDefines
@@ -33,4 +34,4 @@ export declare type CommandSubscriptionDefines = (args: {
     [k: string]: any;
 }, options: {
     [k: string]: any;
-}, logger: Logger) => Promise<any>;
+}, logger: Winston.Logger) => Promise<any>;
