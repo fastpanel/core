@@ -32,11 +32,11 @@ class Setup extends Cli_1.CommandDefines {
                     /* Clear ext name. */
                     let clearName = lodash_1.trim(name, './\\@');
                     let commandName = `${clearName} setup`;
-                    logger.debug('before', name);
-                    logger.debug('after', clearName);
+                    logger.debug(name);
+                    logger.debug(clearName);
                     /* Find command by name. */
                     if (this.cli.getCommands().filter((c) => (c.name() === commandName || c.getAlias() === commandName))[0]) {
-                        logger.debug('Command exist', commandName);
+                        logger.debug('Command exist: ' + commandName);
                     }
                 }
                 /* Command complete. */
