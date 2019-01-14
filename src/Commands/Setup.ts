@@ -29,20 +29,17 @@ export class Setup extends CommandDefines {
     .option('-y, --yes', 'Assume yes if prompted.')
     .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Winston.Logger) => {
       return new Promise(async (resolve, reject) => {
-        /*  */
+        /* Debug info. */
         logger.debug('setup');
 
-        /*  */
+        /* Get ext list. */
         let list = concat(['@fastpanel/core'], this.extensions.list);
 
-        /*  */
+        /* Find and run commands. */
         for (const name of list) {
           /* Clear ext name. */
           let clearName = trim(name, './\\@');
           let commandName = `${clearName} setup`;
-
-          logger.debug(name);
-          logger.debug(clearName);
 
           /* Find command by name. */
           if (
@@ -50,7 +47,16 @@ export class Setup extends CommandDefines {
               (c: any) => (c.name() === commandName || c.getAlias() === commandName)
             )[0]
           ) {
-            logger.debug('Command exist: ' + commandName);
+            try {
+              /* Run command. */
+              await this.cli.exec(
+                [commandName],
+                options
+              );
+            } catch (error) {
+              /* Stop command by error. */
+              reject(error);
+            }
           }
         }
         

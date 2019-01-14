@@ -26,20 +26,25 @@ class Setup extends Cli_1.CommandDefines {
             .option('-y, --yes', 'Assume yes if prompted.')
             .action((args, options, logger) => {
             return new Promise(async (resolve, reject) => {
-                /*  */
+                /* Debug info. */
                 logger.debug('setup');
-                /*  */
+                /* Get ext list. */
                 let list = lodash_1.concat(['@fastpanel/core'], this.extensions.list);
-                /*  */
+                /* Find and run commands. */
                 for (const name of list) {
                     /* Clear ext name. */
                     let clearName = lodash_1.trim(name, './\\@');
                     let commandName = `${clearName} setup`;
-                    logger.debug(name);
-                    logger.debug(clearName);
                     /* Find command by name. */
                     if (this.cli.getCommands().filter((c) => (c.name() === commandName || c.getAlias() === commandName))[0]) {
-                        logger.debug('Command exist: ' + commandName);
+                        try {
+                            /* Run command. */
+                            await this.cli.exec([commandName], options);
+                        }
+                        catch (error) {
+                            /* Stop command by error. */
+                            reject(error);
+                        }
                     }
                 }
                 /* Command complete. */
