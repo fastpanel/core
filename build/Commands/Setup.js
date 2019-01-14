@@ -83,7 +83,8 @@ class Setup extends Cli_1.CommandDefines {
                     this.config.set('App', config);
                     this.config.save('App', !(options.env));
                     /* Info message. */
-                    logger.info(`Settings applied:`, this.config.get('App'), os_1.EOL);
+                    logger.info(`Settings applied:`);
+                    logger.info(this.config.get('App'));
                 }
                 else {
                     /* Info message. */

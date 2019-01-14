@@ -98,7 +98,8 @@ export class Setup extends CommandDefines {
           this.config.save('App', !(options.env));
 
           /* Info message. */
-          logger.info(`Settings applied:`, this.config.get('App'), EOL);
+          logger.info(`Settings applied:`);
+          logger.info(this.config.get('App'));
         } else {
           /* Info message. */
           logger.info(` Everything is already configured. ${EOL}`);
