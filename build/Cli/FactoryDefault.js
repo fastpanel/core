@@ -40,17 +40,17 @@ class FactoryDefault extends Factory.FactoryDefault {
         this.set('logger', (di) => {
             let logger = winston_1.default.createLogger({
                 transports: [
+                    new winston_1.default.transports.Console({
+                        handleExceptions: true
+                    }),
                     new winston_daily_rotate_file_1.default({
+                        handleExceptions: true,
                         dirname: ((process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs') + '/Cli',
                         filename: '%DATE%.log',
                         datePattern: 'YYYY-MM-DD'
                     })
                 ],
                 exitOnError: false
-            });
-            /*  */
-            logger.stream({ start: -1 }).on('log', (log) => {
-                console.log(log);
             });
             return logger;
         }, true);
