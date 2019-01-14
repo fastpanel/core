@@ -11,6 +11,7 @@ import Caporal from 'caporal';
 import Winston from 'winston';
 import inquirer from 'inquirer';
 import WinstonDailyRotateFile from 'winston-daily-rotate-file';
+import { EOL } from 'os';
 import { Container } from '../Di';
 import * as Factory from './../Di/FactoryDefault';
 
@@ -34,10 +35,21 @@ export class FactoryDefault extends Factory.FactoryDefault {
       let logger = Winston.createLogger({
         transports: [
           new Winston.transports.Console({
-            handleExceptions: true
+            handleExceptions: true,
+            format: Winston.format.combine(
+              Winston.format.colorize(),
+              Winston.format.printf((info) => {
+                const { message, ...args } = info;
+                return `${info.message} ${Object.keys(args).length ? EOL + JSON.stringify(args, null, 2) : ''}`;
+              })
+            )
           }),
           new WinstonDailyRotateFile({
             handleExceptions: true,
+            format: Winston.format.combine(
+              Winston.format.timestamp(),
+              Winston.format.prettyPrint()
+            ),
             dirname: ((process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs') + '/Cli',
             filename: '%DATE%.log',
             datePattern: 'YYYY-MM-DD'
