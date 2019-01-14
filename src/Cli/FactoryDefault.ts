@@ -11,7 +11,6 @@ import Caporal from 'caporal';
 import Winston from 'winston';
 import inquirer from 'inquirer';
 import WinstonDailyRotateFile from 'winston-daily-rotate-file';
-import { EOL } from 'os';
 import { Container } from '../Di';
 import * as Factory from './../Di/FactoryDefault';
 
@@ -38,17 +37,12 @@ export class FactoryDefault extends Factory.FactoryDefault {
             handleExceptions: true,
             format: Winston.format.combine(
               Winston.format.colorize(),
-              Winston.format.printf((info) => {
-                const { message, ...args } = info;
-                return `${info.message} ${Object.keys(args).length ? EOL + JSON.stringify(args, null, 2) : ''}`;
-              })
+              Winston.format.printf(info => `${info.message}`)
             )
           }),
           new WinstonDailyRotateFile({
-            handleExceptions: true,
             format: Winston.format.combine(
-              Winston.format.timestamp(),
-              Winston.format.prettyPrint()
+              Winston.format.timestamp()
             ),
             dirname: ((process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs') + '/Cli',
             filename: '%DATE%.log',
@@ -57,7 +51,7 @@ export class FactoryDefault extends Factory.FactoryDefault {
         ],
         exitOnError: false
       });
-      
+
       return logger;
     }, true);
 
@@ -75,7 +69,7 @@ export class FactoryDefault extends Factory.FactoryDefault {
       Caporal
       .bin('node cli.js')
       .name(di.get('config').get('App.name', 'fastPanel'))
-      .logger(di.get('logger'))
+      //.logger(di.get('logger'))
       .version(version);
       
       return Caporal;

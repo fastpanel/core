@@ -22,7 +22,6 @@ const caporal_1 = __importDefault(require("caporal"));
 const winston_1 = __importDefault(require("winston"));
 const inquirer_1 = __importDefault(require("inquirer"));
 const winston_daily_rotate_file_1 = __importDefault(require("winston-daily-rotate-file"));
-const os_1 = require("os");
 const Factory = __importStar(require("./../Di/FactoryDefault"));
 /**
  * Class FactoryDefault
@@ -43,14 +42,10 @@ class FactoryDefault extends Factory.FactoryDefault {
                 transports: [
                     new winston_1.default.transports.Console({
                         handleExceptions: true,
-                        format: winston_1.default.format.combine(winston_1.default.format.colorize(), winston_1.default.format.printf((info) => {
-                            const { message, ...args } = info;
-                            return `${info.message} ${Object.keys(args).length ? os_1.EOL + JSON.stringify(args, null, 2) : ''}`;
-                        }))
+                        format: winston_1.default.format.combine(winston_1.default.format.colorize(), winston_1.default.format.printf(info => `${info.message}`))
                     }),
                     new winston_daily_rotate_file_1.default({
-                        handleExceptions: true,
-                        format: winston_1.default.format.combine(winston_1.default.format.timestamp(), winston_1.default.format.prettyPrint()),
+                        format: winston_1.default.format.combine(winston_1.default.format.timestamp()),
                         dirname: ((process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs') + '/Cli',
                         filename: '%DATE%.log',
                         datePattern: 'YYYY-MM-DD'
@@ -72,7 +67,7 @@ class FactoryDefault extends Factory.FactoryDefault {
             caporal_1.default
                 .bin('node cli.js')
                 .name(di.get('config').get('App.name', 'fastPanel'))
-                .logger(di.get('logger'))
+                //.logger(di.get('logger'))
                 .version(version);
             return caporal_1.default;
         }, true);
