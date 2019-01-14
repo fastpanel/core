@@ -1,5 +1,5 @@
 /**
- * Setup.js
+ * Setup.ts
  * 
  * @author    Desionlab <fenixphp@gmail.com>
  * @copyright 2014 - 2019 Desionlab
@@ -9,7 +9,7 @@
 import Caporal from 'caporal';
 import Winston from 'winston';
 import { CommandDefines } from './../Cli';
-import { concat, trim } from 'lodash';
+import { concat, trim, toLower } from 'lodash';
 
 /**
  * Class Setup
@@ -38,7 +38,7 @@ export class Setup extends CommandDefines {
         /* Find and run commands. */
         for (const name of list) {
           /* Clear ext name. */
-          let clearName = trim(name, './\\@');
+          let clearName = toLower(trim(name, './\\@'));
           let commandName = `${clearName} setup`;
 
           /* Find command by name. */
@@ -83,4 +83,4 @@ export class Setup extends CommandDefines {
 
 }
 
-/* End of file Setup.js */
+/* End of file Setup.ts */

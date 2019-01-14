@@ -1,6 +1,6 @@
 "use strict";
 /**
- * Setup.js
+ * Setup.ts
  *
  * @author    Desionlab <fenixphp@gmail.com>
  * @copyright 2014 - 2019 Desionlab
@@ -33,7 +33,7 @@ class Setup extends Cli_1.CommandDefines {
                 /* Find and run commands. */
                 for (const name of list) {
                     /* Clear ext name. */
-                    let clearName = lodash_1.trim(name, './\\@');
+                    let clearName = lodash_1.toLower(lodash_1.trim(name, './\\@'));
                     let commandName = `${clearName} setup`;
                     /* Find command by name. */
                     if (this.cli.getCommands().filter((c) => (c.name() === commandName || c.getAlias() === commandName))[0]) {
@@ -68,4 +68,4 @@ class Setup extends Cli_1.CommandDefines {
     }
 }
 exports.Setup = Setup;
-/* End of file Setup.js */ 
+/* End of file Setup.ts */ 
