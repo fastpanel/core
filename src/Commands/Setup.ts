@@ -31,9 +31,6 @@ export class Setup extends CommandDefines {
     .option('-f, --force', 'Forced reconfiguration of components.')
     .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Winston.Logger) => {
       return new Promise(async (resolve, reject) => {
-        /* Start profiling. */
-        logger.profile('setup');
-
         /* Get ext list. */
         let list = concat(['@fastpanel/core'], this.extensions.list);
 
@@ -62,9 +59,6 @@ export class Setup extends CommandDefines {
           }
         }
         
-        /* End profiling. */
-        logger.profile('setup');
-
         /* Command complete. */
         resolve();
       });

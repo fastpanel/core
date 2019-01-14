@@ -33,13 +33,6 @@ export class FactoryDefault extends Factory.FactoryDefault {
     this.set('logger', (di: Container) => {
       let logger = Winston.createLogger({
         transports: [
-          new Winston.transports.Console({
-            handleExceptions: true,
-            format: Winston.format.combine(
-              Winston.format.colorize(),
-              Winston.format.printf(info => `${info.message}`)
-            )
-          }),
           new WinstonDailyRotateFile({
             dirname: ((process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs') + '/Cli',
             filename: '%DATE%.log',
@@ -47,6 +40,11 @@ export class FactoryDefault extends Factory.FactoryDefault {
           })
         ],
         exitOnError: false
+      });
+      
+      /*  */
+      logger.stream({ start: -1 }).on('log', (log) => {
+        console.log(log);
       });
 
       return logger;

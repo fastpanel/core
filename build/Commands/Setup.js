@@ -31,8 +31,6 @@ class Setup extends Cli_1.CommandDefines {
             .option('-f, --force', 'Forced reconfiguration of components.')
             .action((args, options, logger) => {
             return new Promise(async (resolve, reject) => {
-                /* Start profiling. */
-                logger.profile('setup');
                 /* Get ext list. */
                 let list = lodash_1.concat(['@fastpanel/core'], this.extensions.list);
                 /* Find and run commands. */
@@ -52,8 +50,6 @@ class Setup extends Cli_1.CommandDefines {
                         }
                     }
                 }
-                /* End profiling. */
-                logger.profile('setup');
                 /* Command complete. */
                 resolve();
             });
