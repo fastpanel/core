@@ -9,9 +9,9 @@
 import { EOL } from 'os';
 import path from 'path';
 import Caporal from 'caporal';
-import Winston from 'winston';
-import prettyjson from 'prettyjson';
 import inquirer from 'inquirer';
+import prettyjson from 'prettyjson';
+import Winston from 'winston';
 import WinstonDailyRotateFile from 'winston-daily-rotate-file';
 import { Container } from '../Di';
 import * as Factory from './../Di/FactoryDefault';
@@ -36,6 +36,7 @@ export class FactoryDefault extends Factory.FactoryDefault {
       let logger = Winston.createLogger({
         transports: [
           new Winston.transports.Console({
+            level: process.env.NODE_ENV !== 'production' ? 'silly' : 'info',
             handleExceptions: true,
             format: Winston.format.combine(
               Winston.format.colorize({
@@ -44,12 +45,13 @@ export class FactoryDefault extends Factory.FactoryDefault {
               Winston.format.printf((info) => {
                 const { level, message, ...extra } = info;
                 return `${message} ${
-                  Object.keys(extra).length ? prettyjson.render(extra) + EOL : ''
+                  Object.keys(extra).length ? EOL + prettyjson.render(extra) + EOL : ''
                 }`;
               })
             )
           }),
           new WinstonDailyRotateFile({
+            level: process.env.NODE_ENV !== 'production' ? 'silly' : 'warn',
             handleExceptions: true,
             format: Winston.format.combine(
               Winston.format.timestamp(),

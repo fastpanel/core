@@ -20,9 +20,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const os_1 = require("os");
 const path_1 = __importDefault(require("path"));
 const caporal_1 = __importDefault(require("caporal"));
-const winston_1 = __importDefault(require("winston"));
-const prettyjson_1 = __importDefault(require("prettyjson"));
 const inquirer_1 = __importDefault(require("inquirer"));
+const prettyjson_1 = __importDefault(require("prettyjson"));
+const winston_1 = __importDefault(require("winston"));
 const winston_daily_rotate_file_1 = __importDefault(require("winston-daily-rotate-file"));
 const Factory = __importStar(require("./../Di/FactoryDefault"));
 /**
@@ -43,15 +43,17 @@ class FactoryDefault extends Factory.FactoryDefault {
             let logger = winston_1.default.createLogger({
                 transports: [
                     new winston_1.default.transports.Console({
+                        level: process.env.NODE_ENV !== 'production' ? 'silly' : 'info',
                         handleExceptions: true,
                         format: winston_1.default.format.combine(winston_1.default.format.colorize({
                             all: true
                         }), winston_1.default.format.printf((info) => {
                             const { level, message, ...extra } = info;
-                            return `${message} ${Object.keys(extra).length ? prettyjson_1.default.render(extra) + os_1.EOL : ''}`;
+                            return `${message} ${Object.keys(extra).length ? os_1.EOL + prettyjson_1.default.render(extra) + os_1.EOL : ''}`;
                         }))
                     }),
                     new winston_daily_rotate_file_1.default({
+                        level: process.env.NODE_ENV !== 'production' ? 'silly' : 'warn',
                         handleExceptions: true,
                         format: winston_1.default.format.combine(winston_1.default.format.timestamp(), winston_1.default.format.json()),
                         dirname: ((process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs') + '/Cli',
