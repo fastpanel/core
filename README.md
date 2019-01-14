@@ -33,7 +33,7 @@ Install and configure components.
 ```
 
 ``` bash
-  node cli.js app setup
+  node cli.js setup
 ```
 
 ---
