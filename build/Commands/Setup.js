@@ -28,7 +28,6 @@ class Setup extends Cli_1.CommandDefines {
             .command('setup', 'Configure components.')
             .option('-e, --env', 'Save as current environment settings.')
             .option('-f, --force', 'Forced command running.')
-            .option('-y, --yes', 'Assume yes if prompted.')
             .action((args, options, logger) => {
             return new Promise(async (resolve, reject) => {
                 /* Start profiling. */
@@ -62,7 +61,6 @@ class Setup extends Cli_1.CommandDefines {
             .command('fastpanel/core setup', 'Configure core components.')
             .option('-e, --env', 'Save as current environment settings.')
             .option('-f, --force', 'Forced command running.')
-            .option('-y, --yes', 'Assume yes if prompted.')
             .visible(false)
             .action((args, options, logger) => {
             return new Promise(async (resolve, reject) => {
@@ -76,7 +74,7 @@ class Setup extends Cli_1.CommandDefines {
                             type: 'input',
                             name: 'name',
                             message: 'Enter application display name',
-                            default: this.config.get('App', (name ? name : 'fastPanel'))
+                            default: this.config.get('App.name', (name ? name : Const_1.DEFAULT_CONFIG.name))
                         }
                     ];
                     /* Show prompts to user. */
@@ -84,7 +82,7 @@ class Setup extends Cli_1.CommandDefines {
                     let config = lodash_1.merge(Const_1.DEFAULT_CONFIG, answers);
                     /* Save data. */
                     this.config.set('App', config);
-                    this.config.save('App', true);
+                    this.config.save('App', !(options.env));
                 }
                 /* Command complete. */
                 resolve();
