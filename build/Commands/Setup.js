@@ -6,9 +6,14 @@
  * @copyright 2014 - 2019 Desionlab
  * @license   MIT
  */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+const path_1 = __importDefault(require("path"));
 const Cli_1 = require("./../Cli");
 const lodash_1 = require("lodash");
+const Const_1 = require("../Const");
 /**
  * Class Setup
  *
@@ -61,9 +66,27 @@ class Setup extends Cli_1.CommandDefines {
             .visible(false)
             .action((args, options, logger) => {
             return new Promise(async (resolve, reject) => {
-                logger.debug('fastpanel/core setup');
-                logger.debug(args);
-                logger.debug(options);
+                if (!this.config.get('App', false) || options.force) {
+                    /* Get current app package. */
+                    let { name } = require(path_1.default.resolve(process.cwd(), 'package.json'));
+                    /* Prompts list. */
+                    let questions = [
+                        /* App display name. */
+                        {
+                            type: 'input',
+                            name: 'name',
+                            message: 'Enter application display name',
+                            default: this.config.get('App', (name ? name : 'fastPanel'))
+                        }
+                    ];
+                    /* Show prompts to user. */
+                    let answers = await this.prompt(questions);
+                    let config = lodash_1.merge(Const_1.DEFAULT_CONFIG, answers);
+                    /* Save data. */
+                    this.config.set('App', config);
+                    this.config.save('App', true);
+                }
+                /* Command complete. */
                 resolve();
             });
         });

@@ -6,10 +6,12 @@
  * @license   MIT
  */
 
+import path from 'path';
 import Caporal from 'caporal';
 import Winston from 'winston';
 import { CommandDefines } from './../Cli';
-import { concat, trim, toLower } from 'lodash';
+import { concat, trim, toLower, merge } from 'lodash';
+import { DEFAULT_CONFIG } from '../Const';
 
 /**
  * Class Setup
@@ -76,9 +78,31 @@ export class Setup extends CommandDefines {
     .visible(false)
     .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Winston.Logger) => {
       return new Promise(async (resolve, reject) => {
-        logger.debug('fastpanel/core setup');
-        logger.debug(args);
-        logger.debug(options);
+        if (!this.config.get('App', false) || options.force) {
+          /* Get current app package. */
+          let { name } = require(path.resolve(process.cwd(), 'package.json'));
+
+          /* Prompts list. */
+          let questions = [
+            /* App display name. */
+            {
+              type: 'input',
+              name: 'name',
+              message: 'Enter application display name',
+              default: this.config.get('App', (name ? name : 'fastPanel'))
+            }
+          ];
+
+          /* Show prompts to user. */
+          let answers = await this.prompt(questions);
+          let config = merge(DEFAULT_CONFIG, answers);
+
+          /* Save data. */
+          this.config.set('App', config);
+          this.config.save('App', true);
+        }
+
+        /* Command complete. */
         resolve();
       });
     });

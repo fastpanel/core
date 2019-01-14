@@ -6,13 +6,11 @@
  * @copyright 2014 - 2019 Desionlab
  * @license   MIT
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const path_1 = __importDefault(require("path"));
 /**
- * Full path to the file with the list of installed add-ons.
+ * Default core config.
  */
-exports.BOOT_FILE = path_1.default.resolve((process.env.APP_PATH) ? process.env.APP_PATH : 'App') + path_1.default.sep + 'boot.json';
+exports.DEFAULT_CONFIG = {
+    name: 'fastPanel'
+};
 /* End of file Const.ts */ 

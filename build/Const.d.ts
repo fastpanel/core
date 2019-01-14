@@ -6,6 +6,8 @@
  * @license   MIT
  */
 /**
- * Full path to the file with the list of installed add-ons.
+ * Default core config.
  */
-export declare const BOOT_FILE: string;
+export declare const DEFAULT_CONFIG: {
+    name: string;
+};
