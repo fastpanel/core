@@ -42,10 +42,22 @@ export class FactoryDefault extends Factory.FactoryDefault {
                 all: true
               }),
               Winston.format.printf((info) => {
+                let msg = '';
                 const { level, message, ...extra } = info;
-                return `${message} ${
-                  Object.keys(extra).length ? EOL + prettyjson.render(extra) + EOL : ''
-                }`;
+
+                if (typeof message === 'string') {
+                  msg += message;
+                } else if (Object.keys(message).length) {
+                  msg += EOL + prettyjson.render(message) + EOL;
+                } else {
+                  msg += message;
+                }
+
+                if (Object.keys(extra).length) {
+                  msg += EOL + prettyjson.render(extra) + EOL;
+                }
+
+                return msg;
               })
             )
           }),
