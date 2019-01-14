@@ -31,9 +31,9 @@ export class FactoryDefault extends Factory.FactoryDefault {
     /* Registered logger component. */
     this.set('logger', (di: Container) => {
       let logger = Winston.createLogger({
+        level: process.env.NODE_ENV !== 'production' ? 'silly' : 'warn',
         transports: [
           new Winston.transports.Console({
-            level: process.env.NODE_ENV !== 'production' ? 'silly' : 'warn',
             handleExceptions: true,
             format: Winston.format.combine(
               Winston.format.colorize({
@@ -48,7 +48,6 @@ export class FactoryDefault extends Factory.FactoryDefault {
             )
           }),
           new WinstonDailyRotateFile({
-            level: process.env.NODE_ENV !== 'production' ? 'silly' : 'warn',
             handleExceptions: true,
             format: Winston.format.combine(
               Winston.format.timestamp(),

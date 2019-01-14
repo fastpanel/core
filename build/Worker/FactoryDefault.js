@@ -38,9 +38,9 @@ class FactoryDefault extends Factory.FactoryDefault {
         /* Registered logger component. */
         this.set('logger', (di) => {
             let logger = winston_1.default.createLogger({
+                level: process.env.NODE_ENV !== 'production' ? 'silly' : 'warn',
                 transports: [
                     new winston_1.default.transports.Console({
-                        level: process.env.NODE_ENV !== 'production' ? 'silly' : 'warn',
                         handleExceptions: true,
                         format: winston_1.default.format.combine(winston_1.default.format.colorize({
                             all: true
@@ -50,7 +50,6 @@ class FactoryDefault extends Factory.FactoryDefault {
                         }))
                     }),
                     new winston_daily_rotate_file_1.default({
-                        level: process.env.NODE_ENV !== 'production' ? 'silly' : 'warn',
                         handleExceptions: true,
                         format: winston_1.default.format.combine(winston_1.default.format.timestamp(), winston_1.default.format.json()),
                         dirname: ((process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs') + '/Worker',
