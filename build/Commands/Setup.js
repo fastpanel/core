@@ -62,7 +62,7 @@ class Setup extends Cli_1.CommandDefines {
             .action((args, options, logger) => {
             return new Promise(async (resolve, reject) => {
                 /* Info message. */
-                logger.info(`${os_1.EOL}Basic core configuration.`);
+                logger.info(`${os_1.EOL}Configure core components.`);
                 if (!this.config.get('App', false) || options.force) {
                     /* Get current app package. */
                     let { name } = require(path_1.default.resolve(process.cwd(), 'package.json'));
@@ -83,7 +83,8 @@ class Setup extends Cli_1.CommandDefines {
                     this.config.set('App', config);
                     this.config.save('App', !(options.env));
                     /* Info message. */
-                    logger.info(`Settings applied:`, this.config.get('App'));
+                    logger.info(`${os_1.EOL}Applied:`);
+                    logger.info('', this.config.get('App'));
                 }
                 else {
                     /* Info message. */
