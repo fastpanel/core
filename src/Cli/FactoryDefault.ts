@@ -6,13 +6,13 @@
  * @license   MIT
  */
 
+import { EOL } from 'os';
 import path from 'path';
 import Caporal from 'caporal';
 import Winston from 'winston';
 import prettyjson from 'prettyjson';
 import inquirer from 'inquirer';
 import WinstonDailyRotateFile from 'winston-daily-rotate-file';
-import { EOL } from 'os';
 import { Container } from '../Di';
 import * as Factory from './../Di/FactoryDefault';
 

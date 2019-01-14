@@ -6,10 +6,10 @@
  * @license   MIT
  */
 
+import { EOL } from 'os';
 import path from 'path';
 import Caporal from 'caporal';
 import Winston from 'winston';
-import { EOL } from 'os';
 import { CommandDefines } from './../Cli';
 import { concat, trim, toLower, merge } from 'lodash';
 import { DEFAULT_CONFIG } from '../Const';
