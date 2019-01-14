@@ -9,8 +9,10 @@
 import path from 'path';
 import Caporal from 'caporal';
 import Winston from 'winston';
+import prettyjson from 'prettyjson';
 import inquirer from 'inquirer';
 import WinstonDailyRotateFile from 'winston-daily-rotate-file';
+import { EOL } from 'os';
 import { Container } from '../Di';
 import * as Factory from './../Di/FactoryDefault';
 
@@ -42,7 +44,7 @@ export class FactoryDefault extends Factory.FactoryDefault {
               Winston.format.printf((info) => {
                 const { level, message, ...extra } = info;
                 return `${message} ${
-                  Object.keys(extra).length ? JSON.stringify(extra, null, 2) : ''
+                  Object.keys(extra).length ? prettyjson.render(extra) + EOL : ''
                 }`;
               })
             )
@@ -50,7 +52,8 @@ export class FactoryDefault extends Factory.FactoryDefault {
           new WinstonDailyRotateFile({
             handleExceptions: true,
             format: Winston.format.combine(
-              Winston.format.timestamp()
+              Winston.format.timestamp(),
+              Winston.format.json()
             ),
             dirname: ((process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs') + '/Cli',
             filename: '%DATE%.log',

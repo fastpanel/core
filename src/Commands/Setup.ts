@@ -72,7 +72,7 @@ export class Setup extends CommandDefines {
     .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Winston.Logger) => {
       return new Promise(async (resolve, reject) => {
         /* Info message. */
-        logger.info(`${EOL} Basic core configuration.`);
+        logger.info(`${EOL}Basic core configuration.`);
 
         if (!this.config.get('App', false) || options.force) {
           /* Get current app package. */
@@ -98,11 +98,10 @@ export class Setup extends CommandDefines {
           this.config.save('App', !(options.env));
 
           /* Info message. */
-          logger.info(`  Settings applied:`);
-          logger.info(this.config.get('App'));
+          logger.info(`Settings applied:`, this.config.get('App'), EOL);
         } else {
           /* Info message. */
-          logger.info(`  Everything is already configured. ${EOL}`);
+          logger.info(` Everything is already configured. ${EOL}`);
         }
 
         /* Command complete. */
