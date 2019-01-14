@@ -36,13 +36,19 @@ class Collection extends Injectable_1.Injectable {
         /**
          * Extensions list.
          */
-        this.list = [];
+        this._list = [];
         /**
          * Extensions instants.
          */
         this.instants = {};
         /* Set initial data. */
-        this.list = items;
+        this._list = items;
+    }
+    /**
+     * List getter.
+     */
+    get list() {
+        return this._list;
     }
     /* ----------------------------------------------------------------------- */
     /**
@@ -51,8 +57,8 @@ class Collection extends Injectable_1.Injectable {
      * @param name The name of npm package or path to the local package.
      */
     add(name) {
-        if (!lodash_1.includes(this.list, name)) {
-            this.list.push(name);
+        if (!lodash_1.includes(this._list, name)) {
+            this._list.push(name);
         }
         return this;
     }
@@ -102,7 +108,7 @@ class Collection extends Injectable_1.Injectable {
      */
     async boot() {
         /* Load extensions. */
-        for (const name of this.list) {
+        for (const name of this._list) {
             try {
                 await this.load(name);
             }
@@ -111,7 +117,7 @@ class Collection extends Injectable_1.Injectable {
             }
         }
         /* Register extensions. */
-        for (const name of this.list) {
+        for (const name of this._list) {
             try {
                 await this.register(name);
             }
@@ -120,7 +126,7 @@ class Collection extends Injectable_1.Injectable {
             }
         }
         /* Startup extensions. */
-        for (const name of this.list) {
+        for (const name of this._list) {
             try {
                 await this.startup(name);
             }

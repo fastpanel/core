@@ -23,7 +23,14 @@ export class Collection extends Injectable {
   /**
    * Extensions list.
    */
-  protected list: Array<string> = [];
+  protected _list: Array<string> = [];
+
+  /**
+   * List getter.
+   */
+  get list () : Array<string> {
+    return this._list;
+  }
 
   /**
    * Extensions instants.
@@ -42,7 +49,7 @@ export class Collection extends Injectable {
     super(di);
 
     /* Set initial data. */
-    this.list = items;
+    this._list = items;
   }
 
   /* ----------------------------------------------------------------------- */
@@ -53,8 +60,8 @@ export class Collection extends Injectable {
    * @param name The name of npm package or path to the local package.
    */
   public add (name: string) : Collection {
-    if (!includes(this.list, name)) {
-      this.list.push(name);
+    if (!includes(this._list, name)) {
+      this._list.push(name);
     }
 
     return this;
@@ -112,7 +119,7 @@ export class Collection extends Injectable {
    */
   public async boot () : Promise<any> {
     /* Load extensions. */
-    for (const name of this.list) {
+    for (const name of this._list) {
       try {
         await this.load(name);
       } catch (error) {
@@ -121,7 +128,7 @@ export class Collection extends Injectable {
     }
 
     /* Register extensions. */
-    for (const name of this.list) {
+    for (const name of this._list) {
       try {
         await this.register(name);
       } catch (error) {
@@ -130,7 +137,7 @@ export class Collection extends Injectable {
     }
 
     /* Startup extensions. */
-    for (const name of this.list) {
+    for (const name of this._list) {
       try {
         await this.startup(name);
       } catch (error) {

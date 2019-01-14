@@ -19,7 +19,11 @@ export declare class Collection extends Injectable {
     /**
      * Extensions list.
      */
-    protected list: Array<string>;
+    protected _list: Array<string>;
+    /**
+     * List getter.
+     */
+    readonly list: Array<string>;
     /**
      * Extensions instants.
      */
