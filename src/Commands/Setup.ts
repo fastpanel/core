@@ -9,6 +9,7 @@
 import path from 'path';
 import Caporal from 'caporal';
 import Winston from 'winston';
+import { EOL } from 'os';
 import { CommandDefines } from './../Cli';
 import { concat, trim, toLower, merge } from 'lodash';
 import { DEFAULT_CONFIG } from '../Const';
@@ -27,7 +28,7 @@ export class Setup extends CommandDefines {
     this.cli
     .command('setup', 'Configure components.')
     .option('-e, --env', 'Save as current environment settings.')
-    .option('-f, --force', 'Forced command running.')
+    .option('-f, --force', 'Forced reconfiguration of components.')
     .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Winston.Logger) => {
       return new Promise(async (resolve, reject) => {
         /* Start profiling. */
@@ -72,10 +73,13 @@ export class Setup extends CommandDefines {
     this.cli
     .command('fastpanel/core setup', 'Configure core components.')
     .option('-e, --env', 'Save as current environment settings.')
-    .option('-f, --force', 'Forced command running.')
+    .option('-f, --force', 'Forced reconfiguration of components.')
     .visible(false)
     .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Winston.Logger) => {
       return new Promise(async (resolve, reject) => {
+        /* Info message. */
+        logger.info(`${EOL} Basic core configuration.`);
+
         if (!this.config.get('App', false) || options.force) {
           /* Get current app package. */
           let { name } = require(path.resolve(process.cwd(), 'package.json'));
@@ -98,6 +102,13 @@ export class Setup extends CommandDefines {
           /* Save data. */
           this.config.set('App', config);
           this.config.save('App', !(options.env));
+
+          /* Info message. */
+          logger.info(`  Settings applied:`);
+          logger.info(this.config.get('App'));
+        } else {
+          /* Info message. */
+          logger.info(`  Everything is already configured. ${EOL}`);
         }
 
         /* Command complete. */

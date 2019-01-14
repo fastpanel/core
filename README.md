@@ -22,14 +22,13 @@ The main core of the "fastPanel" system.
 
 ### setup
 
-Install and configure components.
+Configure components.
 
 ```
   Options:
-    --help       Output usage information
-    -f, --force  Forced reconfiguration of components.
+    --help       Output usage information.
     -e, --env    Save as current environment settings.
-    -y, --yes    Assume yes if prompted.
+    -f, --force  Forced reconfiguration of components.
 ```
 
 ``` bash

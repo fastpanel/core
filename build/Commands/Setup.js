@@ -11,6 +11,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = __importDefault(require("path"));
+const os_1 = require("os");
 const Cli_1 = require("./../Cli");
 const lodash_1 = require("lodash");
 const Const_1 = require("../Const");
@@ -27,7 +28,7 @@ class Setup extends Cli_1.CommandDefines {
         this.cli
             .command('setup', 'Configure components.')
             .option('-e, --env', 'Save as current environment settings.')
-            .option('-f, --force', 'Forced command running.')
+            .option('-f, --force', 'Forced reconfiguration of components.')
             .action((args, options, logger) => {
             return new Promise(async (resolve, reject) => {
                 /* Start profiling. */
@@ -60,10 +61,12 @@ class Setup extends Cli_1.CommandDefines {
         this.cli
             .command('fastpanel/core setup', 'Configure core components.')
             .option('-e, --env', 'Save as current environment settings.')
-            .option('-f, --force', 'Forced command running.')
+            .option('-f, --force', 'Forced reconfiguration of components.')
             .visible(false)
             .action((args, options, logger) => {
             return new Promise(async (resolve, reject) => {
+                /* Info message. */
+                logger.info(`${os_1.EOL} Basic core configuration.`);
                 if (!this.config.get('App', false) || options.force) {
                     /* Get current app package. */
                     let { name } = require(path_1.default.resolve(process.cwd(), 'package.json'));
@@ -83,6 +86,13 @@ class Setup extends Cli_1.CommandDefines {
                     /* Save data. */
                     this.config.set('App', config);
                     this.config.save('App', !(options.env));
+                    /* Info message. */
+                    logger.info(`  Settings applied:`);
+                    logger.info(this.config.get('App'));
+                }
+                else {
+                    /* Info message. */
+                    logger.info(`  Everything is already configured. ${os_1.EOL}`);
                 }
                 /* Command complete. */
                 resolve();
