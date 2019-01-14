@@ -42,9 +42,15 @@ class FactoryDefault extends Factory.FactoryDefault {
                 transports: [
                     new winston_1.default.transports.Console({
                         handleExceptions: true,
-                        format: winston_1.default.format.combine(winston_1.default.format.colorize(), winston_1.default.format.printf(info => `${info.message}`))
+                        format: winston_1.default.format.combine(winston_1.default.format.colorize({
+                            all: true
+                        }), winston_1.default.format.printf((info) => {
+                            const { level, message, ...extra } = info;
+                            return `${message} ${Object.keys(extra).length ? JSON.stringify(extra, null, 2) : ''}`;
+                        }))
                     }),
                     new winston_daily_rotate_file_1.default({
+                        handleExceptions: true,
                         format: winston_1.default.format.combine(winston_1.default.format.timestamp()),
                         dirname: ((process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs') + '/Cli',
                         filename: '%DATE%.log',
@@ -67,7 +73,7 @@ class FactoryDefault extends Factory.FactoryDefault {
             caporal_1.default
                 .bin('node cli.js')
                 .name(di.get('config').get('App.name', 'fastPanel'))
-                //.logger(di.get('logger'))
+                .logger(di.get('logger'))
                 .version(version);
             return caporal_1.default;
         }, true);

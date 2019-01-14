@@ -36,11 +36,19 @@ export class FactoryDefault extends Factory.FactoryDefault {
           new Winston.transports.Console({
             handleExceptions: true,
             format: Winston.format.combine(
-              Winston.format.colorize(),
-              Winston.format.printf(info => `${info.message}`)
+              Winston.format.colorize({
+                all: true
+              }),
+              Winston.format.printf((info) => {
+                const { level, message, ...extra } = info;
+                return `${message} ${
+                  Object.keys(extra).length ? JSON.stringify(extra, null, 2) : ''
+                }`;
+              })
             )
           }),
           new WinstonDailyRotateFile({
+            handleExceptions: true,
             format: Winston.format.combine(
               Winston.format.timestamp()
             ),
@@ -69,7 +77,7 @@ export class FactoryDefault extends Factory.FactoryDefault {
       Caporal
       .bin('node cli.js')
       .name(di.get('config').get('App.name', 'fastPanel'))
-      //.logger(di.get('logger'))
+      .logger(di.get('logger'))
       .version(version);
       
       return Caporal;
