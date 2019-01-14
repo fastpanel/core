@@ -47,21 +47,8 @@ class FactoryDefault extends Factory.FactoryDefault {
                         format: winston_1.default.format.combine(winston_1.default.format.colorize({
                             all: true
                         }), winston_1.default.format.printf((info) => {
-                            let msg = '';
                             const { level, message, ...extra } = info;
-                            if (typeof message === 'string') {
-                                msg += message;
-                            }
-                            else if (Object.keys(message).length) {
-                                msg += os_1.EOL + prettyjson_1.default.render(message) + os_1.EOL;
-                            }
-                            else {
-                                msg += message;
-                            }
-                            if (Object.keys(extra).length) {
-                                msg += os_1.EOL + prettyjson_1.default.render(extra) + os_1.EOL;
-                            }
-                            return msg;
+                            return `${message} ${Object.keys(extra).length ? os_1.EOL + prettyjson_1.default.render(extra) + os_1.EOL : ''}`;
                         }))
                     }),
                     new winston_daily_rotate_file_1.default({
