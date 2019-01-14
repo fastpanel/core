@@ -36,7 +36,6 @@ export class FactoryDefault extends Factory.FactoryDefault {
       let logger = Winston.createLogger({
         transports: [
           new Winston.transports.Console({
-            level: process.env.NODE_ENV !== 'production' ? 'silly' : 'info',
             handleExceptions: true,
             format: Winston.format.combine(
               Winston.format.colorize({

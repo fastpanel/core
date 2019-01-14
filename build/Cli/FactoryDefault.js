@@ -43,7 +43,6 @@ class FactoryDefault extends Factory.FactoryDefault {
             let logger = winston_1.default.createLogger({
                 transports: [
                     new winston_1.default.transports.Console({
-                        level: process.env.NODE_ENV !== 'production' ? 'silly' : 'info',
                         handleExceptions: true,
                         format: winston_1.default.format.combine(winston_1.default.format.colorize({
                             all: true
