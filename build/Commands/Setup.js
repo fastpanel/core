@@ -26,9 +26,12 @@ class Setup extends Cli_1.CommandDefines {
             .option('-y, --yes', 'Assume yes if prompted.')
             .action((args, options, logger) => {
             return new Promise(async (resolve, reject) => {
+                /*  */
                 logger.debug('setup');
                 /*  */
-                for (const name of this.extensions.list) {
+                let list = lodash_1.concat(['@fastpanel/core'], this.extensions.list);
+                /*  */
+                for (const name of list) {
                     /* Clear ext name. */
                     let clearName = lodash_1.trim(name, './\\@');
                     let commandName = `${clearName} setup`;

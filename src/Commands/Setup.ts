@@ -9,7 +9,7 @@
 import Caporal from 'caporal';
 import Winston from 'winston';
 import { CommandDefines } from './../Cli';
-import { trim } from 'lodash';
+import { concat, trim } from 'lodash';
 
 /**
  * Class Setup
@@ -29,10 +29,14 @@ export class Setup extends CommandDefines {
     .option('-y, --yes', 'Assume yes if prompted.')
     .action((args: {[k: string]: any}, options: {[k: string]: any}, logger: Winston.Logger) => {
       return new Promise(async (resolve, reject) => {
+        /*  */
         logger.debug('setup');
 
         /*  */
-        for (const name of this.extensions.list) {
+        let list = concat(['@fastpanel/core'], this.extensions.list);
+
+        /*  */
+        for (const name of list) {
           /* Clear ext name. */
           let clearName = trim(name, './\\@');
           let commandName = `${clearName} setup`;
