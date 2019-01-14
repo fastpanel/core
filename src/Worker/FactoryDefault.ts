@@ -38,8 +38,8 @@ export class FactoryDefault extends Factory.FactoryDefault {
             )
           }),
           new WinstonDailyRotateFile({
-            dirname: (process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs',
-            filename: 'worker-%DATE%.log',
+            dirname: ((process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs') + '/Worker',
+            filename: '%DATE%.log',
             datePattern: 'YYYY-MM-DD'
           })
         ],

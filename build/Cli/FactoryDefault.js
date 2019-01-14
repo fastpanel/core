@@ -45,8 +45,8 @@ class FactoryDefault extends Factory.FactoryDefault {
                         format: winston_1.default.format.combine(winston_1.default.format.colorize(), winston_1.default.format.printf(info => `${info.message}`))
                     }),
                     new winston_daily_rotate_file_1.default({
-                        dirname: (process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs',
-                        filename: 'cli-%DATE%.log',
+                        dirname: ((process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs') + '/Cli',
+                        filename: '%DATE%.log',
                         datePattern: 'YYYY-MM-DD'
                     })
                 ],
@@ -64,8 +64,8 @@ class FactoryDefault extends Factory.FactoryDefault {
             let { version } = require(path_1.default.resolve(process.cwd(), 'package.json'));
             /* Init cli lib. */
             caporal_1.default
-                .name(di.get('config').get('App.name', 'fastPanel'))
                 .bin('node cli.js')
+                .name(di.get('config').get('App.name', 'fastPanel'))
                 .logger(di.get('logger'))
                 .version(version);
             return caporal_1.default;

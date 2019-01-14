@@ -42,8 +42,8 @@ class FactoryDefault extends Factory.FactoryDefault {
                         format: winston_1.default.format.combine(winston_1.default.format.colorize(), winston_1.default.format.printf(info => `${info.message}`))
                     }),
                     new winston_daily_rotate_file_1.default({
-                        dirname: (process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs',
-                        filename: 'worker-%DATE%.log',
+                        dirname: ((process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs') + '/Worker',
+                        filename: '%DATE%.log',
                         datePattern: 'YYYY-MM-DD'
                     })
                 ],

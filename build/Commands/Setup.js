@@ -26,8 +26,8 @@ class Setup extends Cli_1.CommandDefines {
             .option('-y, --yes', 'Assume yes if prompted.')
             .action((args, options, logger) => {
             return new Promise(async (resolve, reject) => {
-                /* Debug info. */
-                logger.debug('setup');
+                /* Start profiling. */
+                logger.profile('setup');
                 /* Get ext list. */
                 let list = lodash_1.concat(['@fastpanel/core'], this.extensions.list);
                 /* Find and run commands. */
@@ -47,6 +47,8 @@ class Setup extends Cli_1.CommandDefines {
                         }
                     }
                 }
+                /* End profiling. */
+                logger.profile('setup');
                 /* Command complete. */
                 resolve();
             });

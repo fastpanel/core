@@ -41,8 +41,8 @@ export class FactoryDefault extends Factory.FactoryDefault {
             )
           }),
           new WinstonDailyRotateFile({
-            dirname: (process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs',
-            filename: 'cli-%DATE%.log',
+            dirname: ((process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs') + '/Cli',
+            filename: '%DATE%.log',
             datePattern: 'YYYY-MM-DD'
           })
         ],
@@ -64,8 +64,8 @@ export class FactoryDefault extends Factory.FactoryDefault {
 
       /* Init cli lib. */
       Caporal
-      .name(di.get('config').get('App.name', 'fastPanel'))
       .bin('node cli.js')
+      .name(di.get('config').get('App.name', 'fastPanel'))
       .logger(di.get('logger'))
       .version(version);
       
