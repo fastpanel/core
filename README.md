@@ -39,12 +39,12 @@ Configure components.
 
 ## Events
 
-### app:watchdog
+### watchdog
 
 The event is triggered every second. Be extremely careful USE OF THE EVENTS.
 
 ``` typescript
-  this.events.on('app:watchdog', (app: Application) => {});
+  this.events.on('watchdog', (app: Application) => {});
 ```
 
 ### cli:getCommands

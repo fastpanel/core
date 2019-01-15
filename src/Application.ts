@@ -52,7 +52,7 @@ export class Application extends Injectable {
 
     /* Initial watchdog timer. */
     this.watchdogTimer = setInterval(() => {
-      this.events.emit('app:watchdog', this);
+      this.events.emit('watchdog', this);
     }, 1000);
   }
   

@@ -935,9 +935,9 @@ img { max-width: 100%; }
 </span>    -<span class="ruby">f, --force  Forced reconfiguration of components.</span></code></pre><pre><code class="language-bash">  node cli.js setup</code></pre>
 			<hr>
 			<h2 id="events">Events</h2>
-			<h3 id="app-watchdog">app:watchdog</h3>
+			<h3 id="watchdog">watchdog</h3>
 			<p>The event is triggered every second. Be extremely careful USE OF THE EVENTS.</p>
-			<pre><code class="language-typescript">  <span class="hljs-keyword">this</span>.events.on(<span class="hljs-string">'app:watchdog'</span>, <span class="hljs-function">(<span class="hljs-params">app: Application</span>) =&gt;</span> {});</code></pre>
+			<pre><code class="language-typescript">  <span class="hljs-keyword">this</span>.events.on(<span class="hljs-string">'watchdog'</span>, <span class="hljs-function">(<span class="hljs-params">app: Application</span>) =&gt;</span> {});</code></pre>
 			<h3 id="cli-getcommands">cli:getCommands</h3>
 			<p>The event is triggered when the application is ready to register console commands.</p>
 			<pre><code class="language-typescript">  <span class="hljs-keyword">this</span>.events.once(<span class="hljs-string">'cli:getCommands'</span>, <span class="hljs-function">(<span class="hljs-params">cli: Caporal</span>) =&gt;</span> {});</code></pre>
