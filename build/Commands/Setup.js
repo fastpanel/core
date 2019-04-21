@@ -74,6 +74,13 @@ class Setup extends Cli_1.CommandDefines {
                             name: 'name',
                             message: 'Enter application display name',
                             default: this.config.get('App.name', (name ? name : Const_1.DEFAULT_CONFIG.name))
+                        },
+                        /* Cli app exec bin name. */
+                        {
+                            type: 'input',
+                            name: 'cliBin',
+                            message: 'Enter cli application exec bin name',
+                            default: this.config.get('App.cliBin', Const_1.DEFAULT_CONFIG.cliBin)
                         }
                     ];
                     /* Show prompts to user. */

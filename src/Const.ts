@@ -10,7 +10,8 @@
  * Default core config.
  */
 export const DEFAULT_CONFIG = {
-  name: 'fastPanel'
+  name: 'fastPanel',
+  cliBin: 'node cli.js'
 };
 
 /* End of file Const.ts */

@@ -7,7 +7,6 @@
  */
 
 import { EOL } from 'os';
-import path from 'path';
 import Caporal from 'caporal';
 import inquirer from 'inquirer';
 import prettyjson from 'prettyjson';
@@ -33,6 +32,10 @@ export class FactoryDefault extends Factory.FactoryDefault {
     
     /* Registered logger component. */
     this.set('logger', (di: Container) => {
+      /* Get config instant. */
+      const config = di.get('config');
+
+      /* Init logger lib. */
       let logger = Winston.createLogger({
         transports: [
           new Winston.transports.Console({
@@ -50,13 +53,13 @@ export class FactoryDefault extends Factory.FactoryDefault {
             )
           }),
           new WinstonDailyRotateFile({
-            level: process.env.NODE_ENV !== 'production' ? 'silly' : 'warn',
+            level: (process.env.NODE_ENV !== 'production' ? 'silly' : 'warn'),
             handleExceptions: true,
             format: Winston.format.combine(
               Winston.format.timestamp(),
               Winston.format.json()
             ),
-            dirname: ((process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs') + '/Cli',
+            dirname: config.get('Env.LOGGER_PATH', 'App/Logs') + '/Cli',
             filename: '%DATE%.log',
             datePattern: 'YYYY-MM-DD'
           })
@@ -74,15 +77,15 @@ export class FactoryDefault extends Factory.FactoryDefault {
 
     /* Registered cli handler component. */
     this.set('cli', (di: Container) => {
-      /* Get current app version. */
-      let { version } = require(path.resolve(process.cwd(), 'package.json'));
+      /* Get config instant. */
+      const config = di.get('config');
 
       /* Init cli lib. */
       Caporal
-      .bin('node cli.js')
-      .name(di.get('config').get('App.name', 'fastPanel'))
-      .logger(di.get('logger'))
-      .version(version);
+      .name(config.get('Env.APP_NAME', config.get('App.name', 'fastPanel')))
+      .bin(config.get('Env.APP_CLI_BIN', config.get('App.cliBin', 'node cli.js')))
+      .version(config.get('Env.APP_VERSION', '1.0.0'))
+      .logger(di.get('logger'));
       
       return Caporal;
     }, true);

@@ -86,6 +86,13 @@ export class Setup extends CommandDefines {
               name: 'name',
               message: 'Enter application display name',
               default: this.config.get('App.name', (name ? name : DEFAULT_CONFIG.name))
+            },
+            /* Cli app exec bin name. */
+            {
+              type: 'input',
+              name: 'cliBin',
+              message: 'Enter cli application exec bin name',
+              default: this.config.get('App.cliBin', DEFAULT_CONFIG.cliBin)
             }
           ];
 

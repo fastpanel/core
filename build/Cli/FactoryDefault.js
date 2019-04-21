@@ -18,7 +18,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const os_1 = require("os");
-const path_1 = __importDefault(require("path"));
 const caporal_1 = __importDefault(require("caporal"));
 const inquirer_1 = __importDefault(require("inquirer"));
 const prettyjson_1 = __importDefault(require("prettyjson"));
@@ -40,6 +39,9 @@ class FactoryDefault extends Factory.FactoryDefault {
         super();
         /* Registered logger component. */
         this.set('logger', (di) => {
+            /* Get config instant. */
+            const config = di.get('config');
+            /* Init logger lib. */
             let logger = winston_1.default.createLogger({
                 transports: [
                     new winston_1.default.transports.Console({
@@ -52,10 +54,10 @@ class FactoryDefault extends Factory.FactoryDefault {
                         }))
                     }),
                     new winston_daily_rotate_file_1.default({
-                        level: process.env.NODE_ENV !== 'production' ? 'silly' : 'warn',
+                        level: (process.env.NODE_ENV !== 'production' ? 'silly' : 'warn'),
                         handleExceptions: true,
                         format: winston_1.default.format.combine(winston_1.default.format.timestamp(), winston_1.default.format.json()),
-                        dirname: ((process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs') + '/Cli',
+                        dirname: config.get('Env.LOGGER_PATH', 'App/Logs') + '/Cli',
                         filename: '%DATE%.log',
                         datePattern: 'YYYY-MM-DD'
                     })
@@ -70,14 +72,14 @@ class FactoryDefault extends Factory.FactoryDefault {
         }, false);
         /* Registered cli handler component. */
         this.set('cli', (di) => {
-            /* Get current app version. */
-            let { version } = require(path_1.default.resolve(process.cwd(), 'package.json'));
+            /* Get config instant. */
+            const config = di.get('config');
             /* Init cli lib. */
             caporal_1.default
-                .bin('node cli.js')
-                .name(di.get('config').get('App.name', 'fastPanel'))
-                .logger(di.get('logger'))
-                .version(version);
+                .name(config.get('Env.APP_NAME', config.get('App.name', 'fastPanel')))
+                .bin(config.get('Env.APP_CLI_BIN', config.get('App.cliBin', 'node cli.js')))
+                .version(config.get('Env.APP_VERSION', '1.0.0'))
+                .logger(di.get('logger'));
             return caporal_1.default;
         }, true);
     }

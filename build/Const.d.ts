@@ -10,4 +10,5 @@
  */
 export declare const DEFAULT_CONFIG: {
     name: string;
+    cliBin: string;
 };

@@ -6,14 +6,18 @@ The main core of the "fastPanel" system.
 ## Env
 
 ```
-  # Defines the current environment. 
+  # Defines the current environment.
   # Can be: "develop", "staging", "production".
-  NODE_ENV=develop
+  NODE_ENV='develop'
+
+  # Defines app settings.
+  APP_NAME='fastPanel'
+  APP_CLI_BIN='node cli.js'
 
   # Defines a folder structure of the application.
-  APP_PATH=App
-  CONFIG_PATH=App/Config
-  LOGGER_PATH=App/Logs
+  APP_PATH='App'
+  CONFIG_PATH='App/Config'
+  LOGGER_PATH='App/Logs'
 ```
 
 ---
