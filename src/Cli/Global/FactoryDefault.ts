@@ -12,8 +12,8 @@ import inquirer from 'inquirer';
 import prettyjson from 'prettyjson';
 import Winston from 'winston';
 import WinstonDailyRotateFile from 'winston-daily-rotate-file';
-import { Container } from '../Di';
-import * as Factory from './../Di/FactoryDefault';
+import { Container } from '../../Di';
+import * as Factory from './../../Di/FactoryDefault';
 
 /**
  * Class FactoryDefault

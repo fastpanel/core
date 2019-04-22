@@ -23,7 +23,7 @@ const inquirer_1 = __importDefault(require("inquirer"));
 const prettyjson_1 = __importDefault(require("prettyjson"));
 const winston_1 = __importDefault(require("winston"));
 const winston_daily_rotate_file_1 = __importDefault(require("winston-daily-rotate-file"));
-const Factory = __importStar(require("./../Di/FactoryDefault"));
+const Factory = __importStar(require("./../../Di/FactoryDefault"));
 /**
  * Class FactoryDefault
  *

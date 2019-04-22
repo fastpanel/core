@@ -1,25 +1,25 @@
 /**
- * HandlerGlobal.ts
+ * Handler.ts
  * 
  * @author    Desionlab <fenixphp@gmail.com>
  * @copyright 2014 - 2019 Desionlab
  * @license   MIT
  */
 
-import { Container } from './../Di';
-import { Application } from './../Application';
+import { Container } from './../../Di';
+import { Application } from './../../Application';
 
 /**
- * Class HandlerGlobal
+ * Class Handler
  * 
- * Cli global handler.
+ * Cli handler.
  * 
  * @version 1.0.0
  */
-export class HandlerGlobal extends Application {
+export class Handler extends Application {
   
   /**
-   * HandlerGlobal constructor.
+   * Handler constructor.
    * 
    * @param di Di container instant.
    */
@@ -28,7 +28,7 @@ export class HandlerGlobal extends Application {
   }
 
   /**
-   * Initialization cli global handler.
+   * Initialization cli handler.
    */
   public async init () : Promise<any> {
     /* Call parent. */
@@ -49,4 +49,4 @@ export class HandlerGlobal extends Application {
 
 }
 
-/* End of file HandlerGlobal.ts */
+/* End of file Handler.ts */

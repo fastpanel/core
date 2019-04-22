@@ -1,23 +1,23 @@
 "use strict";
 /**
- * HandlerGlobal.ts
+ * Handler.ts
  *
  * @author    Desionlab <fenixphp@gmail.com>
  * @copyright 2014 - 2019 Desionlab
  * @license   MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-const Application_1 = require("./../Application");
+const Application_1 = require("./../../Application");
 /**
- * Class HandlerGlobal
+ * Class Handler
  *
- * Cli global handler.
+ * Cli handler.
  *
  * @version 1.0.0
  */
-class HandlerGlobal extends Application_1.Application {
+class Handler extends Application_1.Application {
     /**
-     * HandlerGlobal constructor.
+     * Handler constructor.
      *
      * @param di Di container instant.
      */
@@ -25,7 +25,7 @@ class HandlerGlobal extends Application_1.Application {
         super(di);
     }
     /**
-     * Initialization cli global handler.
+     * Initialization cli handler.
      */
     async init() {
         /* Call parent. */
@@ -40,5 +40,5 @@ class HandlerGlobal extends Application_1.Application {
         process.exit(0);
     }
 }
-exports.HandlerGlobal = HandlerGlobal;
-/* End of file HandlerGlobal.ts */ 
+exports.Handler = Handler;
+/* End of file Handler.ts */ 
