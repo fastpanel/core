@@ -56,7 +56,7 @@ class FactoryDefault extends Factory.FactoryDefault {
                         level: (process.env.NODE_ENV !== 'production' ? 'silly' : 'warn'),
                         handleExceptions: true,
                         format: winston_1.default.format.combine(winston_1.default.format.timestamp(), winston_1.default.format.json()),
-                        dirname: require('os').homedir(),
+                        dirname: config.get('Env.LOGGER_PATH', os_1.homedir()),
                         filename: config.get('Env.APP_CLI_BIN', 'fastpanel') + '.log'
                     })
                 ],

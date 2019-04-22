@@ -6,7 +6,7 @@
  * @license   MIT
  */
 
-import { EOL } from 'os';
+import { EOL, homedir } from 'os';
 import Winston from 'winston';
 import Caporal from 'caporal';
 import inquirer from 'inquirer';
@@ -58,7 +58,7 @@ export class FactoryDefault extends Factory.FactoryDefault {
               Winston.format.timestamp(),
               Winston.format.json()
             ),
-            dirname: require('os').homedir(),
+            dirname: config.get('Env.LOGGER_PATH', homedir()),
             filename: config.get('Env.APP_CLI_BIN', 'fastpanel') + '.log'
           })
         ],
