@@ -18,11 +18,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const os_1 = require("os");
+const winston_1 = __importDefault(require("winston"));
 const caporal_1 = __importDefault(require("caporal"));
 const inquirer_1 = __importDefault(require("inquirer"));
 const prettyjson_1 = __importDefault(require("prettyjson"));
-const winston_1 = __importDefault(require("winston"));
-const winston_daily_rotate_file_1 = __importDefault(require("winston-daily-rotate-file"));
 const Factory = __importStar(require("./../../Di/FactoryDefault"));
 /**
  * Class FactoryDefault
@@ -53,13 +52,12 @@ class FactoryDefault extends Factory.FactoryDefault {
                             return `${message} ${Object.keys(extra).length ? os_1.EOL + prettyjson_1.default.render(extra) + os_1.EOL : ''}`;
                         }))
                     }),
-                    new winston_daily_rotate_file_1.default({
+                    new winston_1.default.transports.File({
                         level: (process.env.NODE_ENV !== 'production' ? 'silly' : 'warn'),
                         handleExceptions: true,
                         format: winston_1.default.format.combine(winston_1.default.format.timestamp(), winston_1.default.format.json()),
-                        dirname: config.get('Env.LOGGER_PATH', 'App/Logs') + '/Cli',
-                        filename: '%DATE%.log',
-                        datePattern: 'YYYY-MM-DD'
+                        dirname: require('os').homedir(),
+                        filename: config.get('Env.APP_CLI_BIN', 'fastpanel') + '.log'
                     })
                 ],
                 exitOnError: false

@@ -1,6 +1,6 @@
 {
   "name": "@fastpanel/core",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.1-alpha.1",
   "description": "The main core of the \"fastPanel\" system.",
   "author": "Desionlab <fenixphp@gmail.com>",
   "main": "build/index.js",
