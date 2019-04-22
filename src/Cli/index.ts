@@ -9,5 +9,6 @@
 export * from './CommandDefines';
 export * from './FactoryDefault';
 export * from './Handler';
+export * from './HandlerGlobal';
 
 /* End of file index.ts */

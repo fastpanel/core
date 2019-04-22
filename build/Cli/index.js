@@ -13,4 +13,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./CommandDefines"));
 __export(require("./FactoryDefault"));
 __export(require("./Handler"));
+__export(require("./HandlerGlobal"));
 /* End of file index.ts */ 
