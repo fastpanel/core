@@ -58,7 +58,7 @@ export class FactoryDefault extends Factory.FactoryDefault {
               Winston.format.timestamp(),
               Winston.format.json()
             ),
-            dirname: config.get('Env.LOGGER_PATH', homedir()),
+            dirname: config.get('Env.LOGGER_PATH', config.get('Env.USERPROFILE', homedir())),
             filename: config.get('Env.APP_CLI_BIN', 'fastpanel') + '.log'
           })
         ],
