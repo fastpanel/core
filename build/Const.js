@@ -11,6 +11,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Default core config.
  */
 exports.DEFAULT_CONFIG = {
-    name: 'fastPanel'
+    name: 'fastPanel',
+    cliBin: 'node cli.js'
 };
 /* End of file Const.ts */ 

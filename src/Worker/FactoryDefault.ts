@@ -30,6 +30,10 @@ export class FactoryDefault extends Factory.FactoryDefault {
     
     /* Registered logger component. */
     this.set('logger', (di: Container) => {
+      /* Get config instant. */
+      const config = di.get('config');
+
+      /* Init logger lib. */
       let logger = Winston.createLogger({
         level: process.env.NODE_ENV !== 'production' ? 'silly' : 'warn',
         transports: [
@@ -48,12 +52,13 @@ export class FactoryDefault extends Factory.FactoryDefault {
             )
           }),
           new WinstonDailyRotateFile({
+            level: (process.env.NODE_ENV !== 'production' ? 'silly' : 'warn'),
             handleExceptions: true,
             format: Winston.format.combine(
               Winston.format.timestamp(),
               Winston.format.json()
             ),
-            dirname: ((process.env.LOGGER_PATH) ? process.env.LOGGER_PATH : 'App/Logs') + '/Worker',
+            dirname: config.get('Env.LOGGER_PATH', 'App/Logs') + '/Worker',
             filename: '%DATE%.log',
             datePattern: 'YYYY-MM-DD'
           })

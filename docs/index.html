@@ -920,19 +920,23 @@ img { max-width: 100%; }
 			<h2 id="env">Env</h2>
 			<pre><code>  # Defines the current environment.
   # Can be: <span class="hljs-string">"develop"</span>, <span class="hljs-string">"staging"</span>, <span class="hljs-string">"production"</span>.
-  <span class="hljs-attribute">NODE_ENV</span>=develop
+  <span class="hljs-attribute">NODE_ENV</span>=<span class="hljs-string">'develop'</span>
+
+  # Defines app settings.
+  <span class="hljs-attribute">APP_NAME</span>=<span class="hljs-string">'fastPanel'</span>
+  <span class="hljs-attribute">APP_CLI_BIN</span>=<span class="hljs-string">'node cli.js'</span>
 
   # Defines a folder structure of the application.
-  <span class="hljs-attribute">APP_PATH</span>=App
-  <span class="hljs-attribute">CONFIG_PATH</span>=App/Config
-  <span class="hljs-attribute">LOGGER_PATH</span>=App/Logs</code></pre><hr>
+  <span class="hljs-attribute">APP_PATH</span>=<span class="hljs-string">'App'</span>
+  <span class="hljs-attribute">CONFIG_PATH</span>=<span class="hljs-string">'App/Config'</span>
+  <span class="hljs-attribute">LOGGER_PATH</span>=<span class="hljs-string">'App/Logs'</span></code></pre><hr>
 			<h2 id="commands">Commands</h2>
 			<h3 id="setup">setup</h3>
 			<p>Configure components.</p>
 			<pre><code>  Options:
-    -<span class="ruby">-help       Output usage information.
-</span>    -<span class="ruby">e, --env    Save as current environment settings.
-</span>    -<span class="ruby">f, --force  Forced reconfiguration of components.</span></code></pre><pre><code class="language-bash">  node cli.js setup</code></pre>
+    --help       Output usage information.
+    -e, --env    Save as current environment settings.
+    -f, --force  Forced reconfiguration <span class="hljs-keyword">of</span> components.</code></pre><pre><code class="language-bash">  node cli.js setup</code></pre>
 			<hr>
 			<h2 id="events">Events</h2>
 			<h3 id="watchdog">watchdog</h3>
@@ -959,6 +963,9 @@ img { max-width: 100%; }
 							<li class="tsd-kind-external-module"><a href="modules/_application_.html" class="tsd-kind-icon">"<wbr>Application"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_cli_commanddefines_.html" class="tsd-kind-icon">"<wbr>Cli/<wbr>Command<wbr>Defines"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_cli_factorydefault_.html" class="tsd-kind-icon">"<wbr>Cli/<wbr>Factory<wbr>Default"</a></li>
+							<li class="tsd-kind-external-module"><a href="modules/_cli_global_factorydefault_.html" class="tsd-kind-icon">"<wbr>Cli/<wbr>Global/<wbr>Factory<wbr>Default"</a></li>
+							<li class="tsd-kind-external-module"><a href="modules/_cli_global_handler_.html" class="tsd-kind-icon">"<wbr>Cli/<wbr>Global/<wbr>Handler"</a></li>
+							<li class="tsd-kind-external-module"><a href="modules/_cli_global_index_.html" class="tsd-kind-icon">"<wbr>Cli/<wbr>Global/index"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_cli_handler_.html" class="tsd-kind-icon">"<wbr>Cli/<wbr>Handler"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_cli_index_.html" class="tsd-kind-icon">"<wbr>Cli/index"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_commands_setup_.html" class="tsd-kind-icon">"<wbr>Commands/<wbr>Setup"</a></li>

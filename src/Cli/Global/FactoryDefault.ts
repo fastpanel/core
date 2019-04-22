@@ -6,14 +6,13 @@
  * @license   MIT
  */
 
-import { EOL } from 'os';
+import { EOL, homedir } from 'os';
+import Winston from 'winston';
 import Caporal from 'caporal';
 import inquirer from 'inquirer';
 import prettyjson from 'prettyjson';
-import Winston from 'winston';
-import WinstonDailyRotateFile from 'winston-daily-rotate-file';
-import { Container } from '../Di';
-import * as Factory from './../Di/FactoryDefault';
+import { Container } from '../../Di';
+import * as Factory from './../../Di/FactoryDefault';
 
 /**
  * Class FactoryDefault
@@ -52,16 +51,15 @@ export class FactoryDefault extends Factory.FactoryDefault {
               })
             )
           }),
-          new WinstonDailyRotateFile({
+          new Winston.transports.File({
             level: (process.env.NODE_ENV !== 'production' ? 'silly' : 'warn'),
             handleExceptions: true,
             format: Winston.format.combine(
               Winston.format.timestamp(),
               Winston.format.json()
             ),
-            dirname: config.get('Env.LOGGER_PATH', 'App/Logs') + '/Cli',
-            filename: '%DATE%.log',
-            datePattern: 'YYYY-MM-DD'
+            dirname: config.get('Env.LOGGER_PATH', config.get('Env.USERPROFILE', homedir())),
+            filename: config.get('Env.APP_CLI_BIN', 'fastpanel') + '.log'
           })
         ],
         exitOnError: false
