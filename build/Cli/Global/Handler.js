@@ -34,10 +34,6 @@ class Handler extends Application_1.Application {
         this.events.emit('cli:getCommands', this.cli);
         /* Set ready flag. */
         this.isStartup = true;
-        /* Startup cli handler. */
-        await this.cli.parse(process.argv);
-        /* Close all connections. */
-        process.exit(0);
     }
 }
 exports.Handler = Handler;

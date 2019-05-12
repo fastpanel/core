@@ -11,7 +11,7 @@
  */
 export const DEFAULT_CONFIG = {
   name: 'fastPanel',
-  cliBin: 'node cli.js'
+  cliBin: 'node build/cli.js'
 };
 
 /* End of file Const.ts */
