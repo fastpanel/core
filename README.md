@@ -12,7 +12,7 @@ The main core of the "fastPanel" system.
 
   # Defines app settings.
   APP_NAME='fastPanel'
-  APP_CLI_BIN='node cli.js'
+  APP_CLI_BIN='node build/cli.js'
 
   # Defines a folder structure of the application.
   APP_PATH='App'
@@ -36,7 +36,7 @@ Configure components.
 ```
 
 ``` bash
-  node cli.js setup
+  node build/cli.js setup
 ```
 
 ---

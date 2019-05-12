@@ -80,7 +80,7 @@ export class FactoryDefault extends Factory.FactoryDefault {
 
       /* Init cli lib. */
       Caporal
-      .bin(config.get('Env.APP_CLI_BIN', config.get('App.cliBin', 'node cli.js')))
+      .bin(config.get('Env.APP_CLI_BIN', config.get('App.cliBin', 'node build/cli.js')))
       .name(config.get('Env.APP_NAME', config.get('App.name', 'fastPanel')))
       .version(config.get('Env.APP_VERSION', '1.0.0'))
       .logger(di.get('logger'));
